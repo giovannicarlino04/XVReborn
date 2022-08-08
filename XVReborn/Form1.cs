@@ -175,6 +175,13 @@ namespace XVReborn
                 Form3 frm = new Form3();
                 frm.ShowDialog();
             }
+            else
+            {
+                if (Directory.Exists(Properties.Settings.Default.datafolder) == false)
+                {
+                    MessageBox.Show("Data Folder not Found, Please Clear Installation", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
             //Da riabilitare quando Atsu mi darà il patcher
 
@@ -188,14 +195,6 @@ namespace XVReborn
                 }
             }
             */
-
-            else
-            {
-                if (Directory.Exists(Properties.Settings.Default.datafolder) == false)
-                {
-                    MessageBox.Show("Data Folder not Found, Please Clear Installation", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
 
             if (File.Exists(Properties.Settings.Default.datafolder + @"\ui\texture\embpack.exe") == false)
             {
