@@ -242,13 +242,13 @@ namespace XVReborn
                 ZipFile.ExtractToDirectory(Application.StartupPath + @"\Resources\XV1P_SLOTS.zip", Properties.Settings.Default.datafolder);
 
             }
-
+            /*
             if (Directory.Exists(Properties.Settings.Default.datafolder + @"\quest\TMQ") == false)
             {
                 Directory.CreateDirectory(Properties.Settings.Default.datafolder + @"\quest\TMQ");
                 ZipFile.ExtractToDirectory(Application.StartupPath + @"\Resources\tmq_data.zip", Properties.Settings.Default.datafolder + @"\quest\TMQ");
             }
-
+            */
             if (Directory.Exists(Properties.Settings.Default.datafolder + @"\msg") == false)
             {
                 Directory.CreateDirectory(Properties.Settings.Default.datafolder + @"\msg");
@@ -801,9 +801,7 @@ namespace XVReborn
                                     }
                                 }
 
-                                //Quì verrà implementata l'aggiunta dello slot della mod in tutti i file CMS, CSO, AUR, CUS e PSC
-
-                                MessageBox.Show("Installation almost finished, you just need to add a new character entry in the game files (the tool will do it automatically in the next updates)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                var ModNumId = 107 + Properties.Settings.Default.modlist.Count;
 
                                 info.FileName = "cmd.exe";
                                 info.RedirectStandardInput = true;
@@ -822,14 +820,9 @@ namespace XVReborn
 
                                 p.WaitForExit();
 
-                                var ModNumId = 107 + Properties.Settings.Default.modlist.Count;
                                 string CMStxt = File.ReadAllText(Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml");
                                 CMStxt = CMStxt.Replace("</CMS>", "<Entry ID=\"" + ModNumId + "\" ShortName=\"" + Modid + "\">" + Environment.NewLine + "<I_08 value=\"0x0\" />" + Environment.NewLine + "<I_16 value=\"0x1\" />" + Environment.NewLine + "<LoadCamDist value=\"0\" />" + Environment.NewLine + "<I_22 value=\"0xcd01\" />" + Environment.NewLine + "<I_24 value=\"0xffff\" />" + Environment.NewLine + "<I_26 value=\"0x0\" />" + Environment.NewLine + "<I_28 value = \"0x0\" />" + Environment.NewLine + "<BCS value= \"" + Modid + "\" />" + Environment.NewLine + "<EAN value=\"../GOK/GOK\" />" + Environment.NewLine + "<FCE_EAN value= \"" + Modid + "\" />" + Environment.NewLine + "<FCE value=\"../GOK/GOK\" />" + Environment.NewLine + "<CAM_EAN value=\"../GOK/GOK\" />" + Environment.NewLine + "<BAC value=\"../GOK/GOK\" />" + Environment.NewLine + "<BCM value=\"../GOK/GOK\" />" + Environment.NewLine + "<BAI value=\"../GOK/GOK\" />" + Environment.NewLine + "<BDM value=\"\" />" + Environment.NewLine + "</Entry>" + Environment.NewLine + "</CMS>");
                                 File.WriteAllText(Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml", CMStxt);
-
-                                Process p1000 = Process.Start(Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml");
-
-                                p1000.WaitForExit();
 
                                 p.Start();
 
@@ -859,9 +852,9 @@ namespace XVReborn
 
                                 p.WaitForExit();
 
-                                Process p3 = Process.Start(Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml");
-
-                                p3.WaitForExit();
+                                string CSOtxt = File.ReadAllText(Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml");
+                                CSOtxt = CSOtxt.Replace(@"</CSO>", "<CsoEntry Chara_ID=\"" + ModNumId + "\" Costume=\"0\">" + Environment.NewLine + "<SE Path=\"\" />" + Environment.NewLine + "<VOX Path=\"\" />" + Environment.NewLine + "<AMK Path=\"\" />" + Environment.NewLine + "<Skills Path=\"\" />" + Environment.NewLine + "</CsoEntry>" + Environment.NewLine + @"</CSO>");
+                                File.WriteAllText(Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml", CSOtxt);
 
                                 p.Start();
 
@@ -890,9 +883,9 @@ namespace XVReborn
 
                                 p.WaitForExit();
 
-                                Process p4 = Process.Start(Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml");
-
-                                p4.WaitForExit();
+                                string PSCtxt = File.ReadAllText(Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml");
+                                PSCtxt = PSCtxt.Replace(@"</Configuration>", "<PSC_Entry Chara_ID=\"" + ModNumId + "\"> \n <PscSpecEntry Costume=\"0\" Preset=\"0\"> \n <Camera_Position value=\"0\" /> \n <I_12 value=\"5\" /> \n <Health value=\"1.0005\" /> \n <F_20 value=\"1.0\" /> \n <Ki value=\"1.25\" /> \n <Ki_Recharge value=\"1.0\" /> \n <I_32 value=\"1\" /> \n <I_36 value=\"1\" /> \n <I_40 value=\"0\" /> \n <Stamina value=\"1.25\" /> \n <Stamina_Recharge value=\"1.25\" /> \n <F_52 value=\"1.0\" /> \n <F_56 value=\"1.3\" /> \n <I_60 value=\"0\" /> \n <Basic_Atk_Defense value=\"0.92\" /> \n <Basic_Ki_Defense value=\"0.98\" /> \n <Strike_Atk_Defense value=\"0.92\" /> \n <Super_Ki_Defense value=\"0.98\" /> \n <Ground_Speed value=\"1.0\" /> \n <Air_Speed value=\"1.0\" /> \n <Boost_Speed value=\"1.0\" /> \n <Dash_Speed value=\"1.0\" /> \n <F_96 value=\"1.25\" /> \n <Reinforcement_Skill_Duration value=\"0.9\" /> \n <F_104 value=\"1.1\" /> \n <Revival_HP_Amount value=\"1.3\" /> \n <Reviving_Speed value=\"1.0\" /> \n <F_116 value=\"1.0\" /> \n <F_120 value=\"0.2\" /> \n <F_124 value=\"1.0\" /> \n <F_128 value=\"1.0\" /> \n <F_132 value=\"1.0\" /> \n <F_136 value=\"1.0\" /> \n <I_140 value=\"1\" /> \n <F_144 value=\"1.0\" /> \n <F_148 value=\"1.0\" /> \n <F_152 value=\"1.0\" /> \n <F_156 value=\"1.0\" /> \n <F_160 value=\"1.0\" /> \n <F_164 value=\"1.0\" /> \n <Z-Soul value=\"2\" />\n <I_172 value=\"1\" /> \n <I_176 value=\"1\" /> \n <F_180 value=\"8.0\" /> \n </PscSpecEntry> \n </PSC_Entry> \n </Configuration>");
+                                File.WriteAllText(Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml", PSCtxt);
 
                                 p.Start();
 
@@ -921,9 +914,9 @@ namespace XVReborn
 
                                 p.WaitForExit();
 
-                                Process p5 = Process.Start(Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml");
-
-                                p5.WaitForExit();
+                                string CUStxt = File.ReadAllText(Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml");
+                                CUStxt = CUStxt.Replace(@"</Skillsets>", "<Skillset Character_ID=\"" + ModNumId + "\" Costume_Index=\"0\" Model_Preset=\"0\">" + Environment.NewLine + "<SuperSkill1 ID1=\"0\" />" + Environment.NewLine + "<SuperSkill2 ID1=\"0\" />" + Environment.NewLine + "<SuperSkill3 ID1=\"0\" />" + Environment.NewLine + "<SuperSkill4 ID1=\"0\" />" + Environment.NewLine + "<UltimateSkill1 ID1=\"0\" />" + Environment.NewLine + "<UltimateSkill2 ID1=\"0\" />" + Environment.NewLine + "<EvasiveSkill ID1=\"0\" />" + Environment.NewLine + "<BlastType ID1=\"0\" />" + Environment.NewLine + "<AwokenSkill ID1=\"0\" />" + Environment.NewLine + "</Skillset>" + Environment.NewLine + @"</Skillsets>");
+                                File.WriteAllText(Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml", CUStxt);
 
                                 p.Start();
 
@@ -953,9 +946,9 @@ namespace XVReborn
 
                                 p.WaitForExit();
 
-                                Process p6 = Process.Start(Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml");
-
-                                p6.WaitForExit();
+                                string AURtxt = File.ReadAllText(Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml");
+                                AURtxt = AURtxt.Replace(@"</CharacterAuras>" + Environment.NewLine + @"</AUR>", "<CharacterAura " + "Chara_ID=\"" + ModNumId + "\" Costume=\"0\" Aura_ID=\"0\" Glare=\"False\" />" + Environment.NewLine + "</CharacterAuras>" + Environment.NewLine + @"</AUR>");
+                                File.WriteAllText(Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml", AURtxt);
 
                                 p.Start();
 
@@ -986,8 +979,8 @@ namespace XVReborn
                                     file.Write(text4.ToString());
                                 }
 
-                                string qxd = Properties.Settings.Default.datafolder + @"\quest\TMQ\tmq_data.qxd";
-                                ReplaceTextInFile(qxd, "XXX", id);
+                                //string qxd = Properties.Settings.Default.datafolder + @"\quest\TMQ\tmq_data.qxd";
+                                //ReplaceTextInFile(qxd, "XXX", id);
 
 
                                 msgData[] expand = new msgData[file.data.Length + 1];
@@ -1319,11 +1312,12 @@ namespace XVReborn
             {
                 File.Delete(Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml.bak");
             }
-
+            /*
             if (File.Exists(Properties.Settings.Default.datafolder + @"\quest\TMQ\tmq_data.qxd.bak"))
             {
                 File.Delete(Properties.Settings.Default.datafolder + @"\quest\TMQ\tmq_data.qxd.bak");
             }
+            */
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -1413,8 +1407,9 @@ namespace XVReborn
                 if (File.Exists(Properties.Settings.Default.datafolder + @"\installed\" + listBox1.SelectedItem + @" 2.xml"))
                 {
                     string id = File.ReadAllLines(Properties.Settings.Default.datafolder + @"\installed\" + listBox1.SelectedItem + @" 2.xml").First();
+                    var ModNumId = 107 + Properties.Settings.Default.modlist.Count;
 
-                    MessageBox.Show("Uninstallation almost finished, you just need to remove the unused character entries in the game files (the tool will do it automatically in the next updates)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Uninstallation almost finished, you just need to remove the unused character entry\"" + ModNumId + "\"in the game files", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     info.FileName = "cmd.exe";
                     info.RedirectStandardInput = true;
@@ -1593,8 +1588,8 @@ namespace XVReborn
                         file.Write(text3.ToString());
                     }
 
-                    string qxd = Properties.Settings.Default.datafolder + @"\quest\TMQ\tmq_data.qxd";
-                    ReplaceTextInFile(qxd, id, "XXX");
+                    //string qxd = Properties.Settings.Default.datafolder + @"\quest\TMQ\tmq_data.qxd";
+                    //ReplaceTextInFile(qxd, id, "XXX");
 
                 }
 
@@ -1686,6 +1681,9 @@ namespace XVReborn
             }
         }
 
+        /* //NOT NEEDED ANYMORE AS CHARACTERS UNLOCK AUTOMATICALLY!!!!!!!!
+         
+
         void ReplaceTextInFile(string fileName, string oldText, string newText)
         {
             byte[] fileBytes = File.ReadAllBytes(fileName),
@@ -1735,6 +1733,7 @@ namespace XVReborn
 
             return -1;
         }
+        */
 
         private void editCSOFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
