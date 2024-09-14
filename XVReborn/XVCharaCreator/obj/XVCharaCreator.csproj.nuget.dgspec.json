@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {}
+    "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {
+    "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+        "projectUniqueName": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
         "projectName": "XVCharaCreator",
-        "projectPath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
-        "packagesPath": "C:\\Users\\Carli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\obj\\",
+        "projectPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+        "packagesPath": "C:\\Users\\Giovanni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Carli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Giovanni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,24 +55,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.33, 6.0.33]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.33, 6.0.33]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.33, 6.0.33]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.33, 6.0.33]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

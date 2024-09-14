@@ -1,0 +1,14 @@
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.csproj.ResolveComReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.Form1.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.Form2.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.Properties.Resources.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.csproj.GenerateResource.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.csproj.CoreCompileInputs.cache
+c:\Games\DB Xenoverse\XVReborn\EffectData.xml
+c:\Games\DB Xenoverse\XVReborn\XVReborn.exe.config
+c:\Games\DB Xenoverse\XVReborn\XVReborn.exe
+c:\Games\DB Xenoverse\XVReborn\XVReborn.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.csproj.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.pdb

@@ -58,77 +58,6 @@ namespace XVReborn
         byte[] backup = new byte[104];
         bool AuraLock = false;
         bool CharLock = false;
-        CharName[] clist = new CharName[] {
-            new CharName(0, "Goku"),
-            new CharName(1, "Bardock"),
-            new CharName(2, "Goku SSJ4"),
-            new CharName(3, "Goku SSJGod"),
-            new CharName(4, "Goku GT"),
-            new CharName(5, "Goten"),
-            new CharName(6, "Gohan kid"),
-            new CharName(7, "Gohan Teen"),
-            new CharName(8, "Gohan Adult"),
-            new CharName(9, "Piccolo"),
-            new CharName(10, "Krillin"),
-            new CharName(11, "Yamcha"),
-            new CharName(12, "Tien"),
-            new CharName(13, "Raditz"),
-            new CharName(14, "Saibaman"),
-            new CharName(15, "Nappa"),
-            new CharName(16, "Vegeta"),
-            new CharName(17, "Vegeta SSJ4"),
-            new CharName(18, "Guldo"),
-            new CharName(19, "Burter"),
-            new CharName(20, "Recoome"),
-            new CharName(21, "Jeice"),
-            new CharName(22, "Ginyu"),
-            new CharName(23, "Frieza 1st Form"),
-            new CharName(24, "Frieza Final"),
-            new CharName(25, "Frieza Full Power"),
-            new CharName(26, "Trunks Future"),
-            new CharName(27, "Trunks Kid"),
-            new CharName(28, "Android 17"),
-            new CharName(29, "Super 17"),
-            new CharName(30, "Android 18"),
-            new CharName(31, "Cell Perfect"),
-            new CharName(32, "Cell Full Power"),
-            new CharName(33, "Cell Jr."),
-            new CharName(34, "Videl"),
-            new CharName(35, "Majin Buu"),
-            new CharName(36, "Super Buu"),
-            new CharName(37, "Kid Buu"),
-            new CharName(38, "Gotenks"),
-            new CharName(39, "Vegito"),
-            new CharName(40, "Broly"),
-            new CharName(41, "Beerus"),
-            new CharName(42, "Pan"),
-            new CharName(48, "Eis Shenron"),
-            new CharName(49, "Nuova Shenron"),
-            new CharName(50, "Omega Shenron"),
-            new CharName(51, "Gogeta SSJ4"),
-            new CharName(52, "Hercule"),
-            new CharName(53, "Demigra"),
-            new CharName(59, "Nabana"),
-            new CharName(60, "Raspberry"),
-            new CharName(61, "Gohan 4 years old"),
-            new CharName(62, "Mira"),
-            new CharName(63, "Towa"),
-            new CharName(65, "Whis"),
-            new CharName(67, "Jaco"),
-            new CharName(73, "Villinous Hercule"),
-            new CharName(80, "Goku SSGSS"),
-            new CharName(81, "Vegeta SSGSS"),
-            new CharName(82, "Golden Frieza"),
-            new CharName(100, "Human Male"),
-            new CharName(101, "Human Female"),
-            new CharName(102, "Saiyan Male"),
-            new CharName(103, "Saiyan Female"),
-            new CharName(104, "Namekian"),
-            new CharName(105, "Frieza Race"),
-            new CharName(106, "Majin Male"),
-            new CharName(107, "Majin Female")
-            };
-
         msg Chartxt;
         CMS cmsfile = new CMS();
         PSC pFile = new PSC();
@@ -200,15 +129,24 @@ namespace XVReborn
 
             if (Properties.Settings.Default.datafolder.Length == 0 || Properties.Settings.Default.flexsdkfolder.Length == 0)
             {
-                Form3 frm = new Form3();
-                frm.ShowDialog();
+                OpenFileDialog gameExe = new OpenFileDialog();
+                gameExe.Filter = "DBXV.exe | DBXV.exe";                
+                
+                OpenFileDialog mxmlcExe = new OpenFileDialog();
+                mxmlcExe.Filter = "mxmlc.exe | mxmlc.exe";
 
-                var myAssembly = Assembly.GetExecutingAssembly();
-                var myStream = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.xinput1_3.zip");
-                ZipArchive archive = new ZipArchive(myStream);
-                if (File.Exists(Settings.Default.datafolder + @"/../xinput1_3.dll"))
-                    File.Delete(Settings.Default.datafolder + @"/../xinput1_3.dll");
-                archive.ExtractToDirectory(Settings.Default.datafolder + @"/../");
+                if(gameExe.ShowDialog() == DialogResult.OK && mxmlcExe.ShowDialog() == DialogResult.OK)
+                {
+                    string dataPath = Path.GetDirectoryName(gameExe.FileName) + @"/data"; 
+                    Directory.CreateDirectory (dataPath);
+                    Settings.Default.datafolder = dataPath;
+
+                    string flexPath = Path.GetDirectoryName(mxmlcExe.FileName) + "../";
+                    Settings.Default.flexsdkfolder = flexPath;
+
+                    Settings.Default.Save();
+                }
+
             }
             else
             {
@@ -417,7 +355,6 @@ namespace XVReborn
             Array.Copy(AURfile, WAddress, backup, 0, 104);
 
             //Character Aura Changer
-            cbAURChar.Items.Clear();
             Chars = new Charlisting[BitConverter.ToInt32(AURfile, 24)];
             int ChAddress = BitConverter.ToInt32(AURfile, 28);
             for (int C = 0; C < Chars.Length; C++)
@@ -426,9 +363,8 @@ namespace XVReborn
                 Chars[C].Costume = BitConverter.ToInt32(AURfile, ChAddress + (C * 16) + 4);
                 Chars[C].ID = BitConverter.ToInt32(AURfile, ChAddress + (C * 16) + 8);
                 Chars[C].inf = BitConverter.ToBoolean(AURfile, ChAddress + (C * 16) + 12);
-
-                cbAURChar.Items.Add(FindCharName(Chars[C].Name) + " - Costume " + Chars[C].Costume.ToString());
             }
+
 
             //Load the default idb file
             loadidbfile("talisman", Settings.Default.datafolder + @"/system/item/talisman_item.idb");
@@ -1100,16 +1036,6 @@ namespace XVReborn
             }
         }
 
-        public string FindCharName(int id)
-        {
-            for (int n = 0; n < clist.Length; n++)
-            {
-                if (clist[n].ID == id)
-                    return clist[n].Name;
-            }
-
-            return "Unknown Character";
-        }
         private void cbCharacter_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtCMS1.Text = cmsfile.Data[cbCharacter.SelectedIndex].Paths[0];
@@ -1121,17 +1047,19 @@ namespace XVReborn
             txtCMS7.Text = cmsfile.Data[cbCharacter.SelectedIndex].Paths[6];
 
             int index = pFile.FindCharacterIndex(cmsfile.Data[cbCharacter.SelectedIndex].ID);
+            if (index > -1) { 
 
-            cbCostumes.Items.Clear();
-            for (int i = 0; i < pFile.CharParam[index].p.Length; i++)
-            {
-                string name = Chartxt.Find("chara_" + cmsfile.Data[cbCharacter.SelectedIndex].ShortName + "_" + i.ToString("000"));
-                if (name != "No Matching ID")
-                    cbCostumes.Items.Add(i.ToString() + ". " + name);
-                else
+                cbCostumes.Items.Clear();
+                for (int i = 0; i < pFile.CharParam[index].p.Length; i++)
                 {
-                    name = Chartxt.Find("chara_" + cmsfile.Data[cbCharacter.SelectedIndex].ShortName + "_000");
-                    cbCostumes.Items.Add(i.ToString() + ". " + name);
+                    string name = Chartxt.Find("chara_" + cmsfile.Data[cbCharacter.SelectedIndex].ShortName + "_" + i.ToString("000"));
+                    if (name != "No Matching ID")
+                        cbCostumes.Items.Add(i.ToString() + ". " + name);
+                    else
+                    {
+                        name = Chartxt.Find("chara_" + cmsfile.Data[cbCharacter.SelectedIndex].ShortName + "_000");
+                        cbCostumes.Items.Add(i.ToString() + ". " + name);
+                    }
                 }
             }
 
@@ -1199,8 +1127,24 @@ namespace XVReborn
 
                 }
             }
-        }
 
+            index = DataExist(cmsfile.Data[cbCharacter.SelectedIndex].ID, cbCostumes.SelectedIndex);
+            if(index > -1)
+            {
+                txtAURID.Text = Chars[index].ID.ToString();
+                chkInf.Checked = Chars[index].inf;
+            }
+        }
+        public int DataExist(int id, int c)
+        {
+            for (int i = 0; i < Chars.Length; i++)
+            {
+                if (Chars[i].Name == id && Chars[i].Costume == c)
+                    return i;
+            }
+
+            return -1;
+        }
         private void txtCMS1_TextChanged(object sender, EventArgs e)
         {
             cmsfile.Data[cbCharacter.SelectedIndex].Paths[0] = txtCMS1.Text;
@@ -1940,23 +1884,16 @@ namespace XVReborn
         {
             int Num;
             if (int.TryParse(txtAURID.Text, out Num) && !CharLock)
-                Chars[cbAURChar.SelectedIndex].ID = Num;
+                Chars[cbCharacter.SelectedIndex].ID = Num;
         }
 
         private void chkInf_CheckedChanged(object sender, EventArgs e)
         {
             if (!CharLock)
-                Chars[cbAURChar.SelectedIndex].inf = chkInf.Checked;
+                Chars[cbCharacter.SelectedIndex].inf = chkInf.Checked;
         }
 
-        private void cbChar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CharLock = true;
-            txtAURID.Text = Chars[cbAURChar.SelectedIndex].ID.ToString();
-            chkInf.Checked = Chars[cbAURChar.SelectedIndex].inf;
-            CharLock = false;
-        }
-
+ 
         private void saveAURFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<byte> file = new List<byte>();

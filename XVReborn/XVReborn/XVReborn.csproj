@@ -116,12 +116,6 @@
     <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
     <Compile Include="MSG.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,7 +161,6 @@
     <EmbeddedResource Include="ZipFile_Blobs\XMLSerializer.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\iggy_as3_test.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\item.zip" />
-    <EmbeddedResource Include="ZipFile_Blobs\xinput1_3.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
