@@ -35,7 +35,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Games\DB Xenoverse\XVReborn\</OutputPath>
+    <OutputPath>c:\Games\DB Xenoverse\XVReborn\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -78,8 +78,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Drawing.Common.4.7.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
@@ -138,9 +138,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ZipFile_Blobs\aura_setting.zip" />
+    <EmbeddedResource Include="ZipFile_Blobs\CHARA01.zip" />
+    <EmbeddedResource Include="ZipFile_Blobs\CHARASELE.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\chara_sound.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\char_model_spec.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\custom_skill.zip" />
+    <EmbeddedResource Include="ZipFile_Blobs\embpack.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\msg.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\parameter_spec_char.zip" />
     <None Include="packages.config" />
@@ -153,7 +156,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="ZipFile_Blobs\scripts.zip" />
+    <EmbeddedResource Include="ZipFile_Blobs\tmq_data.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\XMLSerializer.zip" />
+    <EmbeddedResource Include="ZipFile_Blobs\iggy_as3_test.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\item.zip" />
   </ItemGroup>
   <ItemGroup>

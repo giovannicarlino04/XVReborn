@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {}
+    "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {
+    "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+        "projectUniqueName": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
         "projectName": "XVCharaCreator",
-        "projectPath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
-        "packagesPath": "C:\\Users\\Carli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\obj\\",
+        "projectPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+        "packagesPath": "C:\\Users\\Giovanni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Carli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Giovanni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,12 +44,6 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "dependencies": {
-            "System.Drawing.Common": {
-              "target": "Package",
-              "version": "[4.7.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
