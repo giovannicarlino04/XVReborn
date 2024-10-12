@@ -308,26 +308,26 @@ namespace XVReborn
                 var Item = new ListViewItem(new[] { str, "0" });
                 PSClstData.Items.Add(Item);
             }
-            CS.populateSkillData(Settings.Default.datafolder + @"/system/custom_skill.cus");
+            CS.populateSkillData(Settings.Default.datafolder + @"/msg", Settings.Default.datafolder + @"/system/custom_skill.cus", language);
 
             //populate skill lists
             foreach (skill sk in CS.Supers)
             {
-                SupLst1.Items.Add(sk.ID);
-                SupLst2.Items.Add(sk.ID);
-                SupLst3.Items.Add(sk.ID);
-                SupLst4.Items.Add(sk.ID);
+                SupLst1.Items.Add(sk.Name);
+                SupLst2.Items.Add(sk.Name);
+                SupLst3.Items.Add(sk.Name);
+                SupLst4.Items.Add(sk.Name);
             }
 
             foreach (skill sk in CS.Ultimates)
             {
-                UltLst1.Items.Add(sk.ID);
-                UltLst2.Items.Add(sk.ID);
+                UltLst1.Items.Add(sk.Name);
+                UltLst2.Items.Add(sk.Name);
             }
 
             foreach (skill sk in CS.Evasives)
             {
-                EvaLst.Items.Add(sk.ID);
+                EvaLst.Items.Add(sk.Name);
             }
 
             csoFile.Load(Properties.Settings.Default.datafolder + @"/system" + "/chara_sound.cso");
@@ -369,55 +369,66 @@ namespace XVReborn
             //Load the default idb file
             loadidbfile("talisman", Settings.Default.datafolder + @"/system/item/talisman_item.idb");
         }
-
         private void CompileScripts()
         {
-            ProcessStartInfo processStartInfo = new ProcessStartInfo();
-            Process process = new Process();
-            StringBuilder stringBuilder = new StringBuilder();
-            string sourcepath = "\"" + Properties.Settings.Default.datafolder + "\\scripts\"";
-            string maintimelinepath = "\"" + Properties.Settings.Default.datafolder + "\\scripts\\dlc3_CHARASELE_fla\\MainTimeline.as\"";
+            string dataFolder = Properties.Settings.Default.datafolder;
+            string scriptsPath = Path.Combine(dataFolder, "scripts");
+            string mainTimelinePath = Path.Combine(scriptsPath, "dlc3_CHARASELE_fla", "MainTimeline.as");
+            string flexSdkPath = Path.Combine(Properties.Settings.Default.flexsdkfolder, "bin");
+            string iggyFolderPath = Path.Combine(dataFolder, "ui", "iggy");
+            string outputSwfPath = Path.Combine(iggyFolderPath, "CHARASELE.swf");
 
-            processStartInfo.FileName = "cmd.exe";
-            processStartInfo.CreateNoWindow = true;
-            processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            processStartInfo.RedirectStandardInput = true;
-            processStartInfo.UseShellExecute = false;
-            process.StartInfo = processStartInfo;
-            process.Start();
-            using (StreamWriter standardInput = process.StandardInput)
+            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe")
             {
-                if (standardInput.BaseStream.CanWrite)
-                {
-                    standardInput.WriteLine("cd " + Properties.Settings.Default.flexsdkfolder + "\\bin");
-                    standardInput.WriteLine("mxmlc -compiler.source-path=" + sourcepath + " " + maintimelinepath);
-                }
-            }
-            process.WaitForExit();
-            Directory.CreateDirectory(Properties.Settings.Default.datafolder + "\\ui\\iggy\\");
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                RedirectStandardInput = true,
+                UseShellExecute = false
+            };
 
-            if (File.Exists(Properties.Settings.Default.datafolder + "\\ui\\iggy\\CHARASELE.swf"))
-                File.Delete(Properties.Settings.Default.datafolder + "\\ui\\iggy\\CHARASELE.swf");
-
-
-            File.Move(Properties.Settings.Default.datafolder + "\\scripts\\dlc3_CHARASELE_fla\\MainTimeline.swf", Properties.Settings.Default.datafolder + "\\ui\\iggy\\CHARASELE.swf");
-
-            Thread.Sleep(1000);
-            process.Start();
-            using (StreamWriter standardInput = process.StandardInput)
+            using (Process process = new Process { StartInfo = processStartInfo })
             {
-                if (standardInput.BaseStream.CanWrite)
+                process.Start();
+                using (StreamWriter standardInput = process.StandardInput)
                 {
-                    standardInput.WriteLine("cd " + Settings.Default.datafolder + @"\ui\iggy");
-                    standardInput.WriteLine("iggy_as3_test.exe CHARASELE.swf");
+                    if (standardInput.BaseStream.CanWrite)
+                    {
+                        // Compile script
+                        standardInput.WriteLine($"cd \"{flexSdkPath}\"");
+                        standardInput.WriteLine($"mxmlc -compiler.source-path=\"{scriptsPath}\" \"{mainTimelinePath}\"");
+                    }
                 }
+                process.WaitForExit();
             }
-            process.WaitForExit();
 
-            Thread.Sleep(1000);
+            Directory.CreateDirectory(iggyFolderPath);
 
-            if (File.Exists(Properties.Settings.Default.datafolder + "\\ui\\iggy\\CHARASELE.swf"))
-                File.Delete(Properties.Settings.Default.datafolder + "\\ui\\iggy\\CHARASELE.swf");
+            string compiledSwfPath = Path.Combine(scriptsPath, "dlc3_CHARASELE_fla", "MainTimeline.swf");
+
+            if (File.Exists(outputSwfPath))
+            {
+                File.Delete(outputSwfPath);
+            }
+            File.Move(compiledSwfPath, outputSwfPath);
+
+            using (Process process = new Process { StartInfo = processStartInfo })
+            {
+                process.Start();
+                using (StreamWriter standardInput = process.StandardInput)
+                {
+                    if (standardInput.BaseStream.CanWrite)
+                    {
+                        standardInput.WriteLine($"cd \"{iggyFolderPath}\"");
+                        standardInput.WriteLine("iggy_as3_test.exe CHARASELE.swf");
+                    }
+                }
+                process.WaitForExit();
+            }
+
+            if (File.Exists(outputSwfPath))
+            {
+                File.Delete(outputSwfPath);
+            }
         }
 
         private void saveLvItems()
@@ -751,9 +762,6 @@ namespace XVReborn
 
                         Clean();
 
-                        MessageBox.Show("Mod installed successfully", "Success", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-
                         string[] row = { modname, modauthor, "Replacer" };
                         ListViewItem lvi = new ListViewItem(row);
                         lvMods.Items.Add(lvi);
@@ -934,7 +942,6 @@ namespace XVReborn
                         {
                             file1.Write(text10.ToString());
                         }
-                        CompileScripts();
 
                         msg MSGfile;
                         MSGfile = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_character_name_" + language + ".msg");
@@ -965,10 +972,6 @@ namespace XVReborn
                         ListViewItem lvi = new ListViewItem(row);
                         lvMods.Items.Add(lvi);
                         saveLvItems();
-
-                        MessageBox.Show("Mod installed successfully", "Success", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-
                         loadFiles();
                     }
                     else
@@ -979,6 +982,7 @@ namespace XVReborn
                     }
                 }
             }
+            CompileScripts();
             Clean();
         }
 
