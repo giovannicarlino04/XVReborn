@@ -146,6 +146,10 @@ namespace XVReborn
 
                     Settings.Default.Save();
                 }
+                else
+                {
+                    this.Close();
+                }
 
             }
             else

@@ -5,5 +5,8 @@
     <Setting Name="data_path" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">uninitialized</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

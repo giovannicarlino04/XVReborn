@@ -3,23 +3,55 @@
   "WorkspaceRootPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvreborn\\effectdata.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\effectdata.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvcharacreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|solutionrelative:xvcharacreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\cus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\cus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvcharacreator\\xvcharacreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|solutionrelative:xvcharacreator\\xvcharacreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvcharacreator\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
+      "RelativeMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|solutionrelative:xvcharacreator\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvcharacreator\\xvcharacreator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|solutionrelative:xvcharacreator\\xvcharacreator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvcharacreator\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|solutionrelative:xvcharacreator\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvcharacreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|solutionrelative:xvcharacreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvcharacreator\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{46FB9B94-1A36-4336-AB50-F0EC30551C60}|XVCharaCreator\\XVCharaCreator.csproj|solutionrelative:xvcharacreator\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|XVReborn||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvreplacercreator\\xvreplacercreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
@@ -40,22 +72,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
+              "Title": "XVCharaCreator",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+              "RelativeDocumentMoniker": "XVCharaCreator\\XVCharaCreator.csproj",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+              "RelativeToolTip": "XVCharaCreator\\XVCharaCreator.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-12T12:25:30.681Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EffectData.xml",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\EffectData.xml",
+              "RelativeDocumentMoniker": "XVReborn\\EffectData.xml",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\EffectData.xml",
+              "RelativeToolTip": "XVReborn\\EffectData.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-10-12T13:44:44.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "XVCharaCreator",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+              "RelativeDocumentMoniker": "XVCharaCreator\\XVCharaCreator.csproj",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\XVCharaCreator.csproj",
+              "RelativeToolTip": "XVCharaCreator\\XVCharaCreator.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-12T12:23:06.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form1.cs",
+              "RelativeDocumentMoniker": "XVCharaCreator\\Form1.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form1.cs",
+              "RelativeToolTip": "XVCharaCreator\\Form1.cs",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAYwFQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T12:22:06.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Form1.cs [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form1.cs",
+              "RelativeDocumentMoniker": "XVCharaCreator\\Form1.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form1.cs [Progettazione]",
+              "RelativeToolTip": "XVCharaCreator\\Form1.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T12:21:01.209Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "XVReplacerCreator",
               "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
               "RelativeDocumentMoniker": "XVReplacerCreator\\XVReplacerCreator.csproj",
               "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
               "RelativeToolTip": "XVReplacerCreator\\XVReplacerCreator.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-12T11:29:51.569Z"
+              "WhenOpened": "2024-10-12T11:29:51.569Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "XVReborn",
               "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\XVReborn.csproj",
               "RelativeDocumentMoniker": "XVReborn\\XVReborn.csproj",
@@ -67,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "CUS.cs",
               "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\CUS.cs",
               "RelativeDocumentMoniker": "XVReborn\\CUS.cs",
@@ -80,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "CSO.cs",
               "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\CSO.cs",
               "RelativeDocumentMoniker": "XVReborn\\CSO.cs",
@@ -92,31 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
-              "RelativeDocumentMoniker": "XVReborn\\Form1.cs",
-              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
-              "RelativeToolTip": "XVReborn\\Form1.cs",
-              "ViewState": "AgIAAEkEAAAAAAAAAAAwwEoEAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T10:53:01.025Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form2.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form2.cs",
-              "RelativeDocumentMoniker": "XVReborn\\Form2.cs",
-              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form2.cs [Progettazione]",
-              "RelativeToolTip": "XVReborn\\Form2.cs [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T10:51:40.223Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Progettazione]",
               "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
               "RelativeDocumentMoniker": "XVReborn\\Form1.cs",
@@ -125,6 +198,68 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T10:51:36.695Z",
               "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
+              "RelativeDocumentMoniker": "XVReborn\\Form1.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
+              "RelativeToolTip": "XVReborn\\Form1.cs",
+              "ViewState": "AgIAAD0LAAAAAAAAAAAgwFgLAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T10:53:01.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Form2.cs [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form2.cs",
+              "RelativeDocumentMoniker": "XVCharaCreator\\Form2.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form2.cs [Progettazione]",
+              "RelativeToolTip": "XVCharaCreator\\Form2.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T12:27:05.338Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form2.cs",
+              "RelativeDocumentMoniker": "XVCharaCreator\\Form2.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Form2.cs",
+              "RelativeToolTip": "XVCharaCreator\\Form2.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T12:27:28.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form2.cs [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form2.cs",
+              "RelativeDocumentMoniker": "XVReborn\\Form2.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form2.cs [Progettazione]",
+              "RelativeToolTip": "XVReborn\\Form2.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T10:51:40.223Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Settings.settings",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Properties\\Settings.settings",
+              "RelativeDocumentMoniker": "XVCharaCreator\\Properties\\Settings.settings",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVCharaCreator\\Properties\\Settings.settings",
+              "RelativeToolTip": "XVCharaCreator\\Properties\\Settings.settings",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
+              "WhenOpened": "2024-10-12T12:23:14.264Z",
+              "EditorCaption": ""
             }
           ]
         }

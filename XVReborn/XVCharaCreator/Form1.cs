@@ -11,6 +11,8 @@ namespace XVCharaCreator
 {
     public partial class Form1 : Form
     {
+        CharSkill CS = new CharSkill();
+
         public Form1()
         {
             InitializeComponent();
@@ -74,13 +76,13 @@ namespace XVCharaCreator
                     WriteElementWithValue(writer, "CSO_4", txtCSO4.Text);
 
 
-                    SetComboBoxValue(writer, cbSuper1, "CUS_SUPER_1");
-                    SetComboBoxValue(writer, cbSuper2, "CUS_SUPER_2");
-                    SetComboBoxValue(writer, cbSuper3, "CUS_SUPER_3");
-                    SetComboBoxValue(writer, cbSuper4, "CUS_SUPER_4");
-                    SetComboBoxValue(writer, cbUltimate1, "CUS_ULTIMATE_1");
-                    SetComboBoxValue(writer, cbUltimate2, "CUS_ULTIMATE_2");
-                    SetComboBoxValue(writer, cbEvasive, "CUS_EVASIVE");
+                    SetComboBoxValueSuper(writer, cbSuper1, "CUS_SUPER_1");
+                    SetComboBoxValueSuper(writer, cbSuper2, "CUS_SUPER_2");
+                    SetComboBoxValueSuper(writer, cbSuper3, "CUS_SUPER_3");
+                    SetComboBoxValueSuper(writer, cbSuper4, "CUS_SUPER_4");
+                    SetComboBoxValueUltimate(writer, cbUltimate1, "CUS_ULTIMATE_1");
+                    SetComboBoxValueUltimate(writer, cbUltimate2, "CUS_ULTIMATE_2");
+                    SetComboBoxValueEvasive(writer, cbEvasive, "CUS_EVASIVE");
 
                     WriteElementWithValue(writer, "MSG_CHARACTER_NAME", txtMSG1.Text);
                     WriteElementWithValue(writer, "MSG_COSTUME_NAME", txtMSG2.Text);
@@ -114,10 +116,24 @@ namespace XVCharaCreator
             writer.WriteAttributeString("value", value);
             writer.WriteEndElement();
         }
-        private void SetComboBoxValue(XmlWriter xmlWriter, ComboBox comboBox, string elementName)
+        private void SetComboBoxValueSuper(XmlWriter xmlWriter, ComboBox comboBox, string elementName)
         {
             if (comboBox.SelectedIndex >= 0)
-                WriteElementWithValue(xmlWriter, elementName, comboBox.SelectedItem.ToString());
+                WriteElementWithValue(xmlWriter, elementName, CS.Supers[comboBox.SelectedIndex].ID.ToString());
+            else
+                WriteElementWithValue(xmlWriter, elementName, "");
+        }
+        private void SetComboBoxValueUltimate(XmlWriter xmlWriter, ComboBox comboBox, string elementName)
+        {
+            if (comboBox.SelectedIndex >= 0)
+                WriteElementWithValue(xmlWriter, elementName, CS.Ultimates[comboBox.SelectedIndex].ID.ToString());
+            else
+                WriteElementWithValue(xmlWriter, elementName, "");
+        }
+        private void SetComboBoxValueEvasive(XmlWriter xmlWriter, ComboBox comboBox, string elementName)
+        {
+            if (comboBox.SelectedIndex >= 0)
+                WriteElementWithValue(xmlWriter, elementName, CS.Evasives[comboBox.SelectedIndex].ID.ToString());
             else
                 WriteElementWithValue(xmlWriter, elementName, "");
         }
@@ -185,29 +201,34 @@ namespace XVCharaCreator
                     Properties.Settings.Default.Save();
                 }
             }
-
+            
             if (!Directory.Exists(Settings.Default.data_path))
-                MessageBox.Show("Data folder not found, you must start XVModManager first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Data folder not found, you must start XVReborn first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            CharSkill CS = new CharSkill();
-            CS.populateSkillData(Settings.Default.data_path + @"/system/custom_skill.cus");
+            if (Settings.Default.language == "uninitialized")
+            {
+                Form2 frm = new Form2();
+                frm.ShowDialog();
+            }
+
+            CS.populateSkillData(Settings.Default.data_path + @"/msg", Settings.Default.data_path + @"/system/custom_skill.cus", Settings.Default.language);
 
             //populate skill lists
             foreach (skill sk in CS.Supers)
             {
-                cbSuper1.Items.Add(sk.ID);
-                cbSuper2.Items.Add(sk.ID);
-                cbSuper3.Items.Add(sk.ID);
-                cbSuper4.Items.Add(sk.ID);
+                cbSuper1.Items.Add(sk.Name);
+                cbSuper2.Items.Add(sk.Name);
+                cbSuper3.Items.Add(sk.Name);
+                cbSuper4.Items.Add(sk.Name);
             }
             foreach (skill sk in CS.Ultimates)
             {
-                cbUltimate1.Items.Add(sk.ID);
-                cbUltimate2.Items.Add(sk.ID);
+                cbUltimate1.Items.Add(sk.Name);
+                cbUltimate2.Items.Add(sk.Name);
             }
             foreach (skill sk in CS.Evasives)
             {
-                cbEvasive.Items.Add(sk.ID);
+                cbEvasive.Items.Add(sk.Name);
             }
         }
         private void txtAuraID_KeyPress(object sender, KeyPressEventArgs e)
