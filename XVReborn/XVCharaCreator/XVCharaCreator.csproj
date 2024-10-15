@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-	  <OutputPath>D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn</OutputPath>
 	  <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
 	  <ApplicationIcon>DBXV.ico</ApplicationIcon>
 	  <NoWin32Manifest>true</NoWin32Manifest>
@@ -29,6 +28,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="DBXV.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.7.3" />
   </ItemGroup>
 
   <ItemGroup>

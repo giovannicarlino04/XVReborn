@@ -24,3 +24,9 @@ D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\EffectData.xml
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe.config
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\EffectData.xml
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\XVReborn.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\XVReborn.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\XVReborn.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\FreeImage.Standard.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\System.Drawing.Common.dll

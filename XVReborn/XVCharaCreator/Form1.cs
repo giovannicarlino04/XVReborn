@@ -97,6 +97,8 @@ namespace XVCharaCreator
                 Directory.Move(txtFolder.Text, @"./XVCharaCreatorTemp/chara/" + txtCharID.Text);
                 Directory.CreateDirectory("./XVCharaCreatorTemp/ui/texture/CHARA01");
                 File.Move(textBox1.Text, @"./XVCharaCreatorTemp/ui/texture/CHARA01/" + txtCharID.Text + "_000.DDS");
+                Directory.Move(txtAddFiles.Text, @"./XVCharaCreatorTemp/");
+
 
                 ZipFile.CreateFromDirectory(@"./XVCharaCreatorTemp/", sfd.FileName);
 
@@ -146,13 +148,13 @@ namespace XVCharaCreator
             char[] id = new char[3];
             string generatedID;
 
-                for (int i = 0; i < 3; i++)
-                {
-                    id[i] = chars[random.Next(chars.Length)];
-                }
+            for (int i = 0; i < 3; i++)
+            {
+                id[i] = chars[random.Next(chars.Length)];
+            }
 
-                generatedID = new string(id);
-            
+            generatedID = new string(id);
+
 
             txtCharID.Text = generatedID;
         }
@@ -201,7 +203,7 @@ namespace XVCharaCreator
                     Properties.Settings.Default.Save();
                 }
             }
-            
+
             if (!Directory.Exists(Settings.Default.data_path))
                 MessageBox.Show("Data folder not found, you must start XVReborn first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -261,6 +263,24 @@ namespace XVCharaCreator
         private void sToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = $"Select Additional Files (data) Folder";
+            fbd.UseDescriptionForTitle = true;
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string selectedPath = fbd.SelectedPath;
+                string selectedDirName = Path.GetFileName(selectedPath);
+
+
+                txtAddFiles.Text = selectedPath;
+          
+            }
+            
         }
     }
 }
