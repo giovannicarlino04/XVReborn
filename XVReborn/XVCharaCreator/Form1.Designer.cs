@@ -36,10 +36,7 @@
             sToolStripMenuItem = new ToolStripMenuItem();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            button2 = new Button();
             button1 = new Button();
-            txtAddFiles = new TextBox();
-            label30 = new Label();
             textBox1 = new TextBox();
             label27 = new Label();
             btnGenID = new Button();
@@ -174,10 +171,7 @@
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
-            tabPage1.Controls.Add(button2);
             tabPage1.Controls.Add(button1);
-            tabPage1.Controls.Add(txtAddFiles);
-            tabPage1.Controls.Add(label30);
             tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(label27);
             tabPage1.Controls.Add(btnGenID);
@@ -199,16 +193,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Mod Info";
             // 
-            // button2
-            // 
-            button2.Location = new Point(316, 257);
-            button2.Name = "button2";
-            button2.Size = new Size(33, 23);
-            button2.TabIndex = 30;
-            button2.Text = "...";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // button1
             // 
             button1.Location = new Point(316, 217);
@@ -218,22 +202,6 @@
             button1.Text = "...";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // txtAddFiles
-            // 
-            txtAddFiles.Location = new Point(140, 257);
-            txtAddFiles.Name = "txtAddFiles";
-            txtAddFiles.Size = new Size(170, 23);
-            txtAddFiles.TabIndex = 29;
-            // 
-            // label30
-            // 
-            label30.AutoSize = true;
-            label30.Location = new Point(33, 261);
-            label30.Name = "label30";
-            label30.Size = new Size(91, 15);
-            label30.TabIndex = 28;
-            label30.Text = "Additional Files:";
             // 
             // textBox1
             // 
@@ -968,8 +936,5 @@
         private TextBox txtVOX2;
         private TextBox txtVOX1;
         private Label label29;
-        private Button button2;
-        private TextBox txtAddFiles;
-        private Label label30;
     }
 }

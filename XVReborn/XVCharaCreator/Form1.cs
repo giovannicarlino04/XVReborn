@@ -97,8 +97,6 @@ namespace XVCharaCreator
                 Directory.Move(txtFolder.Text, @"./XVCharaCreatorTemp/chara/" + txtCharID.Text);
                 Directory.CreateDirectory("./XVCharaCreatorTemp/ui/texture/CHARA01");
                 File.Move(textBox1.Text, @"./XVCharaCreatorTemp/ui/texture/CHARA01/" + txtCharID.Text + "_000.DDS");
-                Directory.Move(txtAddFiles.Text, @"./XVCharaCreatorTemp/");
-
 
                 ZipFile.CreateFromDirectory(@"./XVCharaCreatorTemp/", sfd.FileName);
 
@@ -265,22 +263,5 @@ namespace XVCharaCreator
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = $"Select Additional Files (data) Folder";
-            fbd.UseDescriptionForTitle = true;
-
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                string selectedPath = fbd.SelectedPath;
-                string selectedDirName = Path.GetFileName(selectedPath);
-
-
-                txtAddFiles.Text = selectedPath;
-          
-            }
-            
-        }
     }
 }
