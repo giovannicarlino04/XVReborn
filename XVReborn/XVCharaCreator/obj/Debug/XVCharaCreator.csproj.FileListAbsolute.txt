@@ -17,3 +17,13 @@ C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreat
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.runtimeconfig.json
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVReborn.Form2.resources
+D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.exe
+D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll.config
+D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.deps.json
+D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.runtimeconfig.json
+D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.exe
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll.config
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.deps.json
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.runtimeconfig.json
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll

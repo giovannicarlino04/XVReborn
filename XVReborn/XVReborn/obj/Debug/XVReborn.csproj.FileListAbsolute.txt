@@ -20,3 +20,7 @@ C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\EffectData.x
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe.config
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.pdb
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\EffectData.xml
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe.config
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe
+D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReborn.pdb
