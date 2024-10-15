@@ -22,3 +22,7 @@ D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.exe
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.json
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.deps.json
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.runtimeconfig.json
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.dll
