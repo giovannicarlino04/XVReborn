@@ -366,7 +366,7 @@ namespace XVReborn
             string dataFolder = Properties.Settings.Default.datafolder;
             string scriptsPath = Path.Combine(dataFolder, "scripts");
             string mainTimelinePath = Path.Combine(scriptsPath, "dlc3_CHARASELE_fla", "MainTimeline.as");
-            string flexSdkPath = Path.Combine(Properties.Settings.Default.flexsdkfolder, "bin");
+            string flexSdkPath = Properties.Settings.Default.flexsdkfolder;
             string iggyFolderPath = Path.Combine(dataFolder, "ui", "iggy");
             string outputSwfPath = Path.Combine(iggyFolderPath, "CHARASELE.swf");
 
