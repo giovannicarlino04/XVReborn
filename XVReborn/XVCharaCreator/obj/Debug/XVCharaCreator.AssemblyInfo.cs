@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XVCharaCreator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b093f30484b4591b5ea0bc4d67bb2f3bda1b60a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+930fe50f421a53a3980e25001848c311ac6b5b52")]
 [assembly: System.Reflection.AssemblyProductAttribute("XVCharaCreator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XVCharaCreator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -129,7 +129,7 @@ namespace XVReborn
                     Directory.CreateDirectory (dataPath);
                     Settings.Default.datafolder = dataPath;
 
-                    string flexPath = Path.GetDirectoryName(mxmlcExe.FileName) + "../";
+                    string flexPath = Path.GetDirectoryName(mxmlcExe.FileName);
                     Settings.Default.flexsdkfolder = flexPath;
 
                     Settings.Default.Save();
@@ -387,7 +387,7 @@ namespace XVReborn
                     {
                         // Compile script
                         standardInput.WriteLine($"cd \"{flexSdkPath}\"");
-                        standardInput.WriteLine($"mxmlc -compiler.source-path=\"{scriptsPath}\" \"{mainTimelinePath}\"");
+                        standardInput.WriteLine($"mxmlc -compiler.source-path=\"{scriptsPath}\" -omit-trace-statements=false \"{mainTimelinePath}\"");
                     }
                 }
                 process.WaitForExit();
@@ -3054,6 +3054,16 @@ namespace XVReborn
 
             CompileScripts();
             loadFiles();
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            csoFile.Save();
+        }
+
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

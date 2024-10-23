@@ -10,10 +10,6 @@ C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\D
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.csproj.CoreCompileInputs.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.dll
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.genruntimeconfig.cache
-C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.exe
-C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.json
-C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
-C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.dll
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.exe
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.json
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
@@ -26,3 +22,7 @@ C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\D
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.deps.json
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.runtimeconfig.json
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.dll
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReplacerCreator.exe
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReplacerCreator.deps.json
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReplacerCreator.runtimeconfig.json
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReplacerCreator.dll
