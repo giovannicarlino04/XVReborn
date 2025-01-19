@@ -155,23 +155,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Giovanni\\.nuget\\packages\\": {},
+    "C:\\Users\\Carli\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
+      "projectUniqueName": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
       "projectName": "XVReplacerCreator",
-      "projectPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
-      "packagesPath": "C:\\Users\\Giovanni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\obj\\",
+      "projectPath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
+      "packagesPath": "C:\\Users\\Carli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Giovanni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Carli\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -197,7 +197,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net6.0-windows7.0": {
@@ -227,7 +228,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

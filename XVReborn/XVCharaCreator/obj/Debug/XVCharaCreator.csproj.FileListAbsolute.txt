@@ -32,3 +32,17 @@ C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVCharaCreator.dll.co
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVCharaCreator.deps.json
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVCharaCreator.runtimeconfig.json
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVCharaCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.dll
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.exe
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll.config
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.deps.json
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.runtimeconfig.json
+C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.Form1.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVReborn.Form2.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.csproj.GenerateResource.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.AssemblyInfoInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.AssemblyInfo.cs
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.csproj.CoreCompileInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.genruntimeconfig.cache

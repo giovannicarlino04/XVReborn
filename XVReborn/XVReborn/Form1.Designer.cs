@@ -32,7 +32,7 @@ namespace XVReborn
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
             this.installModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -92,6 +92,19 @@ namespace XVReborn
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.menuStrip9 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtCSO1 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtCSO2 = new System.Windows.Forms.TextBox();
+            this.txtCSO4 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtCSO3 = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PSClstData = new System.Windows.Forms.ListView();
@@ -255,20 +268,14 @@ namespace XVReborn
             this.editPSCFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbCharacter = new System.Windows.Forms.ComboBox();
             this.cbCostumes = new System.Windows.Forms.ComboBox();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtCSO1 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtCSO2 = new System.Windows.Forms.TextBox();
-            this.txtCSO4 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txtCSO3 = new System.Windows.Forms.TextBox();
-            this.menuStrip9 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compileScriptsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.installModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.editCharalistFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearInstallationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainMenuStrip.SuspendLayout();
             this.Mods.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -277,6 +284,9 @@ namespace XVReborn
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            this.tabPage13.SuspendLayout();
+            this.menuStrip9.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip4.SuspendLayout();
@@ -295,23 +305,20 @@ namespace XVReborn
             this.tabPage11.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.menuStrip8.SuspendLayout();
-            this.tabPage13.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.menuStrip9.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // MainMenuStrip
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem22,
-            this.toolsToolStripMenuItem22});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(859, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip122";
+            this.MainMenuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
+            this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MainMenuStrip.Name = "MainMenuStrip";
+            this.MainMenuStrip.Size = new System.Drawing.Size(859, 24);
+            this.MainMenuStrip.TabIndex = 2;
+            this.MainMenuStrip.Text = "menuStrip122";
             // 
             // fileToolStripMenuItem22
             // 
@@ -349,7 +356,7 @@ namespace XVReborn
             this.toolStripSeparator1,
             this.clearInstallationToolStripMenuItem});
             this.toolsToolStripMenuItem22.Name = "toolsToolStripMenuItem22";
-            this.toolsToolStripMenuItem22.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem22.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem22.Text = "Tools";
             // 
             // compileScriptsToolStripMenuItem
@@ -581,14 +588,14 @@ namespace XVReborn
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(117, 22);
             this.toolStripMenuItem7.Text = "Add";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -854,9 +861,137 @@ namespace XVReborn
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.saveToolStripMenuItem.Text = "Save CMS";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveCMSToolStripMenuItem_Click);
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage13.Controls.Add(this.menuStrip9);
+            this.tabPage13.Controls.Add(this.groupBox4);
+            this.tabPage13.Location = new System.Drawing.Point(4, 24);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(851, 403);
+            this.tabPage13.TabIndex = 11;
+            this.tabPage13.Text = "CSO";
+            // 
+            // menuStrip9
+            // 
+            this.menuStrip9.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip9.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem13});
+            this.menuStrip9.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip9.Name = "menuStrip9";
+            this.menuStrip9.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.menuStrip9.Size = new System.Drawing.Size(845, 25);
+            this.menuStrip9.TabIndex = 55;
+            this.menuStrip9.Text = "menuStrip9";
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem15});
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(37, 19);
+            this.toolStripMenuItem13.Text = "File";
+            // 
+            // toolStripMenuItem15
+            // 
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem15.Text = "Save CSO";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtCSO1);
+            this.groupBox4.Controls.Add(this.label29);
+            this.groupBox4.Controls.Add(this.label26);
+            this.groupBox4.Controls.Add(this.txtCSO2);
+            this.groupBox4.Controls.Add(this.txtCSO4);
+            this.groupBox4.Controls.Add(this.label28);
+            this.groupBox4.Controls.Add(this.label27);
+            this.groupBox4.Controls.Add(this.txtCSO3);
+            this.groupBox4.Location = new System.Drawing.Point(27, 102);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(237, 161);
+            this.groupBox4.TabIndex = 54;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "CSO";
+            // 
+            // txtCSO1
+            // 
+            this.txtCSO1.Location = new System.Drawing.Point(41, 26);
+            this.txtCSO1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCSO1.Name = "txtCSO1";
+            this.txtCSO1.Size = new System.Drawing.Size(159, 21);
+            this.txtCSO1.TabIndex = 42;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(13, 28);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(14, 15);
+            this.label29.TabIndex = 43;
+            this.label29.Text = "1";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(13, 118);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(14, 15);
+            this.label26.TabIndex = 49;
+            this.label26.Text = "4";
+            // 
+            // txtCSO2
+            // 
+            this.txtCSO2.Location = new System.Drawing.Point(41, 56);
+            this.txtCSO2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCSO2.Name = "txtCSO2";
+            this.txtCSO2.Size = new System.Drawing.Size(159, 21);
+            this.txtCSO2.TabIndex = 44;
+            // 
+            // txtCSO4
+            // 
+            this.txtCSO4.Location = new System.Drawing.Point(41, 116);
+            this.txtCSO4.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCSO4.Name = "txtCSO4";
+            this.txtCSO4.Size = new System.Drawing.Size(159, 21);
+            this.txtCSO4.TabIndex = 48;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(13, 58);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(14, 15);
+            this.label28.TabIndex = 45;
+            this.label28.Text = "2";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(13, 88);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(14, 15);
+            this.label27.TabIndex = 47;
+            this.label27.Text = "3";
+            // 
+            // txtCSO3
+            // 
+            this.txtCSO3.Location = new System.Drawing.Point(41, 86);
+            this.txtCSO3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCSO3.Name = "txtCSO3";
+            this.txtCSO3.Size = new System.Drawing.Size(159, 21);
+            this.txtCSO3.TabIndex = 46;
             // 
             // tabPage4
             // 
@@ -960,7 +1095,7 @@ namespace XVReborn
             // saveCSOFileToolStripMenuItem
             // 
             this.saveCSOFileToolStripMenuItem.Name = "saveCSOFileToolStripMenuItem";
-            this.saveCSOFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveCSOFileToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveCSOFileToolStripMenuItem.Text = "Save PSC File";
             this.saveCSOFileToolStripMenuItem.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -1163,7 +1298,7 @@ namespace XVReborn
             // toolStripMenuItem21
             // 
             this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(123, 22);
             this.toolStripMenuItem21.Text = "Save CUS";
             this.toolStripMenuItem21.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -1440,14 +1575,14 @@ namespace XVReborn
             // addAuraToolStripMenuItem
             // 
             this.addAuraToolStripMenuItem.Name = "addAuraToolStripMenuItem";
-            this.addAuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addAuraToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.addAuraToolStripMenuItem.Text = "Add Aura";
             this.addAuraToolStripMenuItem.Click += new System.EventHandler(this.addAuraToolStripMenuItem_Click);
             // 
             // removeAuraToolStripMenuItem
             // 
             this.removeAuraToolStripMenuItem.Name = "removeAuraToolStripMenuItem";
-            this.removeAuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeAuraToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.removeAuraToolStripMenuItem.Text = "Remove Aura";
             this.removeAuraToolStripMenuItem.Click += new System.EventHandler(this.removeAuraToolStripMenuItem_Click);
             // 
@@ -2096,7 +2231,7 @@ namespace XVReborn
             this.extraToolStripMenuItem,
             this.materialToolStripMenuItem});
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.openToolStripMenuItem1.Text = "Load IDB";
             // 
             // talismanToolStripMenuItem
@@ -2207,7 +2342,7 @@ namespace XVReborn
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(121, 22);
             this.toolStripMenuItem9.Text = "Save IDB";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
@@ -2225,28 +2360,28 @@ namespace XVReborn
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.addToolStripMenuItem.Text = "Add/Import";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.IDBaddToolStripMenuItem_Click);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(156, 22);
             this.toolStripMenuItem12.Text = "Remove";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.IDBremoveToolStripMenuItem_Click);
             // 
             // replaceImportToolStripMenuItem
             // 
             this.replaceImportToolStripMenuItem.Name = "replaceImportToolStripMenuItem";
-            this.replaceImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.replaceImportToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.replaceImportToolStripMenuItem.Text = "Replace/Import";
             this.replaceImportToolStripMenuItem.Click += new System.EventHandler(this.replaceImportToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem1
             // 
             this.exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
-            this.exportToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.exportToolStripMenuItem1.Text = "Export";
             this.exportToolStripMenuItem1.Click += new System.EventHandler(this.exportToolStripMenuItem1_Click);
             // 
@@ -2265,7 +2400,7 @@ namespace XVReborn
             this.nameToolStripMenuItem,
             this.descriptionToolStripMenuItem});
             this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
-            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.addNewToolStripMenuItem.Text = "Name";
             // 
             // nameToolStripMenuItem
@@ -2288,7 +2423,7 @@ namespace XVReborn
             this.nameToolStripMenuItem1,
             this.descriptionToolStripMenuItem1});
             this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
-            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.removeToolStripMenuItem1.Text = "Description";
             // 
             // nameToolStripMenuItem1
@@ -2355,133 +2490,57 @@ namespace XVReborn
             this.cbCostumes.TabIndex = 7;
             this.cbCostumes.SelectedIndexChanged += new System.EventHandler(this.cbCostumes_SelectedIndexChanged);
             // 
-            // tabPage13
+            // fileToolStripMenuItem
             // 
-            this.tabPage13.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage13.Controls.Add(this.menuStrip9);
-            this.tabPage13.Controls.Add(this.groupBox4);
-            this.tabPage13.Location = new System.Drawing.Point(4, 24);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(851, 403);
-            this.tabPage13.TabIndex = 11;
-            this.tabPage13.Text = "CSO";
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.installModsToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // groupBox4
+            // toolsToolStripMenuItem
             // 
-            this.groupBox4.Controls.Add(this.txtCSO1);
-            this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.txtCSO2);
-            this.groupBox4.Controls.Add(this.txtCSO4);
-            this.groupBox4.Controls.Add(this.label28);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.txtCSO3);
-            this.groupBox4.Location = new System.Drawing.Point(27, 102);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(237, 161);
-            this.groupBox4.TabIndex = 54;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "CSO";
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.compileScriptsToolStripMenuItem1,
+            this.editCharalistFileToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.clearInstallationToolStripMenuItem1});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
             // 
-            // txtCSO1
+            // compileScriptsToolStripMenuItem1
             // 
-            this.txtCSO1.Location = new System.Drawing.Point(41, 26);
-            this.txtCSO1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCSO1.Name = "txtCSO1";
-            this.txtCSO1.Size = new System.Drawing.Size(159, 21);
-            this.txtCSO1.TabIndex = 42;
+            this.compileScriptsToolStripMenuItem1.Name = "compileScriptsToolStripMenuItem1";
+            this.compileScriptsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.compileScriptsToolStripMenuItem1.Text = "Compile Scripts";
+            this.compileScriptsToolStripMenuItem1.Click += new System.EventHandler(this.compileScriptsToolStripMenuItem_Click);
             // 
-            // label29
+            // installModsToolStripMenuItem
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(13, 28);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(14, 15);
-            this.label29.TabIndex = 43;
-            this.label29.Text = "1";
+            this.installModsToolStripMenuItem.Name = "installModsToolStripMenuItem";
+            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.installModsToolStripMenuItem.Text = "Install Mods";
+            this.installModsToolStripMenuItem.Click += new System.EventHandler(this.installmod);
             // 
-            // label26
+            // toolStripSeparator3
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(13, 118);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(14, 15);
-            this.label26.TabIndex = 49;
-            this.label26.Text = "4";
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
-            // txtCSO2
+            // editCharalistFileToolStripMenuItem
             // 
-            this.txtCSO2.Location = new System.Drawing.Point(41, 56);
-            this.txtCSO2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCSO2.Name = "txtCSO2";
-            this.txtCSO2.Size = new System.Drawing.Size(159, 21);
-            this.txtCSO2.TabIndex = 44;
+            this.editCharalistFileToolStripMenuItem.Name = "editCharalistFileToolStripMenuItem";
+            this.editCharalistFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCharalistFileToolStripMenuItem.Text = "Edit Charalist File";
+            this.editCharalistFileToolStripMenuItem.Click += new System.EventHandler(this.editCSSFileToolStripMenuItem_Click);
             // 
-            // txtCSO4
+            // clearInstallationToolStripMenuItem1
             // 
-            this.txtCSO4.Location = new System.Drawing.Point(41, 116);
-            this.txtCSO4.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCSO4.Name = "txtCSO4";
-            this.txtCSO4.Size = new System.Drawing.Size(159, 21);
-            this.txtCSO4.TabIndex = 48;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(13, 58);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(14, 15);
-            this.label28.TabIndex = 45;
-            this.label28.Text = "2";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(13, 88);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(14, 15);
-            this.label27.TabIndex = 47;
-            this.label27.Text = "3";
-            // 
-            // txtCSO3
-            // 
-            this.txtCSO3.Location = new System.Drawing.Point(41, 86);
-            this.txtCSO3.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCSO3.Name = "txtCSO3";
-            this.txtCSO3.Size = new System.Drawing.Size(159, 21);
-            this.txtCSO3.TabIndex = 46;
-            // 
-            // menuStrip9
-            // 
-            this.menuStrip9.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip9.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem13});
-            this.menuStrip9.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip9.Name = "menuStrip9";
-            this.menuStrip9.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip9.Size = new System.Drawing.Size(845, 25);
-            this.menuStrip9.TabIndex = 55;
-            this.menuStrip9.Text = "menuStrip9";
-            // 
-            // toolStripMenuItem13
-            // 
-            this.toolStripMenuItem13.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem15});
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(37, 19);
-            this.toolStripMenuItem13.Text = "File";
-            // 
-            // toolStripMenuItem15
-            // 
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem15.Text = "Save CSO";
-            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            this.clearInstallationToolStripMenuItem1.Name = "clearInstallationToolStripMenuItem1";
+            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clearInstallationToolStripMenuItem1.Text = "Clear Installation";
+            this.clearInstallationToolStripMenuItem1.Click += new System.EventHandler(this.clearInstallationToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -2492,17 +2551,17 @@ namespace XVReborn
             this.Controls.Add(this.cbCharacter);
             this.Controls.Add(this.Mods);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.MainMenuStrip);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.MainMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "XVReborn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MainMenuStrip.ResumeLayout(false);
+            this.MainMenuStrip.PerformLayout();
             this.Mods.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -2517,6 +2576,12 @@ namespace XVReborn
             this.groupBox2.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            this.tabPage13.ResumeLayout(false);
+            this.tabPage13.PerformLayout();
+            this.menuStrip9.ResumeLayout(false);
+            this.menuStrip9.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -2551,19 +2616,13 @@ namespace XVReborn
             this.tabPage12.PerformLayout();
             this.menuStrip8.ResumeLayout(false);
             this.menuStrip8.PerformLayout();
-            this.tabPage13.ResumeLayout(false);
-            this.tabPage13.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.menuStrip9.ResumeLayout(false);
-            this.menuStrip9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem22;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem installModToolStripMenuItem;
@@ -2799,5 +2858,12 @@ namespace XVReborn
         private Label label28;
         private Label label27;
         private TextBox txtCSO3;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem installModsToolStripMenuItem;
+        private ToolStripMenuItem toolsToolStripMenuItem;
+        private ToolStripMenuItem compileScriptsToolStripMenuItem1;
+        private ToolStripMenuItem editCharalistFileToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem clearInstallationToolStripMenuItem1;
     }
 }
