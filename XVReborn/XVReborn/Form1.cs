@@ -17,40 +17,9 @@ using XVReborn.Properties;
 
 namespace XVReborn
 {
-    struct Aura
-    {
-        public int[] Color;
-    }
-
-    struct Charlisting
-    {
-        public int Name;
-        public int Costume;
-        public int ID;
-        public bool inf;
-    }
-
-    struct CharName
-    {
-        public int ID;
-        public string Name;
-
-        public CharName(int i, string n)
-        {
-            ID = i;
-            Name = n;
-        }
-    }
 
     public partial class Form1 : Form
     {
-        public class DraggableButton : Button
-        {
-            public DraggableButton()
-            {
-                this.AllowDrop = true;
-            }
-        }
 
         string AURFileName;
         Aura[] Auras;
@@ -557,7 +526,7 @@ namespace XVReborn
                                         if (!parseSuccess)
                                         {
                                             // Gestisci il caso in cui la conversione non riesce, ad esempio, fornisci un valore predefinito o mostra un messaggio di errore.
-                                            MessageBox.Show("AUR_GLARE value not recognized", "Error", MessageBoxButtons.OK);
+                                            MessageBox.Show("AUR_ID value not recognized", "Error", MessageBoxButtons.OK);
                                             return;
                                         }
                                     }
@@ -722,7 +691,6 @@ namespace XVReborn
                                         bool parseSuccess = Int16.TryParse(reader.GetAttribute("value").Trim(), out VOX_1);
                                         if (!parseSuccess)
                                         {
-                                            // Gestisci il caso in cui la conversione non riesce, ad esempio, fornisci un valore predefinito o mostra un messaggio di errore.
                                             MessageBox.Show("VOX_1 value not recognized", "Error", MessageBoxButtons.OK);
                                             return;
                                         }
@@ -735,7 +703,6 @@ namespace XVReborn
                                         bool parseSuccess = Int16.TryParse(reader.GetAttribute("value").Trim(), out VOX_2);
                                         if (!parseSuccess)
                                         {
-                                            // Gestisci il caso in cui la conversione non riesce, ad esempio, fornisci un valore predefinito o mostra un messaggio di errore.
                                             MessageBox.Show("VOX_2 value not recognized", "Error", MessageBoxButtons.OK);
                                             return;
                                         }
@@ -1265,58 +1232,6 @@ namespace XVReborn
             MessageBox.Show("CUS File Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void editCUSFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"CUSXMLSerializer.exe custom_skill.cus");
-                }
-            }
-
-            p.WaitForExit();
-
-            Process p2 = Process.Start(Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml");
-
-            p2.WaitForExit();
-
-            p.Start();
-
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    const string quote = "\"";
-
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"CUSXMLSerializer.exe " + quote + Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml" + quote);
-                }
-            }
-
-            p.WaitForExit();
-
-            MessageBox.Show("CUS File Compiled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (File.Exists(Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml"))
-            {
-                File.Delete(Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml");
-            }
-
-            loadFiles();
-
-        }
 
         private void lstPSC_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1337,57 +1252,6 @@ namespace XVReborn
         {
             pFile.Save();
             MessageBox.Show("PSC File Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void editAURFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"AURXMLSerializer.exe aura_setting.aur");
-                }
-            }
-
-            p.WaitForExit();
-
-            Process p2 = Process.Start(Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml");
-
-            p2.WaitForExit();
-
-            p.Start();
-
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    const string quote = "\"";
-
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"AURXMLSerializer.exe " + quote + Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml" + quote);
-                }
-            }
-
-            p.WaitForExit();
-
-            MessageBox.Show("AUR File Compiled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (File.Exists(Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml"))
-            {
-                File.Delete(Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml");
-            }
-            loadFiles();
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1507,57 +1371,6 @@ namespace XVReborn
             Clean();
         }
 
-        private void editCMSFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"CMSXMLSerializer.exe char_model_spec.cms");
-                }
-            }
-
-            p.WaitForExit();
-
-            Process p2 = Process.Start(Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml");
-
-            p2.WaitForExit();
-
-            p.Start();
-
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    const string quote = "\"";
-
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"CMSXMLSerializer.exe " + quote + Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml" + quote);
-                }
-            }
-
-            p.WaitForExit();
-
-            MessageBox.Show("CMS File Compiled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (File.Exists(Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml"))
-            {
-                File.Delete(Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml");
-            }
-
-            loadFiles();
-        }
 
         private void saveCMSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1635,110 +1448,7 @@ namespace XVReborn
             return -1;
         }
 
-        private void editCSOFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
 
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"CSOXMLSerializer.exe chara_sound.cso");
-                }
-            }
-
-            p.WaitForExit();
-
-            Process p2 = Process.Start(Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml");
-
-            p2.WaitForExit();
-
-            p.Start();
-
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    const string quote = "\"";
-
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"CSOXMLSerializer.exe " + quote + Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml" + quote);
-                }
-            }
-
-            p.WaitForExit();
-
-            MessageBox.Show("CSO File Compiled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (File.Exists(Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml"))
-            {
-                File.Delete(Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml");
-            }
-
-            loadFiles();
-        }
-
-        private void editPSCFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"PSCXMLSerializer.exe parameter_spec_char.psc");
-                }
-            }
-
-            p.WaitForExit();
-
-            Process p2 = Process.Start(Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml");
-
-            p2.WaitForExit();
-
-            p.Start();
-
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    const string quote = "\"";
-
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\system");
-                    sw.WriteLine(@"PSCXMLSerializer.exe " + quote + Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml" + quote);
-                }
-            }
-
-            p.WaitForExit();
-
-            MessageBox.Show("PSC File Compiled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (File.Exists(Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml"))
-            {
-                File.Delete(Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml");
-            }
-
-            loadFiles();
-
-        }
 
         private void cbList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -3046,15 +2756,6 @@ namespace XVReborn
 
         }
 
-        private void editCSSFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process p2 = Process.Start(Properties.Settings.Default.datafolder + @"\scripts\action_script\Charalist.as");
-
-            p2.WaitForExit();
-
-            CompileScripts();
-            loadFiles();
-        }
 
         private void toolStripMenuItem15_Click(object sender, EventArgs e)
         {
