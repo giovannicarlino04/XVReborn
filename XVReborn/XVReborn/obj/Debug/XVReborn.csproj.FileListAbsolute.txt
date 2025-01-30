@@ -50,3 +50,7 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVRebor
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.csproj.Up2Date
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.exe
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.pdb
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\EffectData.xml
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe.config
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.pdb

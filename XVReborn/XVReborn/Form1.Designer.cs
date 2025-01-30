@@ -35,6 +35,8 @@ namespace XVReborn
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.installModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compileScriptsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -274,8 +276,6 @@ namespace XVReborn
             this.editPSCFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbCharacter = new System.Windows.Forms.ComboBox();
             this.cbCostumes = new System.Windows.Forms.ComboBox();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             this.Mods.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -334,9 +334,21 @@ namespace XVReborn
             // installModsToolStripMenuItem
             // 
             this.installModsToolStripMenuItem.Name = "installModsToolStripMenuItem";
-            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.installModsToolStripMenuItem.Text = "Install Mods";
             this.installModsToolStripMenuItem.Click += new System.EventHandler(this.installmod);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(135, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -351,19 +363,19 @@ namespace XVReborn
             // compileScriptsToolStripMenuItem1
             // 
             this.compileScriptsToolStripMenuItem1.Name = "compileScriptsToolStripMenuItem1";
-            this.compileScriptsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.compileScriptsToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.compileScriptsToolStripMenuItem1.Text = "Compile Scripts";
             this.compileScriptsToolStripMenuItem1.Click += new System.EventHandler(this.compileScriptsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
             // 
             // clearInstallationToolStripMenuItem1
             // 
             this.clearInstallationToolStripMenuItem1.Name = "clearInstallationToolStripMenuItem1";
-            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.clearInstallationToolStripMenuItem1.Text = "Clear Installation";
             this.clearInstallationToolStripMenuItem1.Click += new System.EventHandler(this.clearInstallationToolStripMenuItem_Click);
             // 
@@ -619,7 +631,7 @@ namespace XVReborn
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(126, 22);
             this.toolStripMenuItem3.Text = "Save MSG";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -635,14 +647,14 @@ namespace XVReborn
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(117, 22);
             this.toolStripMenuItem7.Text = "Add";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -658,7 +670,7 @@ namespace XVReborn
             // charactersToolStripMenuItem
             // 
             this.charactersToolStripMenuItem.Name = "charactersToolStripMenuItem";
-            this.charactersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.charactersToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.charactersToolStripMenuItem.Text = "Characters";
             this.charactersToolStripMenuItem.Click += new System.EventHandler(this.charactersToolStripMenuItem_Click);
             // 
@@ -672,7 +684,7 @@ namespace XVReborn
             this.ultimatesInfoToolStripMenuItem,
             this.evasivesInfoToolStripMenuItem});
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             // 
             // supersToolStripMenuItem
@@ -908,7 +920,7 @@ namespace XVReborn
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.saveToolStripMenuItem.Text = "Save CMS";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveCMSToolStripMenuItem_Click);
             // 
@@ -1345,7 +1357,7 @@ namespace XVReborn
             // toolStripMenuItem21
             // 
             this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(123, 22);
             this.toolStripMenuItem21.Text = "Save CUS";
             this.toolStripMenuItem21.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -1622,14 +1634,14 @@ namespace XVReborn
             // addAuraToolStripMenuItem
             // 
             this.addAuraToolStripMenuItem.Name = "addAuraToolStripMenuItem";
-            this.addAuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addAuraToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.addAuraToolStripMenuItem.Text = "Add Aura";
             this.addAuraToolStripMenuItem.Click += new System.EventHandler(this.addAuraToolStripMenuItem_Click);
             // 
             // removeAuraToolStripMenuItem
             // 
             this.removeAuraToolStripMenuItem.Name = "removeAuraToolStripMenuItem";
-            this.removeAuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeAuraToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.removeAuraToolStripMenuItem.Text = "Remove Aura";
             this.removeAuraToolStripMenuItem.Click += new System.EventHandler(this.removeAuraToolStripMenuItem_Click);
             // 
@@ -2278,13 +2290,13 @@ namespace XVReborn
             this.extraToolStripMenuItem,
             this.materialToolStripMenuItem});
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.openToolStripMenuItem1.Text = "Load IDB";
             // 
             // talismanToolStripMenuItem
             // 
             this.talismanToolStripMenuItem.Name = "talismanToolStripMenuItem";
-            this.talismanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.talismanToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.talismanToolStripMenuItem.Text = "Talisman";
             this.talismanToolStripMenuItem.Click += new System.EventHandler(this.talismanToolStripMenuItem_Click);
             // 
@@ -2295,7 +2307,7 @@ namespace XVReborn
             this.ultimatesToolStripMenuItem1,
             this.evasivesToolStripMenuItem1});
             this.skillToolStripMenuItem.Name = "skillToolStripMenuItem";
-            this.skillToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.skillToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.skillToolStripMenuItem.Text = "Skills";
             // 
             // supersToolStripMenuItem1
@@ -2322,14 +2334,14 @@ namespace XVReborn
             // accessoriesToolStripMenuItem
             // 
             this.accessoriesToolStripMenuItem.Name = "accessoriesToolStripMenuItem";
-            this.accessoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accessoriesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.accessoriesToolStripMenuItem.Text = "Accessories";
             this.accessoriesToolStripMenuItem.Click += new System.EventHandler(this.accessoriesToolStripMenuItem_Click);
             // 
             // battleToolStripMenuItem
             // 
             this.battleToolStripMenuItem.Name = "battleToolStripMenuItem";
-            this.battleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.battleToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.battleToolStripMenuItem.Text = "Battle";
             this.battleToolStripMenuItem.Click += new System.EventHandler(this.battleToolStripMenuItem_Click);
             // 
@@ -2341,7 +2353,7 @@ namespace XVReborn
             this.bottomToolStripMenuItem,
             this.shoesToolStripMenuItem});
             this.costumesToolStripMenuItem.Name = "costumesToolStripMenuItem";
-            this.costumesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.costumesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.costumesToolStripMenuItem.Text = "Costumes";
             // 
             // topToolStripMenuItem
@@ -2375,21 +2387,21 @@ namespace XVReborn
             // extraToolStripMenuItem
             // 
             this.extraToolStripMenuItem.Name = "extraToolStripMenuItem";
-            this.extraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.extraToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.extraToolStripMenuItem.Text = "Extra";
             this.extraToolStripMenuItem.Click += new System.EventHandler(this.extraToolStripMenuItem_Click);
             // 
             // materialToolStripMenuItem
             // 
             this.materialToolStripMenuItem.Name = "materialToolStripMenuItem";
-            this.materialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.materialToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.materialToolStripMenuItem.Text = "Material";
             this.materialToolStripMenuItem.Click += new System.EventHandler(this.materialToolStripMenuItem_Click);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(121, 22);
             this.toolStripMenuItem9.Text = "Save IDB";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
@@ -2407,28 +2419,28 @@ namespace XVReborn
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.addToolStripMenuItem.Text = "Add/Import";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.IDBaddToolStripMenuItem_Click);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(156, 22);
             this.toolStripMenuItem12.Text = "Remove";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.IDBremoveToolStripMenuItem_Click);
             // 
             // replaceImportToolStripMenuItem
             // 
             this.replaceImportToolStripMenuItem.Name = "replaceImportToolStripMenuItem";
-            this.replaceImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.replaceImportToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.replaceImportToolStripMenuItem.Text = "Replace/Import";
             this.replaceImportToolStripMenuItem.Click += new System.EventHandler(this.replaceImportToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem1
             // 
             this.exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
-            this.exportToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.exportToolStripMenuItem1.Text = "Export";
             this.exportToolStripMenuItem1.Click += new System.EventHandler(this.exportToolStripMenuItem1_Click);
             // 
@@ -2447,7 +2459,7 @@ namespace XVReborn
             this.nameToolStripMenuItem,
             this.descriptionToolStripMenuItem});
             this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
-            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.addNewToolStripMenuItem.Text = "Name";
             // 
             // nameToolStripMenuItem
@@ -2470,7 +2482,7 @@ namespace XVReborn
             this.nameToolStripMenuItem1,
             this.descriptionToolStripMenuItem1});
             this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
-            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.removeToolStripMenuItem1.Text = "Description";
             // 
             // nameToolStripMenuItem1
@@ -2535,18 +2547,6 @@ namespace XVReborn
             this.cbCostumes.Size = new System.Drawing.Size(170, 23);
             this.cbCostumes.TabIndex = 7;
             this.cbCostumes.SelectedIndexChanged += new System.EventHandler(this.cbCostumes_SelectedIndexChanged);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // Form1
             // 

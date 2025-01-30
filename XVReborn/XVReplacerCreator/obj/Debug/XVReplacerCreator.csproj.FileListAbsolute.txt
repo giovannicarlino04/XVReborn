@@ -38,3 +38,7 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debu
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.AssemblyInfo.cs
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.csproj.CoreCompileInputs.cache
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.genruntimeconfig.cache
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.exe
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.dll

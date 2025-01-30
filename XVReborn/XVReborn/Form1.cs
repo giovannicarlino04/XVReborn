@@ -1,4 +1,5 @@
 ﻿using FreeImageAPI;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
@@ -135,7 +137,9 @@ namespace XVReborn
                 var myAssembly = Assembly.GetExecutingAssembly();
                 var myStream = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.CHARA01.zip");
                 ZipArchive archive = new ZipArchive(myStream);
-                archive.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\ui\texture"));
+
+                if(!File.Exists(Path.Combine(Settings.Default.datafolder + @"\ui\texture\CHARA01.emb")))
+                    archive.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\ui\texture"));
 
                 Process p = new Process();
                 ProcessStartInfo info = new ProcessStartInfo();
@@ -329,6 +333,9 @@ namespace XVReborn
 
             //Load the default idb file
             loadidbfile("talisman", Settings.Default.datafolder + @"/system/item/talisman_item.idb");
+
+
+
         }
         private void CompileScripts()
         {
