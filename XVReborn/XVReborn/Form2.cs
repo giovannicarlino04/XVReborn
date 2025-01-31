@@ -1,6 +1,7 @@
 ﻿using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using static XVReborn.Xenoverse;
 
 namespace XVReborn
 {
@@ -11,55 +12,39 @@ namespace XVReborn
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SetLanguage()
         {
-            if (checkBox1.Checked)
+            var languageMap = new Dictionary<CheckBox, string>
             {
-                Properties.Settings.Default.language = "ca";
-                this.Close();
-            }
-            else if (checkBox2.Checked)
+                { checkBox1, Language.Catalan },
+                { checkBox2, Language.German },
+                { checkBox3, Language.English },
+                { checkBox4, Language.Spanish },
+                { checkBox5, Language.French },
+                { checkBox6, Language.Italian },
+                { checkBox7, Language.Polish },
+                { checkBox8, Language.Portuguese },
+                { checkBox9, Language.Russian }
+            };
+
+            foreach (var entry in languageMap)
             {
-                Properties.Settings.Default.language = "de";
-                this.Close();
-            }
-            else if (checkBox3.Checked)
-            {
-                Properties.Settings.Default.language = "en";
-                this.Close();
-            }
-            else if (checkBox4.Checked)
-            {
-                Properties.Settings.Default.language = "es";
-                this.Close();
-            }
-            else if (checkBox5.Checked)
-            {
-                Properties.Settings.Default.language = "fr";
-                this.Close();
-            }
-            else if (checkBox6.Checked)
-            {
-                Properties.Settings.Default.language = "it";
-                this.Close();
-            }
-            else if (checkBox7.Checked)
-            {
-                Properties.Settings.Default.language = "pl";
-                this.Close();
-            }
-            else if (checkBox8.Checked)
-            {
-                Properties.Settings.Default.language = "pt";
-                this.Close();
-            }
-            else if (checkBox9.Checked)
-            {
-                Properties.Settings.Default.language = "ru";
-                this.Close();
+                if (entry.Key.Checked)
+                {
+                    Properties.Settings.Default.language = entry.Value;
+                    Properties.Settings.Default.Save(); // Salva subito dopo aver impostato
+                    this.Close();
+                    return; // Uscire subito dalla funzione
+                }
             }
 
-            Properties.Settings.Default.Save();
+            // Se nessuna lingua è selezionata, mostra un messaggio all'utente
+            MessageBox.Show("Please select a language", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SetLanguage();
         }
     }
 }
