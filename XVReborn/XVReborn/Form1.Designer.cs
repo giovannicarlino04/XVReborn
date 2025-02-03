@@ -129,7 +129,6 @@ namespace XVReborn
             this.compileScriptsToolStripMenuItem1.Name = "compileScriptsToolStripMenuItem1";
             this.compileScriptsToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.compileScriptsToolStripMenuItem1.Text = "Compile Scripts";
-            this.compileScriptsToolStripMenuItem1.Click += new System.EventHandler(this.compileScriptsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -187,7 +186,6 @@ namespace XVReborn
             this.compileScriptsToolStripMenuItem.Name = "compileScriptsToolStripMenuItem";
             this.compileScriptsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.compileScriptsToolStripMenuItem.Text = "Compile Scripts";
-            this.compileScriptsToolStripMenuItem.Click += new System.EventHandler(this.compileScriptsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

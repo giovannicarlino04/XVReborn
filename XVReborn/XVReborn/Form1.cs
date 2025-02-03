@@ -42,7 +42,7 @@ namespace XVReborn
                 language = Settings.Default.language;
             }
 
-            if (Properties.Settings.Default.datafolder.Length == 0 || Properties.Settings.Default.flexsdkfolder.Length == 0)
+            if (Properties.Settings.Default.datafolder.Length == 0 )
             {
                 OpenFileDialog gameExe = new OpenFileDialog();
                 gameExe.Filter = "DBXV.exe|DBXV.exe";
@@ -55,9 +55,6 @@ namespace XVReborn
                     string dataPath = Path.GetDirectoryName(gameExe.FileName) + @"/data";
                     Directory.CreateDirectory(dataPath);
                     Settings.Default.datafolder = dataPath;
-
-                    string flexPath = Path.GetDirectoryName(mxmlcExe.FileName);
-                    Settings.Default.flexsdkfolder = flexPath;
 
                     Settings.Default.Save();
                 }
@@ -154,8 +151,8 @@ namespace XVReborn
                 var myAssembly = Assembly.GetExecutingAssembly();
 
                 var myStream = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.CHARASELE.zip");
-                var myStream3 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.STAGESELE.zip");
                 var myStream2 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.iggy_as3_test.zip");
+                var myStream3 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.XVP_SLOTS.zip");
 
                 ZipArchive archive = new ZipArchive(myStream);
                 ZipArchive archive2 = new ZipArchive(myStream2);
@@ -163,7 +160,9 @@ namespace XVReborn
 
                 archive.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\ui\iggy"));
                 archive2.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\ui\iggy"));
-                archive3.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\ui\iggy"));
+
+                if(!File.Exists(Settings.Default.datafolder + @"\ui\iggy\XVP_SLOTS.xs"))
+                     archive3.ExtractToDirectory(Path.Combine(Settings.Default.datafolder));
             }
 
             if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\msg"))
@@ -172,23 +171,6 @@ namespace XVReborn
                 var myStream = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.msg.zip");
                 ZipArchive archive = new ZipArchive(myStream);
                 archive.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\msg"));
-            }
-
-            if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\CHARASELE_scripts"))
-            {
-                var myAssembly = Assembly.GetExecutingAssembly();
-                var myStream = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.CHARASELE_scripts.zip");
-                ZipArchive archive = new ZipArchive(myStream);
-                archive.ExtractToDirectory(Settings.Default.datafolder);
-            }
-
-
-            if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\STAGESELE_scripts"))
-            {
-                var myAssembly = Assembly.GetExecutingAssembly();
-                var myStream = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.STAGESELE_scripts.zip");
-                ZipArchive archive = new ZipArchive(myStream);
-                archive.ExtractToDirectory(Settings.Default.datafolder);
             }
 
             if (Properties.Settings.Default.modlist.Contains("System.Object"))
@@ -302,143 +284,7 @@ namespace XVReborn
                 return;
             }
         }
-        private void compileScriptsToolStripMenuItem_Click(Object sender, EventArgs e)
-        {
-            CompileCHARASELE();
-            CompileSTAGESELE();
-        }
-        private void CompileSTAGESELE()
-        {
-            string dataFolder = Properties.Settings.Default.datafolder;
-            string scriptsPath = Path.Combine(dataFolder, "STAGESELE_scripts");
-            string mainTimelinePath = Path.Combine(scriptsPath, "STAGESELE_fla", "MainTimeline.as");
-            string flexSdkPath = Properties.Settings.Default.flexsdkfolder;
-            string iggyFolderPath = Path.Combine(dataFolder, "ui", "iggy");
-            string outputSwfPath = Path.Combine(iggyFolderPath, "STAGESELE.swf");
-
-            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe")
-            {
-                CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden,
-                RedirectStandardInput = true,
-                UseShellExecute = false
-            };
-
-            using (Process process = new Process { StartInfo = processStartInfo })
-            {
-                process.Start();
-                using (StreamWriter standardInput = process.StandardInput)
-                {
-                    if (standardInput.BaseStream.CanWrite)
-                    {
-                        // Compile script
-                        standardInput.WriteLine($"cd \"{flexSdkPath}\"");
-                        standardInput.WriteLine($"mxmlc -compiler.source-path=\"{scriptsPath}\" -omit-trace-statements=false \"{mainTimelinePath}\"");
-                    }
-                }
-                process.WaitForExit();
-
-            }
-
-            Directory.CreateDirectory(iggyFolderPath);
-
-            string compiledSwfPath = Path.Combine(scriptsPath, "STAGESELE_fla", "MainTimeline.swf");
-
-            if (File.Exists(outputSwfPath))
-            {
-                File.Delete(outputSwfPath);
-            }
-            if (File.Exists(compiledSwfPath))
-                File.Move(compiledSwfPath, outputSwfPath);
-            else
-                MessageBox.Show("Script Compilation Failed, Either messed up the scripts or you're missing JAVA 32-Bit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-            using (Process process = new Process { StartInfo = processStartInfo })
-            {
-                process.Start();
-                using (StreamWriter standardInput = process.StandardInput)
-                {
-                    if (standardInput.BaseStream.CanWrite)
-                    {
-                        standardInput.WriteLine($"cd \"{iggyFolderPath}\"");
-                        standardInput.WriteLine("iggy_as3_test.exe STAGESELE.swf");
-                    }
-                }
-                process.WaitForExit();
-            }
-
-            if (File.Exists(outputSwfPath))
-            {
-                File.Delete(outputSwfPath);
-            }
-        }
-        private void CompileCHARASELE()
-        {
-            string dataFolder = Properties.Settings.Default.datafolder;
-            string scriptsPath = Path.Combine(dataFolder, "CHARASELE_scripts");
-            string mainTimelinePath = Path.Combine(scriptsPath, "dlc3_CHARASELE_fla", "MainTimeline.as");
-            string flexSdkPath = Properties.Settings.Default.flexsdkfolder;
-            string iggyFolderPath = Path.Combine(dataFolder, "ui", "iggy");
-            string outputSwfPath = Path.Combine(iggyFolderPath, "CHARASELE.swf");
-
-            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe")
-            {
-                CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden,
-                RedirectStandardInput = true,
-                UseShellExecute = false
-            };
-
-            using (Process process = new Process { StartInfo = processStartInfo })
-            {
-                process.Start();
-                using (StreamWriter standardInput = process.StandardInput)
-                {
-                    if (standardInput.BaseStream.CanWrite)
-                    {
-                        // Compile script
-                        standardInput.WriteLine($"cd \"{flexSdkPath}\"");
-                        standardInput.WriteLine($"mxmlc -compiler.source-path=\"{scriptsPath}\" -omit-trace-statements=false \"{mainTimelinePath}\"");
-                    }
-                }
-                process.WaitForExit();
-
-            }
-            
-            Directory.CreateDirectory(iggyFolderPath);
-
-            string compiledSwfPath = Path.Combine(scriptsPath, "dlc3_CHARASELE_fla", "MainTimeline.swf");
-
-            if (File.Exists(outputSwfPath))
-            {
-                File.Delete(outputSwfPath);
-            }
-            if (File.Exists(compiledSwfPath))
-                File.Move(compiledSwfPath, outputSwfPath);
-            else
-                MessageBox.Show("Script Compilation Failed, Either messed up the scripts or you're missing JAVA 32-Bit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            using (Process process = new Process { StartInfo = processStartInfo })
-            {
-                process.Start();
-                using (StreamWriter standardInput = process.StandardInput)
-                {
-                    if (standardInput.BaseStream.CanWrite)
-                    {
-                        standardInput.WriteLine($"cd \"{iggyFolderPath}\"");
-                        standardInput.WriteLine("iggy_as3_test.exe CHARASELE.swf");
-                    }
-                }
-                process.WaitForExit();
-            }
-
-            if (File.Exists(outputSwfPath))
-            {
-                File.Delete(outputSwfPath);
-            }
-        }
-
+      
         private void saveLvItems()
         {
             Properties.Settings.Default.modlist = new StringCollection();
@@ -942,7 +788,7 @@ namespace XVReborn
 
                         foreach (string s in File.ReadAllLines(Charalist))
                         {
-                            text10.AppendLine(s.Replace("[[\"JCO\",0,0,0,[110,111]]]", "[[\"JCO\",0,0,0,[110,111]]],[[\"" + CMS_BCS + $"\",0,0,0,[{VOX_1},{VOX_2}]]]"));
+                            text10.AppendLine(s.Replace("{[\"JCO\",0,0,0,110,111]}", "{[\"JCO\",0,0,0,110,111]},{[\"" + CMS_BCS + $"\",0,0,0,{VOX_1},{VOX_2}]}}"));
                         }
 
                         using (var file1 = new StreamWriter(File.Create(Charalist)))
@@ -988,10 +834,7 @@ namespace XVReborn
                     }
                 }
             }
-            CompileCHARASELE();
-            CompileSTAGESELE();
             Clean();
-
         }
 
         public static void MergeDirectoriesWithConfirmation(string sourceDir, string destDir)
@@ -1058,8 +901,6 @@ namespace XVReborn
         {
             Form3 frm = new Form3();
             frm.ShowDialog();
-
-            CompileCHARASELE();
         }
     }
 }

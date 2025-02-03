@@ -173,9 +173,7 @@
     <EmbeddedResource Include="ZipFile_Blobs\XMLSerializer.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\iggy_as3_test.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\item.zip" />
-    <EmbeddedResource Include="ZipFile_Blobs\CHARASELE_scripts.zip" />
-    <EmbeddedResource Include="ZipFile_Blobs\STAGESELE.zip" />
-    <EmbeddedResource Include="ZipFile_Blobs\STAGESELE_scripts.zip" />
+    <EmbeddedResource Include="ZipFile_Blobs\XVP_SLOTS.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
