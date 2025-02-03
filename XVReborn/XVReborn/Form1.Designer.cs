@@ -39,7 +39,6 @@ namespace XVReborn
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCHARASELEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compileScriptsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.clearInstallationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,7 +109,6 @@ namespace XVReborn
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editCHARASELEToolStripMenuItem,
-            this.compileScriptsToolStripMenuItem1,
             this.toolStripSeparator3,
             this.clearInstallationToolStripMenuItem1});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
@@ -120,25 +118,19 @@ namespace XVReborn
             // editCHARASELEToolStripMenuItem
             // 
             this.editCHARASELEToolStripMenuItem.Name = "editCHARASELEToolStripMenuItem";
-            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCHARASELEToolStripMenuItem.Text = "Charalist Editor";
             this.editCHARASELEToolStripMenuItem.Click += new System.EventHandler(this.editCHARASELEToolStripMenuItem_Click);
-            // 
-            // compileScriptsToolStripMenuItem1
-            // 
-            this.compileScriptsToolStripMenuItem1.Name = "compileScriptsToolStripMenuItem1";
-            this.compileScriptsToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
-            this.compileScriptsToolStripMenuItem1.Text = "Compile Scripts";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // clearInstallationToolStripMenuItem1
             // 
             this.clearInstallationToolStripMenuItem1.Name = "clearInstallationToolStripMenuItem1";
-            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
+            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.clearInstallationToolStripMenuItem1.Text = "Clear Installation";
             this.clearInstallationToolStripMenuItem1.Click += new System.EventHandler(this.clearInstallationToolStripMenuItem_Click);
             // 
@@ -311,7 +303,6 @@ namespace XVReborn
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem installModsToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
-        private ToolStripMenuItem compileScriptsToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem clearInstallationToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator4;
