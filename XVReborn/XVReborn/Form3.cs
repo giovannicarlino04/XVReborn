@@ -175,6 +175,8 @@ namespace XVReborn
         }
         private List<string[]> ParseCharacterData(string characterDataString)
         {
+            characterDataString = characterDataString.Substring(2, characterDataString.Length - 4);
+
             if (string.IsNullOrEmpty(characterDataString)) return new List<string[]>();
 
             string[] characterDataBlocks = characterDataString.Split(new string[] { "}{" }, StringSplitOptions.None);

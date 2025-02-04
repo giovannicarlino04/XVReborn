@@ -263,6 +263,8 @@ namespace XVReborn
 
             if (Directory.Exists("./XVRebornTemp"))
                 Directory.Delete("./XVRebornTemp", true);
+            if (File.Exists(Settings.Default.datafolder + "\\x2m.xml"))
+                File.Delete(Settings.Default.datafolder + "\\x2m.xml");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -911,32 +913,31 @@ namespace XVReborn
             {
                 stream.Seek(6, SeekOrigin.Begin);
                 stream.WriteByte(0x48);
+                stream.Seek(24, SeekOrigin.Begin);
+                stream.WriteByte(0x48);
             }
+
+
+
             Console.WriteLine($"Processed {filePath} (BCS)");
         }
 
-        static void ProcessEMD(string filePath)
+        static void ChangeModelVer(string filePath)
         {
             using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite))
             using (var reader = new BinaryReader(stream))
             using (var writer = new BinaryWriter(stream))
             {
                 stream.Seek(8, SeekOrigin.Begin);
-                ushort version = reader.ReadUInt16();
-                if (version == 37508) // 0x9274
+                UInt32 version = reader.ReadUInt32();
+                if (version == 37508 || version == 37568) // 0x9274
                 {
                     stream.Seek(8, SeekOrigin.Begin);
-                    writer.Write((ushort)1);
-                    writer.Write((ushort)1);
+                    writer.Write(65537);
                     Console.WriteLine($"Processed {filePath} (EMD)");
                 }
             }
         }
-        static void ProcessEMB(string filePath)
-        {
-
-        }
-
 
         static void RunCommand(string command)
         {
@@ -994,10 +995,9 @@ namespace XVReborn
                 string ext = Path.GetExtension(file).ToLower();
                 if (ext == ".bcs")
                     ProcessBCS(file);
-                else if (ext == ".emd")
-                    ProcessEMD(file);
-                else if (file.ToLower().EndsWith(".dyt.emb")) // ✅ FIXED!
-                    ProcessEMB(file);
+                else if (ext == ".emd" || ext == ".emm" || ext == ".esk" || ext == ".ean")
+                    ChangeModelVer(file);
+
             }
         }
         private void installx2m(object sender, EventArgs e)
@@ -1006,7 +1006,7 @@ namespace XVReborn
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Install Mod";
             ofd.Filter = "Xenoverse 2 Mod Files (*.x2m)|*.x2m";
-            ofd.Multiselect = true;
+            ofd.Multiselect = false;  //Important
             ofd.CheckFileExists = true;
 
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -1490,15 +1490,18 @@ namespace XVReborn
 
 
 
+
                     File.Move(Settings.Default.datafolder + @"/ui/SEL.DDS", Settings.Default.datafolder + $"/ui/texture/CHARA01/{entryName}_000.DDS");
-                    if (File.Exists(xmlfile))
-                        File.Delete(xmlfile);
+
+                    RunCommand($"\"{embpackPath}\" \"{Settings.Default.datafolder}\\ui\\texture\\CHARA01\"");
                     string[] row = { charaNameEn, modAuthor, "Added Character" };
                     ListViewItem lvi = new ListViewItem(row);
                     lvMods.Items.Add(lvi);
                     saveLvItems();
+
                 }
             }
+            Clean();
         }
     }
 
