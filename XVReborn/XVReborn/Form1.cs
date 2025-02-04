@@ -47,10 +47,8 @@ namespace XVReborn
                 OpenFileDialog gameExe = new OpenFileDialog();
                 gameExe.Filter = "DBXV.exe|DBXV.exe";
 
-                OpenFileDialog mxmlcExe = new OpenFileDialog();
-                mxmlcExe.Filter = "mxmlc.exe|mxmlc.exe";
 
-                if (gameExe.ShowDialog() == DialogResult.OK && mxmlcExe.ShowDialog() == DialogResult.OK)
+                if (gameExe.ShowDialog() == DialogResult.OK)
                 {
                     string dataPath = Path.GetDirectoryName(gameExe.FileName) + @"/data";
                     Directory.CreateDirectory(dataPath);
@@ -151,15 +149,12 @@ namespace XVReborn
                 var myAssembly = Assembly.GetExecutingAssembly();
 
                 var myStream = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.CHARASELE.zip");
-                var myStream2 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.iggy_as3_test.zip");
                 var myStream3 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.XVP_SLOTS.zip");
 
                 ZipArchive archive = new ZipArchive(myStream);
-                ZipArchive archive2 = new ZipArchive(myStream2);
                 ZipArchive archive3 = new ZipArchive(myStream3);
 
                 archive.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\ui\iggy"));
-                archive2.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\ui\iggy"));
 
                 if(!File.Exists(Settings.Default.datafolder + @"\ui\iggy\XVP_SLOTS.xs"))
                      archive3.ExtractToDirectory(Path.Combine(Settings.Default.datafolder));
@@ -664,6 +659,34 @@ namespace XVReborn
                         cso.AddCharacter(characterData);
 
                         // CUS
+                        CharSkill skill = new CharSkill();
+                        skill.populateSkillData(Settings.Default.datafolder + @"/msg", Settings.Default.datafolder + @"/system/custom_skill.cus", language);
+
+                        if (!short.TryParse(CUS_SUPER_1, out short super1)) super1 = -1;
+                        if (!short.TryParse(CUS_SUPER_2, out short super2)) super2 = -1;
+                        if (!short.TryParse(CUS_SUPER_3, out short super3)) super3 = -1;
+                        if (!short.TryParse(CUS_SUPER_4, out short super4)) super4 = -1;
+                        if (!short.TryParse(CUS_ULTIMATE_1, out short ultimate1)) ultimate1 = -1;
+                        if (!short.TryParse(CUS_ULTIMATE_2, out short ultimate2)) ultimate2 = -1;
+                        if (!short.TryParse(CUS_EVASIVE, out short evasive)) evasive = -1;
+
+                        Char_Data newChar = new Char_Data
+                        {
+                            charID = CharID, // ID del personaggio
+                            CostumeID = 0, // ID del costume
+                            SuperIDs = new short[] { super1, super2, super3, super4 }, // Super attacchi
+                            UltimateIDs = new short[] { ultimate1, ultimate2 }, // Ultimate attacchi
+                            EvasiveID = evasive // Attacco evasivo
+                        };
+
+                        // Controlla se il file è stato caricato correttamente prima di aggiungere il personaggio
+                        if (skill.Chars != null)
+                        {
+                            skill.AddCharacter(newChar);
+                        }
+
+
+                        // AUR
                         Process p = new Process();
                         ProcessStartInfo info = new ProcessStartInfo();
                         info.FileName = "cmd.exe";
@@ -678,40 +701,7 @@ namespace XVReborn
                             if (sw.BaseStream.CanWrite)
                             {
                                 sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                                sw.WriteLine(@"CUSXMLSerializer.exe custom_skill.cus");
-                            }
-                        }
-                        p.WaitForExit();
-
-                        string cuspath = Settings.Default.datafolder + @"\system\custom_skill.cus.xml";
-                        string text4 = File.ReadAllText(cuspath);
-
-                        text4 = text4.Replace("  </Skillsets>", "    <Skillset Character_ID=\"" + CharID + $"\" Costume_Index=\"0\" Model_Preset=\"0\">\r\n      <SuperSkill1 ID1=\"{CUS_SUPER_1}\" />\r\n      <SuperSkill2 ID1=\"{CUS_SUPER_2}\" />\r\n      <SuperSkill3 ID1=\"{CUS_SUPER_3}\" />\r\n      <SuperSkill4 ID1=\"{CUS_SUPER_4}\" />\r\n      <UltimateSkill1 ID1=\"{CUS_ULTIMATE_1}\" />\r\n      <UltimateSkill2 ID1=\"{CUS_ULTIMATE_2}\" />\r\n      <EvasiveSkill ID1=\"{CUS_EVASIVE}\" />\r\n      <BlastType ID1=\"65535\" />\r\n      <AwokenSkill ID1=\"0\" />\r\n    </Skillset>\r\n  </Skillsets>");
-                        File.WriteAllText(cuspath, text4);
-
-                        p.Start();
-
-                        using (StreamWriter sw = p.StandardInput)
-                        {
-                            if (sw.BaseStream.CanWrite)
-                            {
-                                const string quote = "\"";
-
-                                sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                                sw.WriteLine(@"CUSXMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\custom_skill.cus.xml" + quote);
-                            }
-                        }
-
-                        p.WaitForExit();
-
-                        // AUR
-                        p.Start();
-                        using (StreamWriter sw = p.StandardInput)
-                        {
-                            if (sw.BaseStream.CanWrite)
-                            {
-                                sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                                sw.WriteLine(@"AURXMLSerializer.exe aura_setting.aur");
+                                sw.WriteLine(@"XMLSerializer.exe aura_setting.aur");
                             }
                         }
                         p.WaitForExit();
@@ -739,7 +729,7 @@ namespace XVReborn
                                 const string quote = "\"";
 
                                 sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                                sw.WriteLine(@"AURXMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\aura_setting.aur.xml" + quote);
+                                sw.WriteLine(@"XMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\aura_setting.aur.xml" + quote);
                             }
                         }
 
@@ -755,7 +745,7 @@ namespace XVReborn
                             if (sw.BaseStream.CanWrite)
                             {
                                 sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                                sw.WriteLine(@"PSCXMLSerializer.exe parameter_spec_char.psc");
+                                sw.WriteLine(@"XMLSerializer.exe parameter_spec_char.psc");
                             }
                         }
                         p.WaitForExit();
@@ -775,20 +765,20 @@ namespace XVReborn
                                 const string quote = "\"";
 
                                 sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                                sw.WriteLine(@"PSCXMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml" + quote);
+                                sw.WriteLine(@"XMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml" + quote);
                             }
                         }
 
                         p.WaitForExit();
                         //////
 
-                        string Charalist = Settings.Default.datafolder + @"\CHARASELE_scripts\action_script\Charalist.as";
+                        string Charalist = Settings.Default.datafolder + @"\XVP_SLOTS.xs";
 
                         var text10 = new StringBuilder();
 
                         foreach (string s in File.ReadAllLines(Charalist))
                         {
-                            text10.AppendLine(s.Replace("{[\"JCO\",0,0,0,110,111]}", "{[\"JCO\",0,0,0,110,111]},{[\"" + CMS_BCS + $"\",0,0,0,{VOX_1},{VOX_2}]}}"));
+                            text10.AppendLine(s.Replace("{[JCO,0,0,0,110,111]}", "{[JCO,0,0,0,110,111]}{[" + CMS_BCS + $",0,0,0,{VOX_1},{VOX_2}]}}"));
                         }
 
                         using (var file1 = new StreamWriter(File.Create(Charalist)))

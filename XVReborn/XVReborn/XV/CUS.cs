@@ -100,6 +100,43 @@ namespace XVReborn
 
             }
         }
+        public void AddCharacter(Char_Data newChar)
+        {
+            // Controlla se il personaggio esiste già
+            if (DataExist(newChar.charID, newChar.CostumeID) != -1)
+            {
+                Console.WriteLine("Character already exists!");
+                return;
+            }
+
+            // Aggiungi il nuovo personaggio all'array ridimensionandolo
+            Array.Resize(ref Chars, Chars.Length + 1);
+            Chars[Chars.Length - 1] = newChar;
+            CharCount++;
+
+            // Scrive il nuovo personaggio nel file binario
+            using (BinaryWriter CUS = new BinaryWriter(File.Open(FileName, FileMode.Open)))
+            {
+                // Aggiorna il contatore dei personaggi
+                CUS.BaseStream.Seek(8, SeekOrigin.Begin);
+                CUS.Write(CharCount);
+
+                // Scrive il nuovo personaggio alla fine della lista
+                int newOffset = CharAddress + ((CharCount - 1) * 32);
+                CUS.BaseStream.Seek(newOffset, SeekOrigin.Begin);
+                CUS.Write(newChar.charID);
+                CUS.Write(newChar.CostumeID);
+                CUS.Write(newChar.SuperIDs[0]);
+                CUS.Write(newChar.SuperIDs[1]);
+                CUS.Write(newChar.SuperIDs[2]);
+                CUS.Write(newChar.SuperIDs[3]);
+                CUS.Write(newChar.UltimateIDs[0]);
+                CUS.Write(newChar.UltimateIDs[1]);
+                CUS.Write(newChar.EvasiveID);
+            }
+
+            Console.WriteLine("Character added successfully.");
+        }
 
         public void Save()
         {

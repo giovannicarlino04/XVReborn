@@ -89,19 +89,19 @@ namespace XVReborn
             // installModsToolStripMenuItem
             // 
             this.installModsToolStripMenuItem.Name = "installModsToolStripMenuItem";
-            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.installModsToolStripMenuItem.Text = "Install Mods";
             this.installModsToolStripMenuItem.Click += new System.EventHandler(this.installmod);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(135, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -118,19 +118,19 @@ namespace XVReborn
             // editCHARASELEToolStripMenuItem
             // 
             this.editCHARASELEToolStripMenuItem.Name = "editCHARASELEToolStripMenuItem";
-            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.editCHARASELEToolStripMenuItem.Text = "Charalist Editor";
             this.editCHARASELEToolStripMenuItem.Click += new System.EventHandler(this.editCHARASELEToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
             // 
             // clearInstallationToolStripMenuItem1
             // 
             this.clearInstallationToolStripMenuItem1.Name = "clearInstallationToolStripMenuItem1";
-            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.clearInstallationToolStripMenuItem1.Text = "Clear Installation";
             this.clearInstallationToolStripMenuItem1.Click += new System.EventHandler(this.clearInstallationToolStripMenuItem_Click);
             // 

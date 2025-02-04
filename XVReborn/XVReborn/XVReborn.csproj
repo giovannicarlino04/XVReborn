@@ -171,7 +171,6 @@
     </Compile>
     <EmbeddedResource Include="ZipFile_Blobs\tmq_data.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\XMLSerializer.zip" />
-    <EmbeddedResource Include="ZipFile_Blobs\iggy_as3_test.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\item.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\XVP_SLOTS.zip" />
   </ItemGroup>
