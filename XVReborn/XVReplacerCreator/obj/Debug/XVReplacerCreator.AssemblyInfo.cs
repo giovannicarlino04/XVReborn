@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XVReplacerCreator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2059ce44fe033059b328da05a89370f0b030c1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b40ba5823bda608c876d8b71a70ee6149943766")]
 [assembly: System.Reflection.AssemblyProductAttribute("XVReplacerCreator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XVReplacerCreator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -34,6 +34,7 @@ namespace XVReborn
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.installModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +80,7 @@ namespace XVReborn
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.installModsToolStripMenuItem,
             this.toolStripSeparator4,
             this.exitToolStripMenuItem});
@@ -86,22 +88,29 @@ namespace XVReborn
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
+            this.toolStripMenuItem1.Text = "Install Mods";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.installmod);
+            // 
             // installModsToolStripMenuItem
             // 
             this.installModsToolStripMenuItem.Name = "installModsToolStripMenuItem";
-            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.installModsToolStripMenuItem.Text = "Install Mods";
-            this.installModsToolStripMenuItem.Click += new System.EventHandler(this.installmod);
+            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.installModsToolStripMenuItem.Text = "Install X2M (EXPERIMENTAL)";
+            this.installModsToolStripMenuItem.Click += new System.EventHandler(this.installx2m);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(222, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -312,5 +321,6 @@ namespace XVReborn
         private ColumnHeader ch2;
         private ColumnHeader ch3;
         private ToolStripMenuItem editCHARASELEToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
     }
 }

@@ -328,7 +328,7 @@ package action_script
          _loc7_ = 0;
          while(_loc10_ > _loc7_)
          {
-            _loc5_ = _loc5_.concat([[[InvalidCode,0,0,0]]]);
+            _loc5_.concat([[[InvalidCode,0,0,0]]]);
             _loc7_++;
          }
          return _loc5_;
@@ -424,12 +424,12 @@ package action_script
             return;
          }
 
-         m_chara_list = recieveList(); //Fixed to use only one parameter
+         m_chara_list = recieveList(); 
 		_loc14_ = 3 - m_chara_list.length % 3;
 		_loc2_ = 0;
 		while(_loc14_ > _loc2_)
 		{
-		   m_chara_list = m_chara_list.concat([[[InvalidCode,0,0,0]]]);
+		   m_chara_list.concat([[[InvalidCode,0,0,0]]]);
 		   _loc2_++;
 		}
 		m_chara_list_num = m_chara_list.length;
