@@ -55,3 +55,4 @@ D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe.config
 D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe
 D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.pdb
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Debug\XVReborn.Form3.resources
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\FreeImage.dll

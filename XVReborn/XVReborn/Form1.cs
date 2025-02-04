@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using XVReborn.Properties;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace XVReborn
 {
@@ -909,17 +910,83 @@ namespace XVReborn
 
         static void ProcessBCS(string filePath)
         {
-            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite))
+
+
+            Process p = new Process();
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.FileName = "cmd.exe";
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.RedirectStandardInput = true;
+            info.UseShellExecute = false;
+            p.StartInfo = info;
+            p.Start();
+            using (StreamWriter sw = p.StandardInput)
             {
-                stream.Seek(6, SeekOrigin.Begin);
-                stream.WriteByte(0x48);
-                stream.Seek(24, SeekOrigin.Begin);
-                stream.WriteByte(0x48);
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
+
+                }
+            }
+            p.WaitForExit();
+
+            string xmlPath = filePath + ".xml";
+            if (!File.Exists(xmlPath))
+            {
+                Console.WriteLine($"File not found: {xmlPath}");
+                return;
             }
 
+            // Carica il file XML
+            XDocument doc = XDocument.Load(xmlPath);
 
+            // Trova il nodo <BCS>
+            XElement bcsElement = doc.Root;
+            if (bcsElement == null || bcsElement.Name != "BCS")
+            {
+                Console.WriteLine("Invalid XML format: Missing <BCS> root element.");
+                return;
+            }
 
+            // Leggi l'attributo "Version"
+            XAttribute versionAttr = bcsElement.Attribute("Version");
+
+            if (versionAttr != null)
+            {
+                Console.WriteLine($"Current Version: {versionAttr.Value}");
+
+                // Modifica la versione da "XV2" a "XV1" se necessario
+                if (versionAttr.Value.Equals("XV2", StringComparison.OrdinalIgnoreCase))
+                {
+                    versionAttr.Value = "XV1";
+                    doc.Save(xmlPath);
+                    Console.WriteLine($"Version changed to: {versionAttr.Value}");
+                }
+                else
+                {
+                    Console.WriteLine("No changes needed.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Version attribute not found.");
+            }
+            p.Start();
+            using (StreamWriter sw = p.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + ".xml\"");
+
+                }
+            }
+            p.WaitForExit();
+            File.Delete(Path.GetFullPath(filePath) + ".xml");
             Console.WriteLine($"Processed {filePath} (BCS)");
+             
         }
 
         static void ChangeModelVer(string filePath)
@@ -934,11 +1001,199 @@ namespace XVReborn
                 {
                     stream.Seek(8, SeekOrigin.Begin);
                     writer.Write(65537);
-                    Console.WriteLine($"Processed {filePath} (EMD)");
+                    Console.WriteLine($"Processed {filePath}");
                 }
             }
         }
+        static void ChangeShaderHeader(string filePath)
+        {
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite))
+            using (var reader = new BinaryReader(stream))
+            using (var writer = new BinaryWriter(stream))
+            {
 
+                stream.Seek(6, SeekOrigin.Begin);
+                byte[] newHeader = { 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00 };
+                writer.Write(newHeader);
+
+                Console.WriteLine($"Processed {filePath}");
+            }
+        }
+        static void ChangeShaderVer(string filePath)
+        {
+
+
+            Process p = new Process();
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.FileName = "cmd.exe";
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.RedirectStandardInput = true;
+            info.UseShellExecute = false;
+            p.StartInfo = info;
+            p.Start();
+            using (StreamWriter sw = p.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
+
+                }
+            }
+            p.WaitForExit();
+
+            string xmlPath = filePath + ".xml";
+            if (!File.Exists(xmlPath))
+            {
+                Console.WriteLine($"File not found: {xmlPath}");
+                return;
+            }    // Cerca tutti i file .xml nella cartella
+
+            try
+            {
+                // Carica il file XML
+                XDocument doc = XDocument.Load(xmlPath);
+
+                // Trova il nodo <BCS>
+                XElement bcsElement = doc.Root;
+                if (bcsElement == null || bcsElement.Name != "EMM")
+                {
+                    Console.WriteLine("Invalid XML format: Missing <EMM> root element.");
+                    return;
+                }
+                // Leggi l'attributo "Version"
+                XAttribute versionAttr = bcsElement.Attribute("Version");
+
+                if (versionAttr != null)
+                {
+                    Console.WriteLine($"Current Version: {versionAttr.Value}");
+
+                    if (versionAttr.Value.Equals("37508", StringComparison.OrdinalIgnoreCase) || versionAttr.Value.Equals("37568", StringComparison.OrdinalIgnoreCase))
+                    {
+                        versionAttr.Value = "0";
+                        Console.WriteLine($"Version changed in: {xmlPath}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No changes needed.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Version attribute not found.");
+                }
+
+
+                // Salva il file modificato
+                doc.Save(xmlPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing {xmlPath}: {ex.Message}");
+            }
+         
+            p.Start();
+            using (StreamWriter sw = p.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + ".xml\"");
+
+                }
+            }
+            p.WaitForExit();
+            File.Delete(Path.GetFullPath(filePath) + ".xml");
+            Console.WriteLine($"Processed {filePath} (EMM)");
+
+        }
+        static void ChangeImageVer(string filePath)
+        {
+
+
+            Process p = new Process();
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.FileName = "cmd.exe";
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.RedirectStandardInput = true;
+            info.UseShellExecute = false;
+            p.StartInfo = info;
+            p.Start();
+            using (StreamWriter sw = p.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
+
+                }
+            }
+            p.WaitForExit();
+
+            string xmlPath = filePath + ".xml";
+            if (!File.Exists(xmlPath))
+            {
+                Console.WriteLine($"File not found: {xmlPath}");
+                return;
+            }    // Cerca tutti i file .xml nella cartella
+
+            try
+            {
+                // Carica il file XML
+                XDocument doc = XDocument.Load(xmlPath);
+
+                XElement bcsElement = doc.Root;
+                if (bcsElement == null || bcsElement.Name != "EMB_File")
+                {
+                    Console.WriteLine("Invalid XML format: Missing <EMB_File> root element.");
+                    return;
+                }
+                // Leggi l'attributo "Version"
+                XAttribute versionAttr = bcsElement.Attribute("I_08");
+
+                if (versionAttr != null)
+                {
+                    Console.WriteLine($"Current Version: {versionAttr.Value}");
+
+                    if (versionAttr.Value.Equals("37508", StringComparison.OrdinalIgnoreCase) || versionAttr.Value.Equals("37568", StringComparison.OrdinalIgnoreCase))
+                    {
+                        versionAttr.Value = "0";
+                        Console.WriteLine($"Version changed in: {xmlPath}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No changes needed.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Version attribute not found.");
+                }
+                // Salva il file modificato
+                doc.Save(xmlPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing {xmlPath}: {ex.Message}");
+            }
+
+            p.Start();
+            using (StreamWriter sw = p.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + ".xml\"");
+
+                }
+            }
+            p.WaitForExit();
+            File.Delete(Path.GetFullPath(filePath) + ".xml");
+            Console.WriteLine($"Processed {filePath} (EMM)");
+
+        }
         static void RunCommand(string command)
         {
             Process p = new Process();
@@ -992,12 +1247,26 @@ namespace XVReborn
 
             foreach (var file in Directory.GetFiles(folder, "*", SearchOption.AllDirectories))
             {
-                string ext = Path.GetExtension(file).ToLower();
-                if (ext == ".bcs")
-                    ProcessBCS(file);
-                else if (ext == ".emd" || ext == ".emm" || ext == ".esk" || ext == ".ean")
-                    ChangeModelVer(file);
+                switch (Path.GetExtension(file))
+                {
+                    case ".bcs":
+                        ProcessBCS(file);
+                        break;
+                    case ".emd":
+                        ChangeModelVer(file);
+                        break;
+                    case ".emm":
+                        ChangeShaderVer(file);
+                        ChangeShaderHeader(file);
+                        break;
+                    case ".dyt.emb":
+                        ChangeImageVer(file);
+                        break;
+                }
 
+
+                if (File.Exists(file + @".xml"))
+                    File.Delete(file + @".xml");
             }
         }
         private void installx2m(object sender, EventArgs e)
@@ -1006,7 +1275,7 @@ namespace XVReborn
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Install Mod";
             ofd.Filter = "Xenoverse 2 Mod Files (*.x2m)|*.x2m";
-            ofd.Multiselect = false;  //Important
+            ofd.Multiselect = true;  //Important
             ofd.CheckFileExists = true;
 
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -1417,91 +1686,111 @@ namespace XVReborn
                         Directory.CreateDirectory(Settings.Default.datafolder + @"/chara/");
                     Directory.Move(Settings.Default.datafolder + "/" + entryName, Settings.Default.datafolder + @"/chara/" + entryName);
 
-                    string extractFolder = Path.Combine(Properties.Settings.Default.datafolder, @"ui\texture");
-
-                    string embpackPath = Path.Combine(extractFolder, "embpack.exe");
-                    string ddsFolder = Path.Combine(Settings.Default.datafolder, "chara", entryName);
-                    string[] embFiles = Directory.GetFiles(ddsFolder, "*.dyt.emb", SearchOption.AllDirectories);
-
-                    // Check if the folder exists
-                    if (!Directory.Exists(ddsFolder))
-                    {
-                        Console.WriteLine($"❌ Folder not found: {ddsFolder}");
-                        return;
-                    }
-                    foreach(string embfile in embFiles)
-                    {
-                        RunCommand($"\"{embpackPath}\" \"{embfile}\"");
-                    }
-
-                    // Get all DDS files in the "chara/{entryName}" directory
-                    string[] ddsFiles = Directory.GetFiles(ddsFolder, "*.dds", SearchOption.AllDirectories);
-
-                    if (ddsFiles.Length == 0)
-                    {
-                        Console.WriteLine("❌ No DDS files found in the specified folder.");
-                        return;
-                    }
-
-                    // Group DDS files by their parent folder to process them together
-                    var groupedByFolder = new Dictionary<string, List<string>>();
-
-                    foreach (string ddsFile in ddsFiles)
-                    {
-                        string folder = Path.GetDirectoryName(ddsFile);
-                        if (!groupedByFolder.ContainsKey(folder))
-                        {
-                            groupedByFolder[folder] = new List<string>();
-                        }
-                        groupedByFolder[folder].Add(ddsFile);
-                    }
-
-                    // Process each group of DDS files in the same folder
-                    foreach (var group in groupedByFolder)
-                    {
-                        string folder = group.Key;
-                        List<string> ddsFilesInFolder = group.Value;
-
-                        Console.WriteLine($"Processing folder: {folder}");
-
-                        // Clean each DDS file in the folder
-                        foreach (string ddsFile in ddsFilesInFolder)
-                        {
-                            Console.WriteLine($"Cleaning DDS file: {ddsFile}");
-                            DDS.CleanDDSForXV1(ddsFile, ddsFile);
-                        }
-
-                        // Create the corresponding .emb file path by replacing the .dds extension with .emb
-                        // Prepend entryName to the emb file name
-                        string embFilePath = Path.Combine(folder, entryName.Substring(0, 3) + "_" + Path.GetFileNameWithoutExtension(ddsFilesInFolder[0]) + ".emb");
-
-                        // Ensure the directory for the .emb file exists
-                        if (!Directory.Exists(folder))
-                        {
-                            Console.WriteLine($"Directory does not exist for embFilePath: {folder}");
-                            continue;
-                        }
-
-                        // Run the packing command to pack the entire folder back into the .emb file
-                        RunCommand($"\"{embpackPath}\" \"{folder}\"");
-                        Directory.Delete(folder, true);
-                        Console.WriteLine($"Repacked files into: {embFilePath}");
-                    }
-
-
-
+                    string embpackPath = Path.Combine(Settings.Default.datafolder, @"ui\texture", "embpack.exe");
 
                     File.Move(Settings.Default.datafolder + @"/ui/SEL.DDS", Settings.Default.datafolder + $"/ui/texture/CHARA01/{entryName}_000.DDS");
-
+                    ConvertCharaEMB(entryName);
                     RunCommand($"\"{embpackPath}\" \"{Settings.Default.datafolder}\\ui\\texture\\CHARA01\"");
                     string[] row = { charaNameEn, modAuthor, "Added Character" };
                     ListViewItem lvi = new ListViewItem(row);
                     lvMods.Items.Add(lvi);
                     saveLvItems();
-
+                    Clean();
                 }
             }
-            Clean();
+        }
+        private void ConvertCharaEMB(string entryName)
+        {
+
+            string extractFolder = Path.Combine(Properties.Settings.Default.datafolder, @"ui\texture");
+
+            string embpackPath = Path.Combine(extractFolder, "embpack.exe");
+            string ddsFolder = Path.Combine(Settings.Default.datafolder, "chara", entryName);
+            string[] embFiles = Directory.GetFiles(ddsFolder, "*.dyt.emb", SearchOption.AllDirectories);
+            Console.WriteLine($"Found {embFiles.Length} EMB files in {ddsFolder}");
+
+
+            // Check if the folder exists
+            if (!Directory.Exists(ddsFolder))
+            {
+                Console.WriteLine($"Folder not found: {ddsFolder}");
+                return;
+            }
+            foreach (string embfile in embFiles)
+            {
+                RunCommand($"\"{embpackPath}\" \"{embfile}\"");
+            }
+
+            // Get all DDS files in the "chara/{entryName}" directory
+            string[] ddsFiles = Directory.GetFiles(ddsFolder, "*.dds", SearchOption.AllDirectories);
+
+            if (ddsFiles.Length == 0)
+            {
+                Console.WriteLine("No DDS files found in the specified folder.");
+                return;
+            }
+
+            // Group DDS files by their parent folder to process them together
+            var groupedByFolder = new Dictionary<string, List<string>>();
+
+            foreach (string ddsFile in ddsFiles)
+            {
+                string folder = Path.GetDirectoryName(ddsFile);
+                if (!groupedByFolder.ContainsKey(folder))
+                {
+                    groupedByFolder[folder] = new List<string>();
+                }
+                groupedByFolder[folder].Add(ddsFile);
+            }
+
+            // Process each group of DDS files in the same folder
+            foreach (var group in groupedByFolder)
+            {
+                string folder = group.Key;
+                List<string> ddsFilesInFolder = group.Value;
+
+                Console.WriteLine($"Processing folder: {folder}");
+
+                // Clean each DDS file in the folder
+                foreach (string ddsFile in ddsFilesInFolder)
+                {
+                    Console.WriteLine($"Cleaning DDS file: {ddsFile}");
+                    DDS.CleanDDSForXV1(ddsFile, ddsFile);
+                }
+
+                // Create the corresponding .emb file path by replacing the .dds extension with .emb
+                // Prepend entryName to the emb file name
+
+                // Ensure the directory for the .emb file exists
+                if (!Directory.Exists(folder))
+                {
+                    Console.WriteLine($"Directory does not exist for embFilePath: {folder}");
+                    continue;
+                }
+
+                // Run the packing command to pack the entire folder back into the .emb file
+                RunCommand($"\"{embpackPath}\" \"{folder}\"");
+//Directory.Delete(folder, true);
+            }
+
+
+
+        }
+        private void convertAllModelsToXV1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProcessFiles(Settings.Default.datafolder + @"/chara");
+            foreach(string entryName in Directory.GetDirectories(Settings.Default.datafolder + @"/chara"))
+                ConvertCharaEMB(entryName);
+            MessageBox.Show("Done!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void convertDDSToXV1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "*.dds|*.dds";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+                DDS.CleanDDSForXV1(ofd.FileName, ofd.FileName);
         }
     }
 
