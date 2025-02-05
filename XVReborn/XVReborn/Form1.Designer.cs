@@ -42,7 +42,6 @@ namespace XVReborn
             this.editCHARASELEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.convertAllModelsToXV1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.convertDDSToXV1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.clearInstallationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +63,7 @@ namespace XVReborn
             this.ch1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.removeEmptyEntriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +123,7 @@ namespace XVReborn
             this.editCHARASELEToolStripMenuItem,
             this.toolStripSeparator3,
             this.convertAllModelsToXV1ToolStripMenuItem,
-            this.convertDDSToXV1ToolStripMenuItem,
+            this.removeEmptyEntriesToolStripMenuItem,
             this.toolStripSeparator5,
             this.clearInstallationToolStripMenuItem1});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
@@ -133,38 +133,31 @@ namespace XVReborn
             // editCHARASELEToolStripMenuItem
             // 
             this.editCHARASELEToolStripMenuItem.Name = "editCHARASELEToolStripMenuItem";
-            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.editCHARASELEToolStripMenuItem.Text = "Charalist Editor";
             this.editCHARASELEToolStripMenuItem.Click += new System.EventHandler(this.editCHARASELEToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(189, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(195, 6);
             // 
             // convertAllModelsToXV1ToolStripMenuItem
             // 
             this.convertAllModelsToXV1ToolStripMenuItem.Name = "convertAllModelsToXV1ToolStripMenuItem";
-            this.convertAllModelsToXV1ToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.convertAllModelsToXV1ToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.convertAllModelsToXV1ToolStripMenuItem.Text = "Convert all files to XV1";
             this.convertAllModelsToXV1ToolStripMenuItem.Click += new System.EventHandler(this.convertAllModelsToXV1ToolStripMenuItem_Click);
-            // 
-            // convertDDSToXV1ToolStripMenuItem
-            // 
-            this.convertDDSToXV1ToolStripMenuItem.Name = "convertDDSToXV1ToolStripMenuItem";
-            this.convertDDSToXV1ToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.convertDDSToXV1ToolStripMenuItem.Text = "Convert DDS to XV1";
-            this.convertDDSToXV1ToolStripMenuItem.Click += new System.EventHandler(this.convertDDSToXV1ToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(189, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(195, 6);
             // 
             // clearInstallationToolStripMenuItem1
             // 
             this.clearInstallationToolStripMenuItem1.Name = "clearInstallationToolStripMenuItem1";
-            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
             this.clearInstallationToolStripMenuItem1.Text = "Clear Installation";
             this.clearInstallationToolStripMenuItem1.Click += new System.EventHandler(this.clearInstallationToolStripMenuItem_Click);
             // 
@@ -295,6 +288,13 @@ namespace XVReborn
             this.ch3.Text = "Type";
             this.ch3.Width = 591;
             // 
+            // removeEmptyEntriesToolStripMenuItem
+            // 
+            this.removeEmptyEntriesToolStripMenuItem.Name = "removeEmptyEntriesToolStripMenuItem";
+            this.removeEmptyEntriesToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.removeEmptyEntriesToolStripMenuItem.Text = "Remove unknown skills";
+            this.removeEmptyEntriesToolStripMenuItem.Click += new System.EventHandler(this.removeEmptyEntriesToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -349,6 +349,6 @@ namespace XVReborn
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem convertAllModelsToXV1ToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
-        private ToolStripMenuItem convertDDSToXV1ToolStripMenuItem;
+        private ToolStripMenuItem removeEmptyEntriesToolStripMenuItem;
     }
 }

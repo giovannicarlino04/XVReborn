@@ -1725,6 +1725,15 @@ namespace XVReborn
                     string embpackPath = Path.Combine(Settings.Default.datafolder, @"ui\texture", "embpack.exe");
 
                     File.Move(Settings.Default.datafolder + @"/ui/SEL.DDS", Settings.Default.datafolder + $"/ui/texture/CHARA01/{entryName}_000.DDS");
+                    if (Directory.Exists(Settings.Default.datafolder + @"/JUNGLE/data"))
+                    {
+                        MergeDirectoriesWithConfirmation(Settings.Default.datafolder + @"/JUNGLE/data", Settings.Default.datafolder);
+                        Directory.Delete(Settings.Default.datafolder + @"/JUNGLE", true);
+                    }
+                    if (Directory.Exists(Settings.Default.datafolder + @"/SKILL_ATACHMENT"))
+                        Directory.Delete(Settings.Default.datafolder + @"/SKILL_ATACHMENT", true);
+                    
+
                     ConvertCharaEMB(entryName);
                     RunCommand($"\"{embpackPath}\" \"{Settings.Default.datafolder}\\ui\\texture\\CHARA01\"");
                     string[] row = { charaNameEn, modAuthor, "Added Character" };
@@ -1827,6 +1836,15 @@ namespace XVReborn
 
             if (ofd.ShowDialog() == DialogResult.OK)
                 DDS.CleanDDSForXV1(ofd.FileName, ofd.FileName);
+        }
+
+        private void removeEmptyEntriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CharSkill skill = new CharSkill();
+            skill.populateSkillData(Settings.Default.datafolder + @"/msg", Settings.Default.datafolder + @"/system/custom_skill.cus", language);
+            skill.RemoveInvalidEntriesAndReplace();
+            skill.Save();
+
         }
     }
 

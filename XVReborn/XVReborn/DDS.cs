@@ -11,7 +11,7 @@ namespace XVReborn
             int blockSize = DetectDXTFormat(ddsData);
             if (blockSize == 0)
             {
-                Console.WriteLine("❌ Unsupported DDS format. Only DXT1 and DXT3 are supported.");
+                Console.WriteLine("❌ Unsupported DDS format. Only DXT1, DXT3, and DXT5 are supported.");
                 return;
             }
 
@@ -19,7 +19,10 @@ namespace XVReborn
                 (0, 4, 128, 4),
                 (0, 20, 128, 4),
                 (0, 36, 128, 4),
-                (0, 52, 128, 4)
+                (0, 52, 128, 4),
+                (0, 68, 128, 4),
+                (0, 84, 128, 4),
+                (0, 100, 128, 4)
             };
 
             foreach (var (startX, startY, regionWidth, regionHeight) in regions)
@@ -44,14 +47,15 @@ namespace XVReborn
         {
             const int DXT1 = 0x31545844; // "DXT1"
             const int DXT3 = 0x33545844; // "DXT3"
+            const int DXT5 = 0x35545844; // "DXT5"
             int format = BitConverter.ToInt32(ddsData, 84);
             switch (format)
             {
                 case DXT1: return 8;
                 case DXT3: return 16;
+                case DXT5: return 16; // DXT5 uses 16 bytes per block like DXT3
                 default: return 0;
             }
-
         }
 
         private static uint CalculateBlockOffset(uint blockX, uint blockY, int blockSize)
@@ -74,6 +78,16 @@ namespace XVReborn
                     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00  // Color data (black)
                 };
                 Array.Copy(blackBlockDXT3, 0, ddsData, blockOffset, 16);
+            }
+            else if (blockSize == 16) // Support for DXT5 as well
+            {
+                byte[] blackBlockDXT5 = new byte[16] {
+                    0x00, 0x00, 0x00, 0x00,  // Alpha ramp (fully transparent)
+                    0x00, 0x00, 0x00, 0x00,  // Alpha ramp (fully transparent)
+                    0x00, 0x00, 0x00, 0x00,  // Color data (black)
+                    0x00, 0x00, 0x00, 0x00   // Color data (black)
+                };
+                Array.Copy(blackBlockDXT5, 0, ddsData, blockOffset, 16);
             }
         }
     }
