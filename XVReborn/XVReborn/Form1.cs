@@ -1770,7 +1770,7 @@ namespace XVReborn
 
                 // Run the packing command to pack the entire folder back into the .emb file
                 RunCommand($"\"{embpackPath}\" \"{folder}\"");
-//Directory.Delete(folder, true);
+                Directory.Delete(folder, true);
             }
 
 
