@@ -137,6 +137,7 @@ namespace XVReborn
                 var myStream5 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.custom_skill.zip");
                 var myStream6 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.XMLSerializer.zip");
                 var myStream7 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.item.zip");
+                var myStream8 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.XV2CONV.zip");
 
                 ZipArchive archive = new ZipArchive(myStream);
                 ZipArchive archive2 = new ZipArchive(myStream2);
@@ -145,6 +146,7 @@ namespace XVReborn
                 ZipArchive archive5 = new ZipArchive(myStream5);
                 ZipArchive archive6 = new ZipArchive(myStream6);
                 ZipArchive archive7 = new ZipArchive(myStream7);
+                ZipArchive archive8 = new ZipArchive(myStream8);
 
                 archive.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
                 archive2.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
@@ -153,6 +155,7 @@ namespace XVReborn
                 archive5.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
                 archive6.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
                 archive7.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
+                archive8.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
             }
 
             if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\ui\iggy"))
@@ -997,7 +1000,7 @@ namespace XVReborn
             {
                 stream.Seek(8, SeekOrigin.Begin);
                 UInt32 version = reader.ReadUInt32();
-                if (version == 37508 || version == 37568) // 0x9274
+                if (version == 37507 || version == 37508 || version == 37568) // 0x9274
                 {
                     stream.Seek(8, SeekOrigin.Begin);
                     writer.Write(65537);
@@ -1194,6 +1197,33 @@ namespace XVReborn
             Console.WriteLine($"Processed {filePath} (EMM)");
 
         }
+        static void ProcessBAC(string filePath)
+        {
+
+
+            Process p = new Process();
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.FileName = "cmd.exe";
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.RedirectStandardInput = true;
+            info.UseShellExecute = false;
+            p.StartInfo = info;
+            p.Start();
+            using (StreamWriter sw = p.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                    sw.WriteLine("\"XV2Conv.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
+
+                }
+            }
+            p.WaitForExit();
+
+            Console.WriteLine($"Processed {filePath} (EMM)");
+
+        }
         static void RunCommand(string command)
         {
             Process p = new Process();
@@ -1252,7 +1282,13 @@ namespace XVReborn
                     case ".bcs":
                         ProcessBCS(file);
                         break;
+                    case ".bac":
+                    case ".bdm":
+                        ProcessBAC(file);
+                        break;
                     case ".emd":
+                    case ".esk":
+                    case ".ean":
                         ChangeModelVer(file);
                         break;
                     case ".emm":
