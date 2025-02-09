@@ -117,7 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DDS.cs" />
+    <Compile Include="XV\DDS.cs" />
     <Compile Include="Form3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +147,7 @@
     <Compile Include="XV\PSC.cs" />
     <Compile Include="SchemaBinary.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="XV\X2M.cs" />
     <Compile Include="XV\Xenoverse.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -189,7 +190,6 @@
     <EmbeddedResource Include="ZipFile_Blobs\XMLSerializer.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\item.zip" />
     <EmbeddedResource Include="ZipFile_Blobs\XVP_SLOTS.zip" />
-    <EmbeddedResource Include="ZipFile_Blobs\XV2CONV.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -225,6 +225,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

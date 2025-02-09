@@ -1,7 +1,10 @@
-﻿namespace XVCharaCreator
+﻿using System.Windows.Forms;
+
+namespace XVCharaCreator
 {
     partial class Form1
     {
+
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -30,24 +33,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
+
+
             fileToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem = new ToolStripMenuItem();
             buildXVModFileToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             sToolStripMenuItem = new ToolStripMenuItem();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            button2 = new Button();
             button1 = new Button();
+            textBox2 = new TextBox();
+            label30 = new Label();
             textBox1 = new TextBox();
             label27 = new Label();
             btnGenID = new Button();
             txtCharID = new TextBox();
             btnFolder = new Button();
             txtName = new TextBox();
-            txtVersion = new TextBox();
             txtAuthor = new TextBox();
             txtFolder = new TextBox();
             label3 = new Label();
-            label4 = new Label();
             label2 = new Label();
             label5 = new Label();
             label1 = new Label();
@@ -80,6 +87,10 @@
             txtCSO1 = new TextBox();
             label17 = new Label();
             tabPage5 = new TabPage();
+            label29 = new Label();
+            label28= new Label();
+            label26 = new Label();
+            label25 = new Label();
             label23 = new Label();
             label22 = new Label();
             label21 = new Label();
@@ -87,6 +98,10 @@
             label20 = new Label();
             label19 = new Label();
             label18 = new Label();
+            txtMSG2 = new TextBox();
+            txtMSG1 = new TextBox();
+            txtVOX1 = new TextBox();
+            txtVOX2 = new TextBox();
             cbEvasive = new ComboBox();
             cbUltimate2 = new ComboBox();
             cbSuper4 = new ComboBox();
@@ -96,15 +111,7 @@
             cbSuper1 = new ComboBox();
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
-            label26 = new Label();
-            label25 = new Label();
-            txtMSG2 = new TextBox();
-            txtMSG1 = new TextBox();
             tabPage8 = new TabPage();
-            txtVOX2 = new TextBox();
-            txtVOX1 = new TextBox();
-            label29 = new Label();
-            label28 = new Label();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -112,6 +119,7 @@
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
             tabPage5.SuspendLayout();
+            tabPage6.SuspendLayout();
             tabPage7.SuspendLayout();
             tabPage8.SuspendLayout();
             SuspendLayout();
@@ -121,16 +129,23 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(433, 24);
+            menuStrip1.Size = new Size(706, 24);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { buildXVModFileToolStripMenuItem, toolStripSeparator1, sToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, buildXVModFileToolStripMenuItem, toolStripSeparator1, sToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.Size = new Size(164, 22);
+            openToolStripMenuItem.Text = "Open";
+            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // buildXVModFileToolStripMenuItem
             // 
@@ -165,37 +180,48 @@
             tabControl1.Location = new Point(0, 24);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(433, 426);
+            tabControl1.Size = new Size(706, 678);
             tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
+            tabPage1.Controls.Add(button2);
             tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(label30);
             tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(label27);
             tabPage1.Controls.Add(btnGenID);
             tabPage1.Controls.Add(txtCharID);
             tabPage1.Controls.Add(btnFolder);
             tabPage1.Controls.Add(txtName);
-            tabPage1.Controls.Add(txtVersion);
             tabPage1.Controls.Add(txtAuthor);
             tabPage1.Controls.Add(txtFolder);
             tabPage1.Controls.Add(label3);
-            tabPage1.Controls.Add(label4);
             tabPage1.Controls.Add(label2);
             tabPage1.Controls.Add(label5);
             tabPage1.Controls.Add(label1);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(425, 398);
+            tabPage1.Size = new Size(698, 650);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Mod Info";
             // 
+            // button2
+            // 
+            button2.Location = new Point(318, 229);
+            button2.Name = "button2";
+            button2.Size = new Size(33, 23);
+            button2.TabIndex = 30;
+            button2.Text = "...";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += btnAdditionalFiles_Click;
+            // 
             // button1
             // 
-            button1.Location = new Point(316, 217);
+            button1.Location = new Point(317, 189);
             button1.Name = "button1";
             button1.Size = new Size(33, 23);
             button1.TabIndex = 30;
@@ -203,9 +229,25 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(142, 229);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(170, 23);
+            textBox2.TabIndex = 29;
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(29, 233);
+            label30.Name = "label30";
+            label30.Size = new Size(92, 15);
+            label30.TabIndex = 28;
+            label30.Text = "Additional Data:";
+            // 
             // textBox1
             // 
-            textBox1.Location = new Point(140, 217);
+            textBox1.Location = new Point(141, 189);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(170, 23);
             textBox1.TabIndex = 29;
@@ -213,7 +255,7 @@
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(27, 221);
+            label27.Location = new Point(28, 193);
             label27.Name = "label27";
             label27.Size = new Size(103, 15);
             label27.TabIndex = 28;
@@ -221,7 +263,7 @@
             // 
             // btnGenID
             // 
-            btnGenID.Location = new Point(212, 138);
+            btnGenID.Location = new Point(213, 110);
             btnGenID.Name = "btnGenID";
             btnGenID.Size = new Size(75, 23);
             btnGenID.TabIndex = 27;
@@ -232,7 +274,7 @@
             // txtCharID
             // 
             txtCharID.CharacterCasing = CharacterCasing.Upper;
-            txtCharID.Location = new Point(140, 138);
+            txtCharID.Location = new Point(141, 110);
             txtCharID.MaxLength = 3;
             txtCharID.Name = "txtCharID";
             txtCharID.Size = new Size(66, 23);
@@ -240,7 +282,7 @@
             // 
             // btnFolder
             // 
-            btnFolder.Location = new Point(316, 178);
+            btnFolder.Location = new Point(317, 150);
             btnFolder.Name = "btnFolder";
             btnFolder.Size = new Size(33, 23);
             btnFolder.TabIndex = 25;
@@ -255,14 +297,6 @@
             txtName.Size = new Size(170, 23);
             txtName.TabIndex = 21;
             // 
-            // txtVersion
-            // 
-            txtVersion.Location = new Point(141, 103);
-            txtVersion.Name = "txtVersion";
-            txtVersion.Size = new Size(170, 23);
-            txtVersion.TabIndex = 22;
-            txtVersion.KeyPress += txtVersion_KeyPress;
-            // 
             // txtAuthor
             // 
             txtAuthor.Location = new Point(141, 70);
@@ -272,7 +306,7 @@
             // 
             // txtFolder
             // 
-            txtFolder.Location = new Point(140, 178);
+            txtFolder.Location = new Point(141, 150);
             txtFolder.Name = "txtFolder";
             txtFolder.Size = new Size(170, 23);
             txtFolder.TabIndex = 24;
@@ -286,15 +320,6 @@
             label3.TabIndex = 16;
             label3.Text = "Mod Name:";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(28, 106);
-            label4.Name = "label4";
-            label4.Size = new Size(76, 15);
-            label4.TabIndex = 17;
-            label4.Text = "Mod Version:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -307,7 +332,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(55, 141);
+            label5.Location = new Point(56, 113);
             label5.Name = "label5";
             label5.Size = new Size(49, 15);
             label5.TabIndex = 19;
@@ -316,7 +341,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 182);
+            label1.Location = new Point(28, 154);
             label1.Name = "label1";
             label1.Size = new Size(97, 15);
             label1.TabIndex = 20;
@@ -331,7 +356,7 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(425, 398);
+            tabPage2.Size = new Size(698, 650);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "AUR";
             // 
@@ -382,7 +407,7 @@
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(425, 398);
+            tabPage3.Size = new Size(698, 650);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "CMS";
             // 
@@ -512,7 +537,7 @@
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(425, 398);
+            tabPage4.Size = new Size(698, 650);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "CSO";
             // 
@@ -600,7 +625,7 @@
             tabPage5.Location = new Point(4, 24);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(3);
-            tabPage5.Size = new Size(425, 398);
+            tabPage5.Size = new Size(698, 650);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "CUS";
             // 
@@ -725,11 +750,10 @@
             // 
             // tabPage6
             // 
-            tabPage6.BackColor = SystemColors.Control;
             tabPage6.Location = new Point(4, 24);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
-            tabPage6.Size = new Size(425, 398);
+            tabPage6.Size = new Size(698, 650);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "PSC";
             // 
@@ -743,7 +767,7 @@
             tabPage7.Location = new Point(4, 24);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(3);
-            tabPage7.Size = new Size(425, 398);
+            tabPage7.Size = new Size(698, 650);
             tabPage7.TabIndex = 6;
             tabPage7.Text = "MSG";
             // 
@@ -789,7 +813,7 @@
             tabPage8.Location = new Point(4, 24);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(3);
-            tabPage8.Size = new Size(425, 398);
+            tabPage8.Size = new Size(698, 650);
             tabPage8.TabIndex = 7;
             tabPage8.Text = "VOX";
             // 
@@ -826,10 +850,11 @@
             label28.Text = "Voice 1:";
             // 
             // Form1
-            // 
+            //
+
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(433, 450);
+            ClientSize = new Size(706, 702);
             Controls.Add(tabControl1);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -837,6 +862,7 @@
             MaximizeBox = false;
             Name = "Form1";
             Text = "XVCharaCreator";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -851,6 +877,8 @@
             tabPage4.PerformLayout();
             tabPage5.ResumeLayout(false);
             tabPage5.PerformLayout();
+            tabPage6.ResumeLayout(false);
+            tabPage6.PerformLayout();
             tabPage7.ResumeLayout(false);
             tabPage7.PerformLayout();
             tabPage8.ResumeLayout(false);
@@ -871,11 +899,9 @@
         private TextBox txtCharID;
         private Button btnFolder;
         private TextBox txtName;
-        private TextBox txtVersion;
         private TextBox txtAuthor;
         private TextBox txtFolder;
         private Label label3;
-        private Label label4;
         private Label label2;
         private Label label5;
         private Label label1;
@@ -936,5 +962,56 @@
         private TextBox txtVOX2;
         private TextBox txtVOX1;
         private Label label29;
+        private ToolStripMenuItem openToolStripMenuItem;
+        private Button button2;
+        private TextBox textBox2;
+        private Label label30;
+        private TextBox txtCostume;
+        private TextBox txtPreset;
+        private TextBox txtCameraPosition;
+        private TextBox txtHealth;
+        private TextBox txtI12;
+        private TextBox txtF20;
+        private TextBox txtKi;
+        private TextBox txtKiRecharge;
+        private TextBox txtI32;
+        private TextBox txtI36;
+        private TextBox txtI40;
+        private TextBox txtStamina;
+        private TextBox txtStaminaRecharge;
+        private TextBox txtF52;
+        private TextBox txtF56;
+        private TextBox txtI60;
+        private TextBox txtBasicAtkDef;
+        private TextBox txtBasicKiDef;
+        private TextBox txtStrikeAtkDef;
+        private TextBox txtSuperKiDef;
+        private TextBox txtGroundSpeed;
+        private TextBox txtAirSpeed;
+        private TextBox txtBoostSpeed;
+        private TextBox txtDashSpeed;
+        private TextBox txtF96;
+        private TextBox txtReinforcementSkill;
+        private TextBox txtF104;
+        private TextBox txtRevivalHpAmount;
+        private TextBox txtRevivingSpeed;
+        private TextBox txtF116;
+        private TextBox txtF120;
+        private TextBox txtF124;
+        private TextBox txtF128;
+        private TextBox txtF132;
+        private TextBox txtF136;
+        private TextBox txtI140;
+        private TextBox txtF144;
+        private TextBox txtF148;
+        private TextBox txtF152;
+        private TextBox txtF156;
+        private TextBox txtF160;
+        private TextBox txtF164;
+        private TextBox txtZSoul;
+        private TextBox txtI172;
+        private TextBox txtI176;
+        private TextBox txtF180;
+
     }
 }

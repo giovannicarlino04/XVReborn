@@ -157,7 +157,7 @@ namespace XVReborn
             }
         }
 
-        private string findName(string text_ID)
+        public string findName(string text_ID)
         {
             for (int i = 0; i < mText.data.Length; i++)
             {
@@ -178,7 +178,7 @@ namespace XVReborn
             }
             return -1;
         }
-
+  
         public int FindUltimate(short id)
         {
             for (int i = 0; i < Ultimates.Length; i++)

@@ -130,6 +130,28 @@ namespace XVReborn
                 }
             }
         }
+        // Helper function to extract the short name from the path
+        public string ExtractShortNameFromPath(string path)
+        {
+            // If the path contains `../` before the short name
+            if (path.StartsWith("../"))
+            {
+                // Extract the 3-letter short name after the last slash
+                int lastSlashIndex = path.LastIndexOf('/');
+                if (lastSlashIndex != -1 && lastSlashIndex + 1 < path.Length)
+                {
+                    string fileName = path.Substring(lastSlashIndex + 1);  // Get the file or folder name after the last slash
+                    return fileName.Substring(0, 3);  // Take the first 3 characters as the short name
+                }
+            }
+            else
+            {
+                // If the path doesn't have `../`, consider the whole path as the short name
+                return path.Substring(0, Math.Min(3, path.Length));  // Take first 3 characters, or the whole path if shorter
+            }
+
+            return string.Empty;  // Return empty if the path format is unexpected
+        }
 
 
         public void AddCharacter(CharacterData character)
@@ -156,7 +178,19 @@ namespace XVReborn
             // Salva i dati CMS aggiornati nel file
             Save();
         }
+        public void RemoveCharacter(CharacterData character)
+        {
 
+            // Aggiungi il personaggio alla fine dei dati CMS
+            List<CharacterData> newData = Data.ToList();
+            newData.Remove(character);
+
+            // Assegna i nuovi dati CMS
+            Data = newData.ToArray();
+
+            // Salva i dati CMS aggiornati nel file
+            Save();
+        }
     }
 }
 

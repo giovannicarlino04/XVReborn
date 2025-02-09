@@ -140,6 +140,22 @@ namespace XVReborn
 
             Save();
         }
+        public void RemoveCharacter(CSO_Data character)
+        {
+            int existingIndex = DataExist(character.Char_ID, character.Costume_ID);
 
+            if (existingIndex >= 0)
+            {
+                Data[existingIndex] = character;
+            }
+            else
+            {
+                List<CSO_Data> newData = Data.ToList();
+                newData.Remove(character);
+                Data = newData.ToArray();
+            }
+
+            Save();
+        }
     }
 }

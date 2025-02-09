@@ -13,12 +13,12 @@ using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using XVReborn.Properties;
-using static System.Net.Mime.MediaTypeNames;
+using XVReborn.XV;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace XVReborn
 {
@@ -30,10 +30,50 @@ namespace XVReborn
         public Form1()
         {
             InitializeComponent();
+
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
+
+            ToolStripMenuItem uninstallMenuItem = new ToolStripMenuItem("Uninstall Mod");
+
+            contextMenu.Items.Add(uninstallMenuItem);
+
+            lvMods.ContextMenuStrip = contextMenu;
+
+            uninstallMenuItem.Click += (sender, e) =>
+            {
+                if (lvMods.SelectedItems.Count > 0)
+                {
+                    ListViewItem selectedItem = lvMods.SelectedItems[0];
+
+                    uninstallMod(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("No mod selected for uninstallation.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+
+            lvMods.MouseUp += (sender, e) =>
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    ListViewItem itemUnderCursor = lvMods.GetItemAt(e.X, e.Y);
+
+                    if (itemUnderCursor != null)
+                    {
+                        lvMods.SelectedItems.Clear();
+                        itemUnderCursor.Selected = true; 
+                        contextMenu.Show(lvMods, e.Location);
+                    }
+                }
+            };
+
         }
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            
+
             if (Settings.Default.language.Length == 0)
             {
                 Form2 frm = new Form2();
@@ -71,9 +111,7 @@ namespace XVReborn
                     {
                         this.Close();
                     }
-
                 }
-
             }
             else
             {
@@ -137,7 +175,6 @@ namespace XVReborn
                 var myStream5 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.custom_skill.zip");
                 var myStream6 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.XMLSerializer.zip");
                 var myStream7 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.item.zip");
-                var myStream8 = myAssembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.XV2CONV.zip");
 
                 ZipArchive archive = new ZipArchive(myStream);
                 ZipArchive archive2 = new ZipArchive(myStream2);
@@ -146,7 +183,6 @@ namespace XVReborn
                 ZipArchive archive5 = new ZipArchive(myStream5);
                 ZipArchive archive6 = new ZipArchive(myStream6);
                 ZipArchive archive7 = new ZipArchive(myStream7);
-                ZipArchive archive8 = new ZipArchive(myStream8);
 
                 archive.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
                 archive2.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
@@ -155,7 +191,6 @@ namespace XVReborn
                 archive5.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
                 archive6.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
                 archive7.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
-                archive8.ExtractToDirectory(Path.Combine(Settings.Default.datafolder + @"\system"));
             }
 
             if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\ui\iggy"))
@@ -195,7 +230,7 @@ namespace XVReborn
             }
 
             loadLvItems();
-
+            Clean();
         }
         private void Clean()
         {
@@ -269,6 +304,8 @@ namespace XVReborn
                 Directory.Delete("./XVRebornTemp", true);
             if (File.Exists(Settings.Default.datafolder + "\\x2m.xml"))
                 File.Delete(Settings.Default.datafolder + "\\x2m.xml");
+
+            RemoveEmptyDirectories(Settings.Default.datafolder);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -320,6 +357,15 @@ namespace XVReborn
 
             label1.Text = "Installed Mods: " + lvMods.Items.Count.ToString();
         }
+        private List<string> EnumerateFiles(string directory)
+        {
+            List<string> files = new List<string>();
+            foreach (string file in Directory.GetFiles(directory, "*", SearchOption.AllDirectories))
+            {
+                files.Add(file);
+            }
+            return files;
+        }
 
         private void installmod(object sender, EventArgs e)
         {
@@ -353,6 +399,53 @@ namespace XVReborn
             string CUS_ULTIMATE_1 = "";
             string CUS_ULTIMATE_2 = "";
             string CUS_EVASIVE = "";
+            string PSC_COSTUME = "";
+            string PSC_PRESET = "";
+            string PSC_CAMERA_POS = "";
+            string PSC_HEALTH = "";
+            string PSC_I_12 = "";
+            string PSC_F_20 = "";
+            string PSC_KI = "";
+            string PSC_KI_RECHARGE = "";
+            string PSC_I_32 = "";
+            string PSC_I_36 = "";
+            string PSC_I_40 = "";
+            string PSC_STAMINA = "";
+            string PSC_STAMINA_RECHARGE = "";
+            string PSC_F_52 = "";
+            string PSC_F_56 = "";
+            string PSC_I_60 = "";
+            string PSC_BASIC_ATK_DEF = "";
+            string PSC_BASIC_KI_DEF = "";
+            string PSC_STRIKE_ATK_DEF = "";
+            string PSC_SUPER_KI_DEF = "";
+            string PSC_GROUND_SPEED = "";
+            string PSC_AIR_SPEED = "";
+            string PSC_BOOST_SPEED = "";
+            string PSC_DASH_SPEED = "";
+            string PSC_F_96 = "";
+            string PSC_REINFORCEMENT_SKILL = "";
+            string PSC_F_104 = "";
+            string PSC_REVIVAL_HP_AMOUNT = "";
+            string PSC_REVIVAL_SPEED = "";
+            string PSC_F_116 = "";
+            string PSC_F_120 = "";
+            string PSC_F_124 = "";
+            string PSC_F_128 = "";
+            string PSC_F_132 = "";
+            string PSC_F_136 = "";
+            string PSC_I_140 = "";
+            string PSC_F_144 = "";
+            string PSC_F_148 = "";
+            string PSC_F_152 = "";
+            string PSC_F_156 = "";
+            string PSC_F_160 = "";
+            string PSC_F_164 = "";
+            string PSC_Z_SOUL = "";
+            string PSC_I_172 = "";
+            string PSC_I_176 = "";
+            string PSC_F_180 = "";
+
             string MSG_CHARACTER_NAME = "";
             string MSG_COSTUME_NAME = "";
             short VOX_1 = -1;
@@ -363,6 +456,7 @@ namespace XVReborn
                 foreach (string file in ofd.FileNames)
                 {
                     string xmlfile = "./XVRebornTemp" + @"/xvmod.xml";
+                    int CharID = 108 + Settings.Default.modlist.Count;
 
                     if (File.Exists(Settings.Default.datafolder + @"/xvmod.xml"))
                         File.Delete(Settings.Default.datafolder + @"/xvmod.xml");
@@ -382,6 +476,7 @@ namespace XVReborn
                         {
                             if (reader.NodeType == XmlNodeType.Element)
                             {
+
                                 if (reader.Name == "XVMOD")
                                 {
                                     if (reader.GetAttribute("type").Length == 0)
@@ -576,6 +671,329 @@ namespace XVReborn
                                         CUS_EVASIVE = reader.GetAttribute("value").Trim();
                                     }
                                 }
+
+                                if (reader.Name == "PSC_COSTUME")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_COSTUME = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_PRESET")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_PRESET = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_CAMERA_POS")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_CAMERA_POS = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_HEALTH")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_HEALTH = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_12")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_12 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_20")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_20 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_KI")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_KI = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_KI_RECHARGE")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_KI_RECHARGE = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_32")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_32 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_36")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_36 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_40")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_40 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_STAMINA")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_STAMINA = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_STAMINA_RECHARGE")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_STAMINA_RECHARGE = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_52")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_52 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_56")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_56 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_60")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_60 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_BASIC_ATK_DEF")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_BASIC_ATK_DEF = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_BASIC_KI_DEF")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_BASIC_KI_DEF = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_STRIKE_ATK_DEF")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_STRIKE_ATK_DEF = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_SUPER_KI_DEF")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_SUPER_KI_DEF = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_GROUND_SPEED")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_GROUND_SPEED = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_AIR_SPEED")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_AIR_SPEED = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_BOOST_SPEED")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_BOOST_SPEED = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_DASH_SPEED")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_DASH_SPEED = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_96")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_96 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_REINFORCEMENT_SKILL")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_REINFORCEMENT_SKILL = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_104")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_104 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_REVIVAL_HP_AMOUNT")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_REVIVAL_HP_AMOUNT = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_REVIVAL_SPEED")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_REVIVAL_SPEED = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_116")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_116 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_120")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_120 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_124")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_124 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_128")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_128 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_132")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_132 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_136")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_136 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_140")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_140 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_144")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_144 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_148")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_148 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_152")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_152 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_156")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_156 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_160")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_160 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_164")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_164 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_Z_SOUL")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_Z_SOUL = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_172")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_172 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_I_176")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_I_176 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "PSC_F_180")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        PSC_F_180 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
                                 if (reader.Name == "MSG_CHARACTER_NAME")
                                 {
                                     if (reader.HasAttributes)
@@ -615,13 +1033,36 @@ namespace XVReborn
                                     }
                                 }
 
+
+
                             }
                         }
                         if (File.Exists(xmlfile))
                             File.Delete(xmlfile);
+
                     }
                     if (modtype == "REPLACER")
                     {
+                        List<string> installedFiles = EnumerateFiles("./XVRebornTemp");
+                        List<string> final = new List<string>();
+
+                        foreach (string installedFile in installedFiles)
+                        {
+                            // Correctly replace the path and add it to the list
+                            string modifiedFile = installedFile.Replace("./XVRebornTemp", Properties.Settings.Default.datafolder);
+                            final.Add(modifiedFile);
+                        }
+
+                        // Ensure the target directory exists
+                        string installedDir = Path.Combine(Settings.Default.datafolder, "installed");
+                        if (!Directory.Exists(installedDir))
+                        {
+                            Directory.CreateDirectory(installedDir);
+                        }
+
+                        // Write the modified paths to a file
+                        string filePath = Path.Combine(installedDir, $"{modtype}_{modname}.txt");
+                        File.WriteAllLines(filePath, final);
 
                         MergeDirectoriesWithConfirmation("./XVRebornTemp", Settings.Default.datafolder);
 
@@ -635,7 +1076,27 @@ namespace XVReborn
                     }
                     else if (modtype == "ADDED_CHARACTER")
                     {
-                        int CharID = 108 + Settings.Default.modlist.Count;
+                        List<string> installedFiles = EnumerateFiles("./XVRebornTemp");
+                        List<string> final = new List<string>();
+
+                        foreach (string installedFile in installedFiles)
+                        {
+                            string modifiedFile = installedFile.Replace("./XVRebornTemp", Properties.Settings.Default.datafolder);
+                            final.Add(modifiedFile);
+                        }
+
+                        string installedDir = Path.Combine(Settings.Default.datafolder, "installed");
+                        if (!Directory.Exists(installedDir))
+                        {
+                            Directory.CreateDirectory(installedDir);
+                        }
+
+                        string filePath = Path.Combine(Settings.Default.datafolder, Settings.Default.datafolder + $"/installed/{modtype}_{modname}_{CMS_BCS}_{CharID}.txt");
+                        File.WriteAllLines(filePath, final);
+
+                       
+                        if(Directory.Exists("./XVRebornTemp/JUNGLE"))
+                            MergeDirectoriesWithConfirmation("./XVRebornTemp/JUNGLE", Settings.Default.datafolder);
                         MergeDirectoriesWithConfirmation("./XVRebornTemp", Settings.Default.datafolder);
 
                         Clean();
@@ -677,34 +1138,7 @@ namespace XVReborn
                         cso.AddCharacter(characterData);
 
                         // CUS
-                        CharSkill skill = new CharSkill();
-                        skill.populateSkillData(Settings.Default.datafolder + @"/msg", Settings.Default.datafolder + @"/system/custom_skill.cus", language);
 
-                        if (!short.TryParse(CUS_SUPER_1, out short super1)) super1 = -1;
-                        if (!short.TryParse(CUS_SUPER_2, out short super2)) super2 = -1;
-                        if (!short.TryParse(CUS_SUPER_3, out short super3)) super3 = -1;
-                        if (!short.TryParse(CUS_SUPER_4, out short super4)) super4 = -1;
-                        if (!short.TryParse(CUS_ULTIMATE_1, out short ultimate1)) ultimate1 = -1;
-                        if (!short.TryParse(CUS_ULTIMATE_2, out short ultimate2)) ultimate2 = -1;
-                        if (!short.TryParse(CUS_EVASIVE, out short evasive)) evasive = -1;
-
-                        Char_Data newChar = new Char_Data
-                        {
-                            charID = CharID, // ID del personaggio
-                            CostumeID = 0, // ID del costume
-                            SuperIDs = new short[] { super1, super2, super3, super4 }, // Super attacchi
-                            UltimateIDs = new short[] { ultimate1, ultimate2 }, // Ultimate attacchi
-                            EvasiveID = evasive // Attacco evasivo
-                        };
-
-                        // Controlla se il file è stato caricato correttamente prima di aggiungere il personaggio
-                        if (skill.Chars != null)
-                        {
-                            skill.AddCharacter(newChar);
-                        }
-
-
-                        // AUR
                         Process p = new Process();
                         ProcessStartInfo info = new ProcessStartInfo();
                         info.FileName = "cmd.exe";
@@ -713,6 +1147,47 @@ namespace XVReborn
                         info.RedirectStandardInput = true;
                         info.UseShellExecute = false;
                         p.StartInfo = info;
+                        p.Start();
+                        using (StreamWriter sw = p.StandardInput)
+                        {
+                            if (sw.BaseStream.CanWrite)
+                            {
+                                sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                                sw.WriteLine(@"XMLSerializer.exe custom_skill.cus");
+                            }
+                        }
+                        p.WaitForExit();
+
+                        string cuspath = Settings.Default.datafolder + @"\system\custom_skill.cus.xml";
+                        string text4 = File.ReadAllText(cuspath);
+
+                        text4 = text4.Replace("  </Skillsets>", "    <Skillset Character_ID=\"" + CharID + $"\" Costume_Index=\"0\" Model_Preset=\"0\">\r\n      <SuperSkill1 ID1=\"{CUS_SUPER_1}\" />\r\n      <SuperSkill2 ID1=\"{CUS_SUPER_2}\" />\r\n      <SuperSkill3 ID1=\"{CUS_SUPER_3}\" />\r\n      <SuperSkill4 ID1=\"{CUS_SUPER_4}\" />\r\n      <UltimateSkill1 ID1=\"{CUS_ULTIMATE_1}\" />\r\n      <UltimateSkill2 ID1=\"{CUS_ULTIMATE_2}\" />\r\n      <EvasiveSkill ID1=\"{CUS_EVASIVE}\" />\r\n      <BlastType ID1=\"65535\" />\r\n      <AwokenSkill ID1=\"0\" />\r\n    </Skillset>\r\n  </Skillsets>");
+                        File.WriteAllText(cuspath, text4);
+
+                        p.Start();
+
+                        using (StreamWriter sw = p.StandardInput)
+                        {
+                            if (sw.BaseStream.CanWrite)
+                            {
+                                const string quote = "\"";
+
+                                sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                                sw.WriteLine(@"XMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\custom_skill.cus.xml" + quote);
+                            }
+                        }
+
+                        p.WaitForExit();
+
+                        ///
+                        // AUR
+                        info.FileName = "cmd.exe";
+                        info.CreateNoWindow = true;
+                        info.WindowStyle = ProcessWindowStyle.Hidden;
+                        info.RedirectStandardInput = true;
+                        info.UseShellExecute = false;
+                        p.StartInfo = info;
+
                         p.Start();
                         using (StreamWriter sw = p.StandardInput)
                         {
@@ -771,7 +1246,56 @@ namespace XVReborn
                         string pscpath = Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml";
                         string text6 = File.ReadAllText(pscpath);
 
-                        text6 = text6.Replace("  </Configuration>\r\n</PSC>", "    <PSC_Entry Chara_ID=\"" + CharID + "\">\r\n      <PscSpecEntry Costume=\"0\" Preset=\"0\">\r\n        <Camera_Position value=\"1\" />\r\n        <I_12 value=\"5\" />\r\n        <Health value=\"1.1155\" />\r\n        <F_20 value=\"1.0\" />\r\n        <Ki value=\"1.0\" />\r\n        <Ki_Recharge value=\"1.0\" />\r\n        <I_32 value=\"1\" />\r\n        <I_36 value=\"1\" />\r\n        <I_40 value=\"0\" />\r\n        <Stamina value=\"1.5\" />\r\n        <Stamina_Recharge value=\"0.75\" />\r\n        <F_52 value=\"1.0\" />\r\n        <F_56 value=\"1.1\" />\r\n        <I_60 value=\"0\" />\r\n        <Basic_Atk_Defense value=\"1.0\" />\r\n        <Basic_Ki_Defense value=\"0.95\" />\r\n        <Strike_Atk_Defense value=\"1.1\" />\r\n        <Super_Ki_Defense value=\"0.95\" />\r\n        <Ground_Speed value=\"1.0\" />\r\n        <Air_Speed value=\"1.0\" />\r\n        <Boost_Speed value=\"1.0\" />\r\n        <Dash_Speed value=\"1.0\" />\r\n        <F_96 value=\"1.0\" />\r\n        <Reinforcement_Skill_Duration value=\"1.0\" />\r\n        <F_104 value=\"1.0\" />\r\n        <Revival_HP_Amount value=\"1.0\" />\r\n        <Reviving_Speed value=\"1.0\" />\r\n        <F_116 value=\"1.0\" />\r\n        <F_120 value=\"0.55\" />\r\n        <F_124 value=\"1.0\" />\r\n        <F_128 value=\"1.0\" />\r\n        <F_132 value=\"1.0\" />\r\n        <F_136 value=\"1.0\" />\r\n        <I_140 value=\"0\" />\r\n        <F_144 value=\"1.0\" />\r\n        <F_148 value=\"1.0\" />\r\n        <F_152 value=\"1.0\" />\r\n        <F_156 value=\"1.0\" />\r\n        <F_160 value=\"1.0\" />\r\n        <F_164 value=\"1.0\" />\r\n        <Z-Soul value=\"98\" />\r\n        <I_172 value=\"1\" />\r\n        <I_176 value=\"1\" />\r\n        <F_180 value=\"8.0\" />\r\n      </PscSpecEntry>\r\n    </PSC_Entry>\r\n  </Configuration>\r\n</PSC>");
+                        text6 = text6.Replace("  </Configuration>\r\n</PSC>",
+                            "    <PSC_Entry Chara_ID=\"" + CharID + "\">\r\n" +
+                            "      <PscSpecEntry Costume=\"" + PSC_COSTUME + "\" Preset=\"" + PSC_PRESET + "\">\r\n" +
+                            "        <Camera_Position value=\"" + PSC_CAMERA_POS + "\" />\r\n" +
+                            "        <I_12 value=\"" + PSC_I_12 + "\" />\r\n" +
+                            "        <Health value=\"" + PSC_HEALTH + "\" />\r\n" +
+                            "        <F_20 value=\"" + PSC_F_20 + "\" />\r\n" +
+                            "        <Ki value=\"" + PSC_KI + "\" />\r\n" +
+                            "        <Ki_Recharge value=\"" + PSC_KI_RECHARGE + "\" />\r\n" +
+                            "        <I_32 value=\"" + PSC_I_32 + "\" />\r\n" +
+                            "        <I_36 value=\"" + PSC_I_36 + "\" />\r\n" +
+                            "        <I_40 value=\"" + PSC_I_40 + "\" />\r\n" +
+                            "        <Stamina value=\"" + PSC_STAMINA + "\" />\r\n" +
+                            "        <Stamina_Recharge value=\"" + PSC_STAMINA_RECHARGE + "\" />\r\n" +
+                            "        <F_52 value=\"" + PSC_F_52 + "\" />\r\n" +
+                            "        <F_56 value=\"" + PSC_F_56 + "\" />\r\n" +
+                            "        <I_60 value=\"" + PSC_I_60 + "\" />\r\n" +
+                            "        <Basic_Atk_Defense value=\"" + PSC_BASIC_ATK_DEF + "\" />\r\n" +
+                            "        <Basic_Ki_Defense value=\"" + PSC_BASIC_KI_DEF + "\" />\r\n" +
+                            "        <Strike_Atk_Defense value=\"" + PSC_STRIKE_ATK_DEF + "\" />\r\n" +
+                            "        <Super_Ki_Defense value=\"" + PSC_SUPER_KI_DEF + "\" />\r\n" +
+                            "        <Ground_Speed value=\"" + PSC_GROUND_SPEED + "\" />\r\n" +
+                            "        <Air_Speed value=\"" + PSC_AIR_SPEED + "\" />\r\n" +
+                            "        <Boost_Speed value=\"" + PSC_BOOST_SPEED + "\" />\r\n" +
+                            "        <Dash_Speed value=\"" + PSC_DASH_SPEED + "\" />\r\n" +
+                            "        <F_96 value=\"" + PSC_F_96 + "\" />\r\n" +
+                            "        <Reinforcement_Skill_Duration value=\"" + PSC_REINFORCEMENT_SKILL + "\" />\r\n" +
+                            "        <F_104 value=\"" + PSC_F_104 + "\" />\r\n" +
+                            "        <Revival_HP_Amount value=\"" + PSC_REVIVAL_HP_AMOUNT + "\" />\r\n" +
+                            "        <Reviving_Speed value=\"" + PSC_REVIVAL_SPEED + "\" />\r\n" +
+                            "        <F_116 value=\"" + PSC_F_116 + "\" />\r\n" +
+                            "        <F_120 value=\"" + PSC_F_120 + "\" />\r\n" +
+                            "        <F_124 value=\"" + PSC_F_124 + "\" />\r\n" +
+                            "        <F_128 value=\"" + PSC_F_128 + "\" />\r\n" +
+                            "        <F_132 value=\"" + PSC_F_132 + "\" />\r\n" +
+                            "        <F_136 value=\"" + PSC_F_136 + "\" />\r\n" +
+                            "        <I_140 value=\"" + PSC_I_140 + "\" />\r\n" +
+                            "        <F_144 value=\"" + PSC_F_144 + "\" />\r\n" +
+                            "        <F_148 value=\"" + PSC_F_148 + "\" />\r\n" +
+                            "        <F_152 value=\"" + PSC_F_152 + "\" />\r\n" +
+                            "        <F_156 value=\"" + PSC_F_156 + "\" />\r\n" +
+                            "        <F_160 value=\"" + PSC_F_160 + "\" />\r\n" +
+                            "        <F_164 value=\"" + PSC_F_164 + "\" />\r\n" +
+                            "        <Z-Soul value=\"" + PSC_Z_SOUL + "\" />\r\n" +
+                            "        <I_172 value=\"" + PSC_I_172 + "\" />\r\n" +
+                            "        <I_176 value=\"" + PSC_I_176 + "\" />\r\n" +
+                            "        <F_180 value=\"" + PSC_F_180 + "\" />\r\n" +
+                            "      </PscSpecEntry>\r\n" +
+                            "    </PSC_Entry>\r\n" +
+                            "  </Configuration>\r\n</PSC>");
                         File.WriteAllText(pscpath, text6);
 
                         p.Start();
@@ -789,6 +1313,7 @@ namespace XVReborn
 
                         p.WaitForExit();
                         //////
+
 
                         string Charalist = Settings.Default.datafolder + @"\XVP_SLOTS.xs";
 
@@ -813,9 +1338,7 @@ namespace XVReborn
                         expand[expand.Length - 1].ID = MSGfile.data.Length;
                         expand[expand.Length - 1].Lines = new string[] { MSG_CHARACTER_NAME };
                         expand[expand.Length - 1].NameID = "chara_" + CMS_BCS + "_" + (endid).ToString("000");
-
                         MSGfile.data = expand;
-
                         msgStream.Save(MSGfile, Settings.Default.datafolder + @"/msg/proper_noun_character_name_" + language + ".msg");
 
                         p.Start();
@@ -844,7 +1367,218 @@ namespace XVReborn
             }
             Clean();
         }
+        private void uninstallMod(object sender, EventArgs e)
+        {
+            if (lvMods.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("No mod selected for uninstallation.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            ListViewItem selectedItem = lvMods.SelectedItems[0];
+            string modtype = selectedItem.SubItems[2].Text;
+            string modname = selectedItem.SubItems[0].Text;
+            switch (modtype)
+            {
+                case "Replacer":
+                    modtype = "REPLACER";
+                    break;
+                case "Added Character":
+                    modtype = "ADDED_CHARACTER";
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            string modFilePath = Path.Combine(Settings.Default.datafolder, "installed", $"{modtype}_{modname}.txt");
+
+            if (modtype == "REPLACER")
+            {
+                if (File.Exists(modFilePath))
+                {
+                    string[] installedFiles = File.ReadAllLines(modFilePath);
+                    foreach (string file in installedFiles)
+                    {
+                        if (File.Exists(file))
+                        {
+                            File.Delete(file);
+                            Console.WriteLine($"{file} - File deleted");
+                        }
+                        else if (Directory.Exists(file))
+                        {
+                            Directory.Delete(file, true);
+                            Console.WriteLine($"{file} - Directory deleted");
+                        }
+                    }
+                    File.Delete(modFilePath);
+                }
+            }
+            else if (modtype == "ADDED_CHARACTER")
+            {
+                string modFilePathPattern = Path.Combine(Settings.Default.datafolder, "installed", $"{modtype}_{modname}_*_*.txt");
+
+                // Use Directory.GetFiles with the pattern to find matching files
+                string[] matchingFiles = Directory.GetFiles(Settings.Default.datafolder + "/installed", $"{modtype}_{modname}_*_*.txt");
+
+                // If you need to work with the first matching file, for example
+                modFilePath = matchingFiles.Length > 0 ? matchingFiles[0] : null; // Handle the case if no file is found
+
+                if (modFilePath != null)
+                {
+                    Console.WriteLine("Found file: " + modFilePath);
+                }
+                else
+                {
+                    Console.WriteLine("No matching file found.");
+                }
+                string fileName = Path.GetFileName(modFilePath);
+                // Updated pattern to allow spaces, parentheses, and other special characters
+                string pattern = @"^(\w+)_(.*?)_(\w+)_(\d+)\.txt$";
+
+                // Match the file name against the pattern
+                Match match = Regex.Match(fileName, pattern);
+                string CMS_BCS = "";
+                int CMS_ID = 0;
+                if (match.Success)
+                {
+                    CMS_BCS = match.Groups[3].Value;
+                    if(int.TryParse(match.Groups[4].Value, out CMS_ID))
+                        Console.WriteLine($"Found CMS_BCS: {CMS_BCS}, CMS_ID: {CMS_ID}");
+                }
+                else
+                {
+                    Console.WriteLine("No matching file format found.");
+                }
+
+                if (File.Exists(modFilePath))
+                {
+                    string[] installedFiles = File.ReadAllLines(modFilePath);
+                    foreach (string file in installedFiles)
+                    {
+                        if (File.Exists(file))
+                        {
+                            File.Delete(file);
+                            Console.WriteLine($"{file} - File deleted");
+                        }
+                        else if (Directory.Exists(file))
+                        {
+                            Directory.Delete(file, true);
+                            Console.WriteLine($"{file} - Directory deleted");
+                        }
+                    }
+                    File.Delete(modFilePath);
+                }
+
+                // Remove Character from CMS
+                CMS cms = new CMS();
+                cms.Load(Settings.Default.datafolder + @"/system/char_model_spec.cms");
+                for (int i = 0; i < cms.Data.Count(); i++)
+                {
+                    if (cms.Data[i].ShortName == CMS_BCS)
+                        cms.RemoveCharacter(cms.Data[i]);
+                }
+
+
+                // Remove Character from CMS
+                CSO cso = new CSO();
+                cso.Load(Settings.Default.datafolder + @"/system/chara_sound.cso");
+                for (int i = 0; i < cso.Data.Count(); i++)
+                {
+                    if (cso.Data[i].Char_ID == CMS_ID)
+                        cso.RemoveCharacter(cso.Data[i]);
+                }
+
+
+                // Remove Character from CUS
+                string cuspath = Settings.Default.datafolder + @"/system/custom_skill.cus.xml";
+                if (File.Exists(cuspath))
+                {
+                    string text4 = File.ReadAllText(cuspath);
+                    string skillsetToRemove = $"    <Skillset Character_ID=\"{CMS_ID}\" Costume_Index=\"0\" Model_Preset=\"0\">.*?</Skillset>";
+                    text4 = Regex.Replace(text4, skillsetToRemove, "", RegexOptions.Singleline);
+                    File.WriteAllText(cuspath, text4);
+                }
+
+                // Remove Character from AUR
+                string aurpath = Settings.Default.datafolder + @"/system/aura_setting.aur.xml";
+                if (File.Exists(aurpath))
+                {
+                    string text5 = File.ReadAllText(aurpath);
+                    string auraToRemove = $"    <CharacterAura Chara_ID=\"{CMS_ID}\" Costume=\"0\".*?/>\r\n";
+                    text5 = Regex.Replace(text5, auraToRemove, "");
+                    File.WriteAllText(aurpath, text5);
+                }
+
+                // Remove Character from PSC
+                string pscpath = Settings.Default.datafolder + @"/system/parameter_spec_char.psc.xml";
+                if (File.Exists(pscpath))
+                {
+                    string text6 = File.ReadAllText(pscpath);
+                    string pscToRemove = $"    <PSC_Entry Chara_ID=\"{CMS_ID}\">.*?</PSC_Entry>";
+                    text6 = Regex.Replace(text6, pscToRemove, "", RegexOptions.Singleline);
+                    File.WriteAllText(pscpath, text6);
+                }
+
+                // Remove from XVP_SLOTS.xs
+                string charalist = Settings.Default.datafolder + @"/XVP_SLOTS.xs";
+                if (File.Exists(charalist))
+                {
+                    var text10 = new StringBuilder();
+                    foreach (string s in File.ReadAllLines(charalist))
+                    {
+                        if (!s.Contains(CMS_BCS))
+                        {
+                            text10.AppendLine(s);
+                        }
+                    }
+                    File.WriteAllText(charalist, text10.ToString());
+                }
+
+                // Remove from MSG
+                string msgPath = Settings.Default.datafolder + @"/msg/proper_noun_character_name_" + language + ".msg";
+                if (File.Exists(msgPath))
+                {
+                    msg MSGfile = msgStream.Load(msgPath);
+                    List<msgData> updatedData = MSGfile.data.Where(d => !d.NameID.Contains(CMS_BCS)).ToList();
+                    MSGfile.data = updatedData.ToArray();
+                    msgStream.Save(MSGfile, msgPath);
+                }
+
+
+            }
+
+            lvMods.Items.Remove(selectedItem);
+            saveLvItems();
+            MessageBox.Show("Mod successfully uninstalled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Clean();
+        }
+
+        public static void RemoveEmptyDirectories(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                foreach (var subdirectory in Directory.GetDirectories(path))
+                {
+                    RemoveEmptyDirectories(subdirectory); 
+                }
+
+                if (Directory.GetFileSystemEntries(path).Length == 0)
+                {
+                    try
+                    {
+                        Directory.Delete(path); // Remove the empty directory
+                        Console.WriteLine($"Removed empty directory: {path}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error removing directory {path}: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Directory not found: {path}");
+            }
+        }
         public static void MergeDirectoriesWithConfirmation(string sourceDir, string destDir)
         {
             if (!Directory.Exists(sourceDir) || !Directory.Exists(destDir))
@@ -852,10 +1586,8 @@ namespace XVReborn
                 throw new DirectoryNotFoundException("Source or destination directory does not exist.");
             }
 
-            // Get the subdirectories in the source directory.
             string[] sourceSubDirs = Directory.GetDirectories(sourceDir);
 
-            // Copy the files from the source to the destination.
             foreach (string sourceFile in Directory.GetFiles(sourceDir))
             {
                 string fileName = Path.GetFileName(sourceFile);
@@ -863,7 +1595,6 @@ namespace XVReborn
 
                 if (File.Exists(destFile))
                 {
-                    // Ask for confirmation to replace the existing file.
                     var result = MessageBox.Show($"A file with the name '{fileName}' already exists. Do you want to replace it?", "File Replace Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.Yes)
@@ -874,7 +1605,6 @@ namespace XVReborn
                     {
                         return; // Cancel the entire operation.
                     }
-                    // If 'No' is chosen, the existing file will not be replaced.
                 }
                 else
                 {
@@ -910,321 +1640,7 @@ namespace XVReborn
             Form3 frm = new Form3();
             frm.ShowDialog();
         }
-
-        static void ProcessBCS(string filePath)
-        {
-
-
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
-
-                }
-            }
-            p.WaitForExit();
-
-            string xmlPath = filePath + ".xml";
-            if (!File.Exists(xmlPath))
-            {
-                Console.WriteLine($"File not found: {xmlPath}");
-                return;
-            }
-
-            // Carica il file XML
-            XDocument doc = XDocument.Load(xmlPath);
-
-            // Trova il nodo <BCS>
-            XElement bcsElement = doc.Root;
-            if (bcsElement == null || bcsElement.Name != "BCS")
-            {
-                Console.WriteLine("Invalid XML format: Missing <BCS> root element.");
-                return;
-            }
-
-            // Leggi l'attributo "Version"
-            XAttribute versionAttr = bcsElement.Attribute("Version");
-
-            if (versionAttr != null)
-            {
-                Console.WriteLine($"Current Version: {versionAttr.Value}");
-
-                // Modifica la versione da "XV2" a "XV1" se necessario
-                if (versionAttr.Value.Equals("XV2", StringComparison.OrdinalIgnoreCase))
-                {
-                    versionAttr.Value = "XV1";
-                    doc.Save(xmlPath);
-                    Console.WriteLine($"Version changed to: {versionAttr.Value}");
-                }
-                else
-                {
-                    Console.WriteLine("No changes needed.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Version attribute not found.");
-            }
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + ".xml\"");
-
-                }
-            }
-            p.WaitForExit();
-            File.Delete(Path.GetFullPath(filePath) + ".xml");
-            Console.WriteLine($"Processed {filePath} (BCS)");
-             
-        }
-
-        static void ChangeModelVer(string filePath)
-        {
-            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite))
-            using (var reader = new BinaryReader(stream))
-            using (var writer = new BinaryWriter(stream))
-            {
-                stream.Seek(8, SeekOrigin.Begin);
-                UInt32 version = reader.ReadUInt32();
-                if (version == 37507 || version == 37508 || version == 37568) // 0x9274
-                {
-                    stream.Seek(8, SeekOrigin.Begin);
-                    writer.Write(65537);
-                    Console.WriteLine($"Processed {filePath}");
-                }
-            }
-        }
-        static void ChangeShaderHeader(string filePath)
-        {
-            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite))
-            using (var reader = new BinaryReader(stream))
-            using (var writer = new BinaryWriter(stream))
-            {
-
-                stream.Seek(6, SeekOrigin.Begin);
-                byte[] newHeader = { 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00 };
-                writer.Write(newHeader);
-
-                Console.WriteLine($"Processed {filePath}");
-            }
-        }
-        static void ChangeShaderVer(string filePath)
-        {
-
-
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
-
-                }
-            }
-            p.WaitForExit();
-
-            string xmlPath = filePath + ".xml";
-            if (!File.Exists(xmlPath))
-            {
-                Console.WriteLine($"File not found: {xmlPath}");
-                return;
-            }    // Cerca tutti i file .xml nella cartella
-
-            try
-            {
-                // Carica il file XML
-                XDocument doc = XDocument.Load(xmlPath);
-
-                // Trova il nodo <BCS>
-                XElement bcsElement = doc.Root;
-                if (bcsElement == null || bcsElement.Name != "EMM")
-                {
-                    Console.WriteLine("Invalid XML format: Missing <EMM> root element.");
-                    return;
-                }
-                // Leggi l'attributo "Version"
-                XAttribute versionAttr = bcsElement.Attribute("Version");
-
-                if (versionAttr != null)
-                {
-                    Console.WriteLine($"Current Version: {versionAttr.Value}");
-
-                    if (versionAttr.Value.Equals("37508", StringComparison.OrdinalIgnoreCase) || versionAttr.Value.Equals("37568", StringComparison.OrdinalIgnoreCase))
-                    {
-                        versionAttr.Value = "0";
-                        Console.WriteLine($"Version changed in: {xmlPath}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No changes needed.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Version attribute not found.");
-                }
-
-
-                // Salva il file modificato
-                doc.Save(xmlPath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {xmlPath}: {ex.Message}");
-            }
-         
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + ".xml\"");
-
-                }
-            }
-            p.WaitForExit();
-            File.Delete(Path.GetFullPath(filePath) + ".xml");
-            Console.WriteLine($"Processed {filePath} (EMM)");
-
-        }
-        static void ChangeImageVer(string filePath)
-        {
-
-
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
-
-                }
-            }
-            p.WaitForExit();
-
-            string xmlPath = filePath + ".xml";
-            if (!File.Exists(xmlPath))
-            {
-                Console.WriteLine($"File not found: {xmlPath}");
-                return;
-            }    // Cerca tutti i file .xml nella cartella
-
-            try
-            {
-                // Carica il file XML
-                XDocument doc = XDocument.Load(xmlPath);
-
-                XElement bcsElement = doc.Root;
-                if (bcsElement == null || bcsElement.Name != "EMB_File")
-                {
-                    Console.WriteLine("Invalid XML format: Missing <EMB_File> root element.");
-                    return;
-                }
-                // Leggi l'attributo "Version"
-                XAttribute versionAttr = bcsElement.Attribute("I_08");
-
-                if (versionAttr != null)
-                {
-                    Console.WriteLine($"Current Version: {versionAttr.Value}");
-
-                    if (versionAttr.Value.Equals("37508", StringComparison.OrdinalIgnoreCase) || versionAttr.Value.Equals("37568", StringComparison.OrdinalIgnoreCase))
-                    {
-                        versionAttr.Value = "0";
-                        Console.WriteLine($"Version changed in: {xmlPath}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No changes needed.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Version attribute not found.");
-                }
-                // Salva il file modificato
-                doc.Save(xmlPath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {xmlPath}: {ex.Message}");
-            }
-
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                    sw.WriteLine("\"XMLSerializer.exe\" " + "\"" + Path.GetFullPath(filePath) + ".xml\"");
-
-                }
-            }
-            p.WaitForExit();
-            File.Delete(Path.GetFullPath(filePath) + ".xml");
-            Console.WriteLine($"Processed {filePath} (EMM)");
-
-        }
-        static void ProcessBAC(string filePath)
-        {
-
-
-            Process p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "cmd.exe";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
-            info.RedirectStandardInput = true;
-            info.UseShellExecute = false;
-            p.StartInfo = info;
-            p.Start();
-            using (StreamWriter sw = p.StandardInput)
-            {
-                if (sw.BaseStream.CanWrite)
-                {
-                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                    sw.WriteLine("\"XV2Conv.exe\" " + "\"" + Path.GetFullPath(filePath) + "\"");
-
-                }
-            }
-            p.WaitForExit();
-
-            Console.WriteLine($"Processed {filePath} (EMM)");
-
-        }
-        static void RunCommand(string command)
+        public void RunCommand(string command)
         {
             Process p = new Process();
             ProcessStartInfo info = new ProcessStartInfo
@@ -1249,603 +1665,152 @@ namespace XVReborn
 
             p.WaitForExit();
         }
-        static void ExtractX2M(string zipFilePath, string outputFolder)
-        {
-            ZipFile.ExtractToDirectory(zipFilePath, outputFolder);
-        }
-
-        static void ProcessX2M(string x2mFilePath)
-        {
-            string tempFolder = "./XVRebornTemp";
-            Directory.CreateDirectory(tempFolder);
-            ExtractX2M(x2mFilePath, tempFolder);
-
-            var folder = Directory.GetDirectories(tempFolder).FirstOrDefault(d => Regex.IsMatch(Path.GetFileName(d), "^[A-Z0-9]{3}$"));
-            if (folder != null)
-            {
-                ProcessFiles(folder);
-            }
-        }
-
-        static void ProcessFiles(string folder)
-        {
-            if (!Directory.Exists(folder))
-            {
-                Console.WriteLine($"Invalid folder: {folder}");
-                return;
-            }
-
-            foreach (var file in Directory.GetFiles(folder, "*", SearchOption.AllDirectories))
-            {
-                switch (Path.GetExtension(file))
-                {
-                    case ".bcs":
-                        ProcessBCS(file);
-                        break;
-                    case ".bac":
-                    case ".bdm":
-                        ProcessBAC(file);
-                        break;
-                    case ".emd":
-                    case ".esk":
-                    case ".ean":
-                        ChangeModelVer(file);
-                        break;
-                    case ".emm":
-                        ChangeShaderVer(file);
-                        ChangeShaderHeader(file);
-                        break;
-                    case ".dyt.emb":
-                        ChangeImageVer(file);
-                        break;
-                }
-
-
-                if (File.Exists(file + @".xml"))
-                    File.Delete(file + @".xml");
-            }
-        }
-        private void installx2m(object sender, EventArgs e)
+        private void ConvertX2M(object sender, EventArgs e)
         {
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Install Mod";
+            ofd.Title = "Convert X2M Mod";
             ofd.Filter = "Xenoverse 2 Mod Files (*.x2m)|*.x2m";
-            ofd.Multiselect = true;  //Important
+            ofd.Multiselect = false;  //Important
             ofd.CheckFileExists = true;
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 foreach (string file in ofd.FileNames)
                 {
-                    string xmlfile = "./XVRebornTemp" + @"/x2m.xml";
-                    ProcessX2M(ofd.FileName);
+                    string tempFolder = "./XVRebornTemp";
+                    Directory.CreateDirectory(tempFolder);
+                    ZipFile.ExtractToDirectory(ofd.FileName, tempFolder);
 
-
-                    string xmlContent = File.ReadAllText(xmlfile);
-
-                    XmlDocument doc = new XmlDocument();
-                    doc.LoadXml(xmlContent);
-
-                    XmlNode x2mNode = doc.SelectSingleNode("//X2M");
-                    string x2mType = x2mNode.Attributes["type"].Value;
-                    Console.WriteLine($"X2M Type: {x2mType}");
-                    // Helper method to safely get attribute value
-                    string GetAttributeValue(XmlNode node, string attributeName)
+                    var x2mfolder = Directory.GetDirectories(tempFolder).FirstOrDefault(d => Regex.IsMatch(Path.GetFileName(d), "^[A-Z0-9]{3}$"));
+                    if (x2mfolder != null)
                     {
-                        var attribute = node?.Attributes[attributeName];
-                        return attribute?.Value ?? "N/A"; // Return "N/A" if the attribute doesn't exist
-                    }
+                        X2M x2m = new X2M();
 
-                    // Basic Information
-                    string formatVersion = GetAttributeValue(doc.SelectSingleNode("//X2M_FORMAT_VERSION"), "value");
-                    string modName = GetAttributeValue(doc.SelectSingleNode("//MOD_NAME"), "value");
-                    string modAuthor = GetAttributeValue(doc.SelectSingleNode("//MOD_AUTHOR"), "value");
-                    string modVersion = GetAttributeValue(doc.SelectSingleNode("//MOD_VERSION"), "value");
-                    string modGuid = GetAttributeValue(doc.SelectSingleNode("//MOD_GUID"), "value");
-                    string uData = GetAttributeValue(doc.SelectSingleNode("//UDATA"), "value");
-                    string entryName = GetAttributeValue(doc.SelectSingleNode("//ENTRY_NAME"), "value");
-                    string charaNameEn = GetAttributeValue(doc.SelectSingleNode("//CHARA_NAME_EN"), "value");
-
-                    // SlotEntry
-                    string slotCostumeIndex = GetAttributeValue(doc.SelectSingleNode("//SlotEntry"), "costume_index");
-                    string modelPreset = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/MODEL_PRESET"), "value");
-                    string flagGK2 = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/FLAG_GK2"), "value");
-                    string voicesIdList = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/VOICES_ID_LIST"), "value");
-                    string costumeNameEn = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/COSTUME_NAME_EN"), "value");
-
-                    // Entry
-                    string entryId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "id");
-                    string entryNameId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "name");
-
-                    string u10 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_10"), "value");
-                    string loadCamDist = GetAttributeValue(doc.SelectSingleNode("//Entry/LOAD_CAM_DIST"), "value");
-                    string u16 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_16"), "value");
-                    string u18 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_18"), "value");
-                    string u1A = GetAttributeValue(doc.SelectSingleNode("//Entry/U_1A"), "value");
-                    string character = GetAttributeValue(doc.SelectSingleNode("//Entry/CHARACTER"), "value");
-                    string ean = GetAttributeValue(doc.SelectSingleNode("//Entry/EAN"), "value");
-                    string fceEan = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE_EAN"), "value");
-                    string fce = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE"), "value");
-                    string camEan = GetAttributeValue(doc.SelectSingleNode("//Entry/CAM_EAN"), "value");
-                    string bac = GetAttributeValue(doc.SelectSingleNode("//Entry/BAC"), "value");
-                    string bcm = GetAttributeValue(doc.SelectSingleNode("//Entry/BCM"), "value");
-                    string ai = GetAttributeValue(doc.SelectSingleNode("//Entry/AI"), "value");
-                    string str50 = GetAttributeValue(doc.SelectSingleNode("//Entry/STR_50"), "value");
-
-                    // SkillSet
-                    string skillSetCharId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/CHAR_ID"), "value");
-                    string skillSetCostumeId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/COSTUME_ID"), "value");
-                    string skillsValue = GetAttributeValue(doc.SelectSingleNode("//SkillSet/SKILLS"), "value");
-
-                    // Split the SKILLS string by commas
-                    string[] skills = skillsValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                    // Output the parsed skills
-                    Console.WriteLine("Skills: ");
-                    foreach (var skille in skills)
-                    {
-                        Console.WriteLine(skille.Trim()); // Trim any extra whitespace
-                    }
-                    string skillSetModelPreset = GetAttributeValue(doc.SelectSingleNode("//SkillSet/MODEL_PRESET"), "value");
-
-                    // CsoEntry
-                    string csoCharId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/CHAR_ID"), "value");
-                    string csoCostumeId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/COSTUME_ID"), "value");
-                    string se = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SE"), "value");
-                    string vox = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/VOX"), "value");
-                    string amk = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/AMK"), "value");
-                    string csoSkills = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SKILLS"), "value");
-
-                    // PscSpecEntry
-                    string costumeId = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID"), "value");
-                    string costumeId2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID2"), "value");
-                    string cameraPosition = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/CAMERA_POSITION"), "value");
-                    string u0C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_0C"), "value");
-                    string u10_2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_10"), "value");
-                    string health = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/HEALTH"), "value");
-                    string f18 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_18"), "value");
-                    string ki = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI"), "value");
-                    string kiRecharge = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_RECHARGE"), "value");
-                    string u24 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_24"), "value");
-                    string u28 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_28"), "value");
-                    string u2C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_2C"), "value");
-                    string stamina = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA"), "value");
-                    string staminaRechargeMove = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_MOVE"), "value");
-                    string staminaRechargeAir = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_AIR"), "value");
-                    string staminaRechargeGround = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_GROUND"), "value");
-                    string staminaDrainRate1 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE1"), "value");
-                    string staminaDrainRate2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE2"), "value");
-                    string f48 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_48"), "value");
-                    string basicAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_ATTACK"), "value");
-                    string basicKiAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_ATTACK"), "value");
-                    string strikeAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATTACK"), "value");
-                    string kiBlastSuper = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_BLAST_SUPER"), "value");
-                    string basicPhysDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_PHYS_DEFENSE"), "value");
-                    string basicKiDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_DEFENSE"), "value");
-                    string strikeAtkDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATK_DEFENSE"), "value");
-                    string superKiBlastDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/SUPER_KI_BLAST_DEFENSE"), "value");
-                    string groundSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/GROUND_SPEED"), "value");
-                    string airSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/AIR_SPEED"), "value");
-                    string boostingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BOOSTING_SPEED"), "value");
-                    string dashDistance = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/DASH_DISTANCE"), "value");
-                    string f7C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_7C"), "value");
-                    string reinfSkillDuration = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REINF_SKILL_DURATION"), "value");
-                    string f84 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_84"), "value");
-                    string revivalHpAmount = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVAL_HP_AMOUNT"), "value");
-                    string f8C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_8C"), "value");
-                    string revivingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVING_SPEED"), "value");
-                    string u98 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_98"), "value");
-                    string talisman = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/TALISMAN"), "value");
-                    string uB8 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_B8"), "value");
-                    string uBC = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_BC"), "value");
-                    string fC0 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_C0"), "value");
-
-                    // CharacLink
-                    string characLinkIdCharac = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCharac");
-                    string characLinkIdCostume = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCostume");
-                    string characLinkIdAura = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idAura");
-                    string characLinkGlare = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "glare");
-
-                    // SevEntryHL
-                    string sevEntryHlCostumeId = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "costume_id");
-                    string sevEntryHlCopyChar = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_char");
-                    string sevEntryHlCopyCostume = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_costume");
-
-                    // CmlEntry
-                    string cmlEntryCharId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "char_id");
-                    string cmlEntryCostumeId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "costume_id");
-                    string cmlEntryU04 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/U_04"), "value");
-                    string cmlEntryCssPos = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_POS"), "value");
-                    string cmlEntryCssRot = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_ROT"), "value");
-                    string cmlEntryF0C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_0C"), "value");
-                    string cmlEntryF10 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_10"), "value");
-                    string cmlEntryF14 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_14"), "value");
-                    string cmlEntryF18 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_18"), "value");
-                    string cmlEntryF1C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_1C"), "value");
-                    string cmlEntryF20 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_20"), "value");
-                    string cmlEntryF24 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_24"), "value");
-                    string cmlEntryF28 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_28"), "value");
-                    string cmlEntryF2C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_2C"), "value");
-
-
-                    if (x2mType != "NEW_CHARACTER")
-                        return;  //Handle with a Msg maybe?
-
-                    int CharID = 108 + Settings.Default.modlist.Count;
-                    MergeDirectoriesWithConfirmation("./XVRebornTemp", Settings.Default.datafolder);
-
-                    Clean();
-
-
-                    CMS cms = new CMS();
-                    cms.Load(Settings.Default.datafolder + @"/system/char_model_spec.cms");
-                    CharacterData newCharacter = new CharacterData
-                    {
-                        ID = CharID, // ID del personaggio
-                        ShortName = entryName, // Nome abbreviato del personaggio
-                        Unknown = new byte[8], // Array di byte sconosciuto
-                        Paths = new string[7] // Array di percorsi
-                    };
-                    newCharacter.Paths[0] = entryName;
-                    newCharacter.Paths[1] = ean;
-                    newCharacter.Paths[2] = fceEan;
-                    newCharacter.Paths[3] = camEan;
-                    newCharacter.Paths[4] = bac;
-                    newCharacter.Paths[5] = bcm;
-                    newCharacter.Paths[6] = ai;
-                    cms.AddCharacter(newCharacter);
-
-                    // CSO
-                    CSO cso = new CSO();
-                    cso.Load(Settings.Default.datafolder + @"/system/chara_sound.cso");
-                    CSO_Data characterData = new CSO_Data
-                    {
-                        Char_ID = CharID,           // Sostituisci con l'ID del personaggio desiderato
-                        Costume_ID = 0,      // Sostituisci con l'ID del costume desiderato
-                        Paths = new string[4]  // Aggiungi i percorsi desiderati
+                        foreach (var sfile in Directory.GetFiles(x2mfolder, "*", SearchOption.AllDirectories))
                         {
-                                    se,
-                                    vox,
-                                    amk,
-                                    csoSkills,
-                        }
-                    };
-                    cso.AddCharacter(characterData);
 
-                    // CUS
-                    CharSkill skill = new CharSkill();
-                    skill.populateSkillData(Settings.Default.datafolder + @"/msg", Settings.Default.datafolder + @"/system/custom_skill.cus", language);
-
-                    if (!short.TryParse(skills[0], out short super1)) super1 = -1;
-                    if (!short.TryParse(skills[1], out short super2)) super2 = -1;
-                    if (!short.TryParse(skills[2], out short super3)) super3 = -1;
-                    if (!short.TryParse(skills[3], out short super4)) super4 = -1;
-                    if (!short.TryParse(skills[4], out short ultimate1)) ultimate1 = -1;
-                    if (!short.TryParse(skills[5], out short ultimate2)) ultimate2 = -1;
-                    if (!short.TryParse(skills[6], out short evasive)) evasive = -1;
-
-                    Char_Data newChar = new Char_Data
-                    {
-                        charID = CharID, // ID del personaggio
-                        CostumeID = 0, // ID del costume
-                        SuperIDs = new short[] { super1, super2, super3, super4 }, // Super attacchi
-                        UltimateIDs = new short[] { ultimate1, ultimate2 }, // Ultimate attacchi
-                        EvasiveID = evasive // Attacco evasivo
-                    };
-
-                    // Controlla se il file è stato caricato correttamente prima di aggiungere il personaggio
-                    if (skill.Chars != null)
-                    {
-                        skill.AddCharacter(newChar);
-                    }
+                            switch (Path.GetExtension(sfile))
+                            {
+                                case ".bcs":
+                                    x2m.ProcessBCS(sfile);
+                                    break;
+                                case ".bac":
+                                case ".bdm":
+                                    x2m.ProcessBAC(sfile);
+                                    break;
+                                case ".emd":
+                                case ".esk":
+                                case ".ean":
+                                    x2m.ChangeModelVer(sfile);
+                                    break;
+                                case ".emm":
+                                    x2m.ChangeShaderVer(sfile);
+                                    x2m.ChangeShaderHeader(sfile);
+                                    break;
+                                case ".dyt.emb":
+                                    x2m.ChangeImageVer(sfile);
+                                    break;
+                            }
 
 
-                    // AUR
-                    Process p = new Process();
-                    ProcessStartInfo info = new ProcessStartInfo();
-                    info.FileName = "cmd.exe";
-                    info.CreateNoWindow = true;
-                    info.WindowStyle = ProcessWindowStyle.Hidden;
-                    info.RedirectStandardInput = true;
-                    info.UseShellExecute = false;
-                    p.StartInfo = info;
-                    p.Start();
-                    using (StreamWriter sw = p.StandardInput)
-                    {
-                        if (sw.BaseStream.CanWrite)
-                        {
-                            sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                            sw.WriteLine(@"XMLSerializer.exe aura_setting.aur");
+                            if (File.Exists(sfile + @".xml"))
+                                File.Delete(sfile + @".xml");
                         }
                     }
-                    p.WaitForExit();
-
-                    string aurpath = Settings.Default.datafolder + @"\system\aura_setting.aur.xml";
-                    string text5 = File.ReadAllText(aurpath);
-                    string glare;
-
-                    text5 = text5.Replace("  </CharacterAuras>", "    <CharacterAura Chara_ID=\"" + CharID + $"\" Costume=\"0\" Aura_ID=\"{characLinkIdAura}\" Glare=\"{characLinkGlare}\" />\r\n  </CharacterAuras>");
-                    File.WriteAllText(aurpath, text5);
-
-                    p.Start();
-
-                    using (StreamWriter sw = p.StandardInput)
-                    {
-                        if (sw.BaseStream.CanWrite)
-                        {
-                            const string quote = "\"";
-
-                            sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                            sw.WriteLine(@"XMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\aura_setting.aur.xml" + quote);
-                        }
-                    }
-
-                    p.WaitForExit();
-
-
-                    //////
-
-                    // PSC
-                    p.Start();
-                    using (StreamWriter sw = p.StandardInput)
-                    {
-                        if (sw.BaseStream.CanWrite)
-                        {
-                            sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                            sw.WriteLine(@"XMLSerializer.exe parameter_spec_char.psc");
-                        }
-                    }
-                    p.WaitForExit();
-
-                    string pscpath = Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml";
-                    string text6 = File.ReadAllText(pscpath);
-
-                    // Assuming the parsed values are stored in variables like these:
-
-                    string staminaRecharge = "1.0";
-                    string basicAtkDefense = "0.0";
-                    string superKiDefense = "0.0";
-                    string dashSpeed = "0.400000006";
-                    string zSoul = "98";  // Example
-                                          // Add other values as needed
-
-                    // Replace the placeholders with parsed values in the XML format
-                    text6 = text6.Replace("  </Configuration>\r\n</PSC>", $@"
-                <PSC_Entry Chara_ID=""{CharID}"">
-                  <PscSpecEntry Costume=""0"" Preset=""0"">
-                    <Camera_Position value=""1"" />
-                    <I_12 value=""5"" />
-                    <Health value=""{health}"" />
-                    <F_20 value=""1.0"" />
-                    <Ki value=""{ki}"" />
-                    <Ki_Recharge value=""{kiRecharge}"" />
-                    <I_32 value=""1"" />
-                    <I_36 value=""1"" />
-                    <I_40 value=""0"" />
-                    <Stamina value=""{stamina}"" />
-                    <Stamina_Recharge value=""{staminaRecharge}"" />
-                    <F_52 value=""1.0"" />
-                    <F_56 value=""1.1"" />
-                    <I_60 value=""0"" />
-                    <Basic_Atk_Defense value=""{basicAtkDefense}"" />
-                    <Basic_Ki_Defense value=""{basicKiDefense}"" />
-                    <Strike_Atk_Defense value=""{strikeAtkDefense}"" />
-                    <Super_Ki_Defense value=""{superKiDefense}"" />
-                    <Ground_Speed value=""{groundSpeed}"" />
-                    <Air_Speed value=""{airSpeed}"" />
-                    <Boost_Speed value=""{boostingSpeed}"" />
-                    <Dash_Speed value=""{dashSpeed}"" />
-                    <F_96 value=""1.0"" />
-                    <Reinforcement_Skill_Duration value=""{reinfSkillDuration}"" />
-                    <F_104 value=""1.0"" />
-                    <Revival_HP_Amount value=""{revivalHpAmount}"" />
-                    <Reviving_Speed value=""{revivingSpeed}"" />
-                    <F_116 value=""1.0"" />
-                    <F_120 value=""0.55"" />
-                    <F_124 value=""1.0"" />
-                    <F_128 value=""1.0"" />
-                    <F_132 value=""1.0"" />
-                    <F_136 value=""1.0"" />
-                    <I_140 value=""0"" />
-                    <F_144 value=""1.0"" />
-                    <F_148 value=""1.0"" />
-                    <F_152 value=""1.0"" />
-                    <F_156 value=""1.0"" />
-                    <F_160 value=""1.0"" />
-                    <F_164 value=""1.0"" />
-                    <Z-Soul value=""{zSoul}"" />
-                    <I_172 value=""1"" />
-                    <I_176 value=""1"" />
-                    <F_180 value=""8.0"" />
-                  </PscSpecEntry>
-                </PSC_Entry>
-              </Configuration>
-            </PSC>");
-                    File.WriteAllText(pscpath, text6);
-
-                    p.Start();
-
-                    using (StreamWriter sw = p.StandardInput)
-                    {
-                        if (sw.BaseStream.CanWrite)
-                        {
-                            const string quote = "\"";
-
-                            sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
-                            sw.WriteLine(@"XMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml" + quote);
-                        }
-                    }
-
-                    p.WaitForExit();
-                    //////
-
-                    string Charalist = Settings.Default.datafolder + @"\XVP_SLOTS.xs";
-
-                    var text10 = new StringBuilder();
-
-                    foreach (string s in File.ReadAllLines(Charalist))
-                    {
-                        text10.Append(s.Replace("{[JCO,0,0,0,110,111]}", "{[JCO,0,0,0,110,111]}{[" + entryName + $",0,0,0,{-1},{-1}]}}"));
-                    }
-
-                    using (var file1 = new StreamWriter(File.Create(Charalist)))
-                    {
-                        file1.Write(text10.ToString());
-                    }
-
-                    msg MSGfile;
-                    MSGfile = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_character_name_" + language + ".msg");
-                    msgData[] expand = new msgData[MSGfile.data.Length + 1];
-                    Array.Copy(MSGfile.data, expand, MSGfile.data.Length);
-                    string nameid = MSGfile.data[MSGfile.data.Length - 1].NameID;
-                    int endid = int.Parse(nameid.Substring(nameid.Length - 3, 3));
-                    expand[expand.Length - 1].ID = MSGfile.data.Length;
-                    expand[expand.Length - 1].Lines = new string[] { charaNameEn };
-                    expand[expand.Length - 1].NameID = "chara_" + entryName + "_" + (endid).ToString("000");
-
-                    MSGfile.data = expand;
-
-                    msgStream.Save(MSGfile, Settings.Default.datafolder + @"/msg/proper_noun_character_name_" + language + ".msg");
-
-                    p.Start();
-
-                    using (StreamWriter sw = p.StandardInput)
-                    {
-                        if (sw.BaseStream.CanWrite)
-                        {
-                            sw.WriteLine("cd " + Settings.Default.datafolder + @"\ui\texture");
-                            sw.WriteLine(@"embpack.exe CHARA01");
-                        }
-                    }
-                    if (!Directory.Exists(Settings.Default.datafolder + @"/chara/"))
-                        Directory.CreateDirectory(Settings.Default.datafolder + @"/chara/");
-                    Directory.Move(Settings.Default.datafolder + "/" + entryName, Settings.Default.datafolder + @"/chara/" + entryName);
-
                     string embpackPath = Path.Combine(Settings.Default.datafolder, @"ui\texture", "embpack.exe");
 
-                    File.Move(Settings.Default.datafolder + @"/ui/SEL.DDS", Settings.Default.datafolder + $"/ui/texture/CHARA01/{entryName}_000.DDS");
-                    if (Directory.Exists(Settings.Default.datafolder + @"/JUNGLE/data"))
+                    string ddsFolder = tempFolder;
+                    string[] embFiles = Directory.GetFiles(ddsFolder, "*.dyt.emb", SearchOption.AllDirectories);
+                    Console.WriteLine($"Found {embFiles.Length} EMB files in {ddsFolder}");
+                    if (!Directory.Exists(ddsFolder))
                     {
-                        MergeDirectoriesWithConfirmation(Settings.Default.datafolder + @"/JUNGLE/data", Settings.Default.datafolder);
-                        Directory.Delete(Settings.Default.datafolder + @"/JUNGLE", true);
+                        Console.WriteLine($"Folder not found: {ddsFolder}");
+                        return;
                     }
-                    if (Directory.Exists(Settings.Default.datafolder + @"/SKILL_ATACHMENT"))
-                        Directory.Delete(Settings.Default.datafolder + @"/SKILL_ATACHMENT", true);
-                    
+                    foreach (string embfile in embFiles)
+                    {
+                        RunCommand($"\"{embpackPath}\" \"{embfile}\"");
+                        string[] ddsFiles = Directory.GetFiles(ddsFolder, "*.dds", SearchOption.AllDirectories);
 
-                    ConvertCharaEMB(entryName);
-                    RunCommand($"\"{embpackPath}\" \"{Settings.Default.datafolder}\\ui\\texture\\CHARA01\"");
-                    string[] row = { charaNameEn, modAuthor, "Added Character" };
-                    ListViewItem lvi = new ListViewItem(row);
-                    lvMods.Items.Add(lvi);
-                    saveLvItems();
+                        if (ddsFiles.Length == 0)
+                        {
+                            Console.WriteLine("No DDS files found in the specified folder.");
+                            return;
+                        }
+
+                        var groupedByFolder = new Dictionary<string, List<string>>();
+
+                        foreach (string ddsFile in ddsFiles)
+                        {
+                            string folder = Path.GetDirectoryName(ddsFile);
+                            if (!groupedByFolder.ContainsKey(folder))
+                            {
+                                groupedByFolder[folder] = new List<string>();
+                            }
+                            groupedByFolder[folder].Add(ddsFile);
+                        }
+
+                        foreach (var group in groupedByFolder)
+                        {
+                            string folder = group.Key;
+                            List<string> ddsFilesInFolder = group.Value;
+
+                            Console.WriteLine($"Processing folder: {folder}");
+
+                            foreach (string ddsFile in ddsFilesInFolder)
+                            {
+                                Console.WriteLine($"Cleaning DDS file: {ddsFile}");
+                                DDS.CleanDDSForXV1(ddsFile, ddsFile);
+                            }
+
+                            if (!Directory.Exists(folder))
+                            {
+                                Console.WriteLine($"Directory does not exist for embFilePath: {folder}");
+                                continue;
+                            }
+
+                            RunCommand($"\"{embpackPath}\" \"{folder}\"");
+                            Directory.Delete(folder, true);
+                        }
+                    }
+                    string finalPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\{Path.GetFileNameWithoutExtension(ofd.FileName)}";
+                    MoveDirectory(tempFolder, finalPath, true);
+                    MessageBox.Show($"X2M Converted successfully, you can find the converted files in \"{finalPath}\"", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clean();
                 }
             }
+
         }
-        private void ConvertCharaEMB(string entryName)
+        public static void MoveDirectory(string sourceDir, string destDir, bool recursive)  //Just to keep it the same
         {
-
-            string extractFolder = Path.Combine(Properties.Settings.Default.datafolder, @"ui\texture");
-
-            string embpackPath = Path.Combine(extractFolder, "embpack.exe");
-            string ddsFolder = Path.Combine(Settings.Default.datafolder, "chara", entryName);
-            string[] embFiles = Directory.GetFiles(ddsFolder, "*.dyt.emb", SearchOption.AllDirectories);
-            Console.WriteLine($"Found {embFiles.Length} EMB files in {ddsFolder}");
-
-
-            // Check if the folder exists
-            if (!Directory.Exists(ddsFolder))
+            // Ensure the source directory exists
+            if (!Directory.Exists(sourceDir))
             {
-                Console.WriteLine($"Folder not found: {ddsFolder}");
-                return;
-            }
-            foreach (string embfile in embFiles)
-            {
-                RunCommand($"\"{embpackPath}\" \"{embfile}\"");
+                throw new DirectoryNotFoundException($"Source directory not found: {sourceDir}");
             }
 
-            // Get all DDS files in the "chara/{entryName}" directory
-            string[] ddsFiles = Directory.GetFiles(ddsFolder, "*.dds", SearchOption.AllDirectories);
-
-            if (ddsFiles.Length == 0)
+            // If the destination exists, delete it to prevent conflicts
+            if (Directory.Exists(destDir))
             {
-                Console.WriteLine("No DDS files found in the specified folder.");
-                return;
+                Directory.Delete(destDir, recursive);
             }
 
-            // Group DDS files by their parent folder to process them together
-            var groupedByFolder = new Dictionary<string, List<string>>();
+            // Create the destination directory
+            Directory.CreateDirectory(destDir);
 
-            foreach (string ddsFile in ddsFiles)
+            // Move all files
+            foreach (string file in Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories))
             {
-                string folder = Path.GetDirectoryName(ddsFile);
-                if (!groupedByFolder.ContainsKey(folder))
-                {
-                    groupedByFolder[folder] = new List<string>();
-                }
-                groupedByFolder[folder].Add(ddsFile);
+                string destFile = file.Replace(sourceDir, destDir);
+                Directory.CreateDirectory(Path.GetDirectoryName(destFile)); // Ensure subdirectories exist
+                File.Move(file, destFile);
             }
 
-            // Process each group of DDS files in the same folder
-            foreach (var group in groupedByFolder)
-            {
-                string folder = group.Key;
-                List<string> ddsFilesInFolder = group.Value;
-
-                Console.WriteLine($"Processing folder: {folder}");
-
-                // Clean each DDS file in the folder
-                foreach (string ddsFile in ddsFilesInFolder)
-                {
-                    Console.WriteLine($"Cleaning DDS file: {ddsFile}");
-                    DDS.CleanDDSForXV1(ddsFile, ddsFile);
-                }
-
-                // Create the corresponding .emb file path by replacing the .dds extension with .emb
-                // Prepend entryName to the emb file name
-
-                // Ensure the directory for the .emb file exists
-                if (!Directory.Exists(folder))
-                {
-                    Console.WriteLine($"Directory does not exist for embFilePath: {folder}");
-                    continue;
-                }
-
-                // Run the packing command to pack the entire folder back into the .emb file
-                RunCommand($"\"{embpackPath}\" \"{folder}\"");
-                Directory.Delete(folder, true);
-            }
-
-
-
-        }
-        private void convertAllModelsToXV1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ProcessFiles(Settings.Default.datafolder + @"/chara");
-            foreach(string entryName in Directory.GetDirectories(Settings.Default.datafolder + @"/chara"))
-                ConvertCharaEMB(entryName);
-            MessageBox.Show("Done!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Remove the source directory after everything has been moved
+            Directory.Delete(sourceDir, recursive);
         }
 
-        private void convertDDSToXV1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "*.dds|*.dds";
 
-            if (ofd.ShowDialog() == DialogResult.OK)
-                DDS.CleanDDSForXV1(ofd.FileName, ofd.FileName);
-        }
-
-        private void removeEmptyEntriesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CharSkill skill = new CharSkill();
-            skill.populateSkillData(Settings.Default.datafolder + @"/msg", Settings.Default.datafolder + @"/system/custom_skill.cus", language);
-            skill.RemoveInvalidEntriesAndReplace();
-            skill.Save();
-
-        }
     }
-
 }
