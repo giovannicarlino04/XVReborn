@@ -1,0 +1,16 @@
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\EffectData.xml
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\FreeImage.dll
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe.config
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.exe
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReborn.pdb
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.AssemblyReference.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.ResolveComReference.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Form1.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Form2.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Form3.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Properties.Resources.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.GenerateResource.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.CoreCompileInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.Up2Date
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.exe
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.pdb

@@ -1,0 +1,12 @@
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.exe
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.Form1.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.csproj.GenerateResource.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.AssemblyInfoInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.AssemblyInfo.cs
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.csproj.CoreCompileInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.genruntimeconfig.cache

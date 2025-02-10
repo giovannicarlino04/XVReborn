@@ -33,8 +33,6 @@ namespace XVCharaCreator
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
-
-
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             buildXVModFileToolStripMenuItem = new ToolStripMenuItem();
@@ -87,10 +85,6 @@ namespace XVCharaCreator
             txtCSO1 = new TextBox();
             label17 = new Label();
             tabPage5 = new TabPage();
-            label29 = new Label();
-            label28= new Label();
-            label26 = new Label();
-            label25 = new Label();
             label23 = new Label();
             label22 = new Label();
             label21 = new Label();
@@ -98,10 +92,6 @@ namespace XVCharaCreator
             label20 = new Label();
             label19 = new Label();
             label18 = new Label();
-            txtMSG2 = new TextBox();
-            txtMSG1 = new TextBox();
-            txtVOX1 = new TextBox();
-            txtVOX2 = new TextBox();
             cbEvasive = new ComboBox();
             cbUltimate2 = new ComboBox();
             cbSuper4 = new ComboBox();
@@ -111,7 +101,15 @@ namespace XVCharaCreator
             cbSuper1 = new ComboBox();
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
+            label26 = new Label();
+            label25 = new Label();
+            txtMSG2 = new TextBox();
+            txtMSG1 = new TextBox();
             tabPage8 = new TabPage();
+            txtVOX2 = new TextBox();
+            txtVOX1 = new TextBox();
+            label29 = new Label();
+            label28 = new Label();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -119,7 +117,6 @@ namespace XVCharaCreator
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
             tabPage5.SuspendLayout();
-            tabPage6.SuspendLayout();
             tabPage7.SuspendLayout();
             tabPage8.SuspendLayout();
             SuspendLayout();
@@ -143,26 +140,26 @@ namespace XVCharaCreator
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(164, 22);
+            openToolStripMenuItem.Size = new Size(180, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // buildXVModFileToolStripMenuItem
             // 
             buildXVModFileToolStripMenuItem.Name = "buildXVModFileToolStripMenuItem";
-            buildXVModFileToolStripMenuItem.Size = new Size(164, 22);
+            buildXVModFileToolStripMenuItem.Size = new Size(180, 22);
             buildXVModFileToolStripMenuItem.Text = "Build XVMod File";
             buildXVModFileToolStripMenuItem.Click += buildXVModFileToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(161, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
             // 
             // sToolStripMenuItem
             // 
             sToolStripMenuItem.Name = "sToolStripMenuItem";
-            sToolStripMenuItem.Size = new Size(164, 22);
+            sToolStripMenuItem.Size = new Size(180, 22);
             sToolStripMenuItem.Text = "Exit";
             sToolStripMenuItem.Click += sToolStripMenuItem_Click;
             // 
@@ -632,7 +629,7 @@ namespace XVCharaCreator
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new Point(76, 213);
+            label23.Location = new Point(73, 217);
             label23.Name = "label23";
             label23.Size = new Size(48, 15);
             label23.TabIndex = 1;
@@ -641,7 +638,7 @@ namespace XVCharaCreator
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(61, 187);
+            label22.Location = new Point(58, 191);
             label22.Name = "label22";
             label22.Size = new Size(64, 15);
             label22.TabIndex = 1;
@@ -650,7 +647,7 @@ namespace XVCharaCreator
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(61, 158);
+            label21.Location = new Point(58, 162);
             label21.Name = "label21";
             label21.Size = new Size(64, 15);
             label21.TabIndex = 1;
@@ -659,7 +656,7 @@ namespace XVCharaCreator
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(81, 129);
+            label24.Location = new Point(78, 133);
             label24.Name = "label24";
             label24.Size = new Size(49, 15);
             label24.TabIndex = 1;
@@ -668,7 +665,7 @@ namespace XVCharaCreator
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(81, 99);
+            label20.Location = new Point(78, 103);
             label20.Name = "label20";
             label20.Size = new Size(49, 15);
             label20.TabIndex = 1;
@@ -677,7 +674,7 @@ namespace XVCharaCreator
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(81, 70);
+            label19.Location = new Point(78, 74);
             label19.Name = "label19";
             label19.Size = new Size(49, 15);
             label19.TabIndex = 1;
@@ -686,7 +683,7 @@ namespace XVCharaCreator
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(81, 41);
+            label18.Location = new Point(78, 45);
             label18.Name = "label18";
             label18.Size = new Size(49, 15);
             label18.TabIndex = 1;
@@ -695,57 +692,57 @@ namespace XVCharaCreator
             // cbEvasive
             // 
             cbEvasive.FormattingEnabled = true;
-            cbEvasive.Location = new Point(131, 213);
+            cbEvasive.Location = new Point(128, 217);
             cbEvasive.Name = "cbEvasive";
-            cbEvasive.Size = new Size(218, 23);
+            cbEvasive.Size = new Size(436, 23);
             cbEvasive.TabIndex = 0;
             // 
             // cbUltimate2
             // 
             cbUltimate2.FormattingEnabled = true;
-            cbUltimate2.Location = new Point(131, 184);
+            cbUltimate2.Location = new Point(128, 188);
             cbUltimate2.Name = "cbUltimate2";
-            cbUltimate2.Size = new Size(218, 23);
+            cbUltimate2.Size = new Size(436, 23);
             cbUltimate2.TabIndex = 0;
             // 
             // cbSuper4
             // 
             cbSuper4.FormattingEnabled = true;
-            cbSuper4.Location = new Point(131, 126);
+            cbSuper4.Location = new Point(128, 130);
             cbSuper4.Name = "cbSuper4";
-            cbSuper4.Size = new Size(218, 23);
+            cbSuper4.Size = new Size(436, 23);
             cbSuper4.TabIndex = 0;
             // 
             // cbUltimate1
             // 
             cbUltimate1.FormattingEnabled = true;
-            cbUltimate1.Location = new Point(131, 155);
+            cbUltimate1.Location = new Point(128, 159);
             cbUltimate1.Name = "cbUltimate1";
-            cbUltimate1.Size = new Size(218, 23);
+            cbUltimate1.Size = new Size(436, 23);
             cbUltimate1.TabIndex = 0;
             // 
             // cbSuper3
             // 
             cbSuper3.FormattingEnabled = true;
-            cbSuper3.Location = new Point(131, 96);
+            cbSuper3.Location = new Point(128, 100);
             cbSuper3.Name = "cbSuper3";
-            cbSuper3.Size = new Size(218, 23);
+            cbSuper3.Size = new Size(436, 23);
             cbSuper3.TabIndex = 0;
             // 
             // cbSuper2
             // 
             cbSuper2.FormattingEnabled = true;
-            cbSuper2.Location = new Point(131, 67);
+            cbSuper2.Location = new Point(128, 71);
             cbSuper2.Name = "cbSuper2";
-            cbSuper2.Size = new Size(218, 23);
+            cbSuper2.Size = new Size(436, 23);
             cbSuper2.TabIndex = 0;
             // 
             // cbSuper1
             // 
             cbSuper1.FormattingEnabled = true;
-            cbSuper1.Location = new Point(131, 38);
+            cbSuper1.Location = new Point(128, 42);
             cbSuper1.Name = "cbSuper1";
-            cbSuper1.Size = new Size(218, 23);
+            cbSuper1.Size = new Size(436, 23);
             cbSuper1.TabIndex = 0;
             // 
             // tabPage6
@@ -850,8 +847,7 @@ namespace XVCharaCreator
             label28.Text = "Voice 1:";
             // 
             // Form1
-            //
-
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(706, 702);
@@ -877,8 +873,6 @@ namespace XVCharaCreator
             tabPage4.PerformLayout();
             tabPage5.ResumeLayout(false);
             tabPage5.PerformLayout();
-            tabPage6.ResumeLayout(false);
-            tabPage6.PerformLayout();
             tabPage7.ResumeLayout(false);
             tabPage7.PerformLayout();
             tabPage8.ResumeLayout(false);

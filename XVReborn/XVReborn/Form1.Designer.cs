@@ -95,19 +95,19 @@ namespace XVReborn
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.toolStripMenuItem1.Text = "Install Mods";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.installmod);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(135, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -122,7 +122,7 @@ namespace XVReborn
             // uninstallModToolStripMenuItem
             // 
             this.uninstallModToolStripMenuItem.Name = "uninstallModToolStripMenuItem";
-            this.uninstallModToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.uninstallModToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uninstallModToolStripMenuItem.Text = "Uninstall Mod";
             this.uninstallModToolStripMenuItem.Click += new System.EventHandler(this.uninstallMod);
             // 
@@ -141,31 +141,31 @@ namespace XVReborn
             // editCHARASELEToolStripMenuItem
             // 
             this.editCHARASELEToolStripMenuItem.Name = "editCHARASELEToolStripMenuItem";
-            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCHARASELEToolStripMenuItem.Text = "Charalist Editor";
             this.editCHARASELEToolStripMenuItem.Click += new System.EventHandler(this.editCHARASELEToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // convertAllModelsToXV1ToolStripMenuItem
             // 
             this.convertAllModelsToXV1ToolStripMenuItem.Name = "convertAllModelsToXV1ToolStripMenuItem";
-            this.convertAllModelsToXV1ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.convertAllModelsToXV1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.convertAllModelsToXV1ToolStripMenuItem.Text = "Convert X2M";
             this.convertAllModelsToXV1ToolStripMenuItem.Click += new System.EventHandler(this.ConvertX2M);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // clearInstallationToolStripMenuItem1
             // 
             this.clearInstallationToolStripMenuItem1.Name = "clearInstallationToolStripMenuItem1";
-            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
+            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.clearInstallationToolStripMenuItem1.Text = "Clear Installation";
             this.clearInstallationToolStripMenuItem1.Click += new System.EventHandler(this.clearInstallationToolStripMenuItem_Click);
             // 

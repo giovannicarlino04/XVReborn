@@ -1,0 +1,17 @@
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net6.0-windows7.0\XVSkillCreator.exe
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net6.0-windows7.0\XVSkillCreator.deps.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net6.0-windows7.0\XVSkillCreator.runtimeconfig.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net6.0-windows7.0\XVSkillCreator.dll
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net6.0-windows7.0\XVSkillCreator.pdb
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.Form1.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.csproj.GenerateResource.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.AssemblyInfoInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.AssemblyInfo.cs
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.csproj.CoreCompileInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.sourcelink.json
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\refint\XVSkillCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.pdb
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\XVSkillCreator.genruntimeconfig.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net6.0-windows7.0\ref\XVSkillCreator.dll

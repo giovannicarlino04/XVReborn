@@ -1,0 +1,22 @@
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\net8.0-windows\XVSkillCreator.exe
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\net8.0-windows\XVSkillCreator.deps.json
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\net8.0-windows\XVSkillCreator.runtimeconfig.json
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\net8.0-windows\XVSkillCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\net8.0-windows\XVSkillCreator.pdb
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.Form1.resources
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.csproj.GenerateResource.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.AssemblyInfoInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.AssemblyInfo.cs
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.csproj.CoreCompileInputs.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.sourcelink.json
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\refint\XVSkillCreator.dll
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.pdb
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\XVSkillCreator.genruntimeconfig.cache
+C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\net8.0-windows\ref\XVSkillCreator.dll
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net8.0-windows\XVSkillCreator.exe
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net8.0-windows\XVSkillCreator.deps.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net8.0-windows\XVSkillCreator.runtimeconfig.json
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net8.0-windows\XVSkillCreator.dll
+D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\net8.0-windows\XVSkillCreator.pdb

@@ -253,12 +253,12 @@ namespace XVCharaCreator
                     writer.WriteEndDocument(); // Close the document
                 }
                 Directory.CreateDirectory("./XVCharaCreatorTemp/chara/");
-                Directory.Move(txtFolder.Text, @"./XVCharaCreatorTemp/chara/" + txtCharID.Text);
+                CopyDirectory(txtFolder.Text, @"./XVCharaCreatorTemp/chara/" + txtCharID.Text);
                 Directory.CreateDirectory("./XVCharaCreatorTemp/ui/texture/CHARA01");
                 File.Move(textBox1.Text, @"./XVCharaCreatorTemp/ui/texture/CHARA01/" + txtCharID.Text + "_000.DDS");
                 Directory.CreateDirectory("./XVCharaCreatorTemp/JUNGLE");
                 if (textBox2.Text.Length > 0)
-                    Directory.Move(textBox2.Text, @"./XVCharaCreatorTemp/JUNGLE");
+                    CopyDirectory(textBox2.Text, @"./XVCharaCreatorTemp/JUNGLE");
                 ZipFile.CreateFromDirectory(@"./XVCharaCreatorTemp/", sfd.FileName);
                 if (File.Exists(xmlFilePath))
                     File.Delete(xmlFilePath);
@@ -275,6 +275,19 @@ namespace XVCharaCreator
                 if (value.StartsWith("\"") && value.EndsWith("\""))
                 {
                     value = value.Substring(1, value.Length - 2);  // Remove the surrounding quotes
+                }
+
+                writer.WriteStartElement(elementName);
+                writer.WriteAttributeString("value", value);  // Add value as an attribute
+                writer.WriteEndElement();
+            }
+            else
+            {
+                string tempVal = "\"\"";
+                // Remove the surrounding quotes if present
+                if (value.StartsWith("\"") && value.EndsWith("\""))
+                {
+                    value = tempVal.Substring(1, value.Length - 2);  // Remove the surrounding quotes
                 }
 
                 writer.WriteStartElement(elementName);
@@ -428,7 +441,30 @@ namespace XVCharaCreator
         {
             this.Close();
         }
+        public static void CopyDirectory(string sourceDir, string destDir, bool recursive = true)
+        {
+            if (string.IsNullOrEmpty(sourceDir))
+                throw new ArgumentNullException(nameof(sourceDir), "Source directory cannot be null or empty.");
 
+            if (!Directory.Exists(sourceDir))
+                throw new DirectoryNotFoundException($"Source directory not found: {sourceDir}");
+
+            if (Directory.Exists(destDir))
+                Directory.Delete(destDir, recursive);
+
+            Directory.CreateDirectory(destDir);
+
+            var files = Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories);
+            if (files.Length == 0)
+                throw new FileNotFoundException($"No files found in directory: {sourceDir}");
+
+            foreach (string file in files)
+            {
+                string destFile = file.Replace(sourceDir, destDir);
+                Directory.CreateDirectory(Path.GetDirectoryName(destFile));
+                File.Copy(file, destFile, true);
+            }
+        }
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Apri il file XVMod (.xvmod)
@@ -455,6 +491,11 @@ namespace XVCharaCreator
 
 
                 XDocument xmlDoc = XDocument.Load(xmlFilePath);
+                string modType = xmlDoc.Descendants("XVMOD").FirstOrDefault()?.Attribute("type")?.Value ?? "";
+                if (modType != "ADDED_CHARACTER")
+                {
+                    throw new NotImplementedException($"Mod type {modType} not supported");
+                }
 
                 txtName.Text = xmlDoc.Descendants("MOD_NAME").FirstOrDefault()?.Attribute("value")?.Value ?? "";
                 txtAuthor.Text = xmlDoc.Descendants("MOD_AUTHOR").FirstOrDefault()?.Attribute("value")?.Value ?? "";
@@ -562,9 +603,11 @@ namespace XVCharaCreator
                 {
                     textBox1.Text = ddsFilePath;
                 }
-
             }
+
+
         }
+    
         private void SetComboBoxValueFromXMLSuper(XDocument xmlDoc, ComboBox comboBox, string elementName)
         {
             var elementValue = xmlDoc.Descendants(elementName).FirstOrDefault()?.Attribute("value")?.Value;
@@ -647,6 +690,8 @@ namespace XVCharaCreator
         {
             if (Directory.Exists("./XVCharaCreatorTemp"))
                 Directory.Delete("./XVCharaCreatorTemp", true);
+            if (Directory.Exists("./XVCharaCreatorTemp2"))
+                Directory.Delete("./XVCharaCreatorTemp2", true);
         }
     }
 }

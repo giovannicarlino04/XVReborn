@@ -1,5 +1,6 @@
 ﻿using FreeImageAPI;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -18,6 +19,7 @@ using System.Xml;
 using System.Xml.Linq;
 using XVReborn.Properties;
 using XVReborn.XV;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace XVReborn
@@ -445,11 +447,41 @@ namespace XVReborn
             string PSC_I_172 = "";
             string PSC_I_176 = "";
             string PSC_F_180 = "";
-
             string MSG_CHARACTER_NAME = "";
             string MSG_COSTUME_NAME = "";
             short VOX_1 = -1;
             short VOX_2 = -1;
+            string SKILL_ShortName = "";
+            string SKILL_ID1 = "";
+            string SKILL_ID2 = "";
+            string SKILL_I_04 = "";
+            string SKILL_Race_Lock = "";
+            string SKILL_Type = "";
+            string SKILL_FilesLoaded = "";
+            string SKILL_PartSet = "";
+            string SKILL_I_18 = "";
+            string SKILL_EAN = "";
+            string SKILL_CAM_EAN = "";
+            string SKILL_EEPK = "";
+            string SKILL_ACB_SE = "";
+            string SKILL_ACB_VOX = "";
+            string SKILL_AFTER_BAC = "";
+            string SKILL_AFTER_BCM = "";
+            string SKILL_I_48 = "";
+            string SKILL_I_50 = "";
+            string SKILL_I_52 = "";
+            string SKILL_I_54 = "";
+            string SKILL_PUP = "";
+            string SKILL_CUS_Aura = "";
+            string SKILL_TransformCharaSwap = "";
+            string SKILL_Skillset_Change = "";
+            string SKILL_Num_Of_Transforms = "";
+            string SKILL_I_66 = "";
+
+            // The existing values
+            string SKILL_TYPE = "";
+            string MSG_SKILL_NAME = "";
+            string MSG_SKILL_DESC = "";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -1008,6 +1040,7 @@ namespace XVReborn
                                         MSG_COSTUME_NAME = reader.GetAttribute("value").Trim();
                                     }
                                 }
+
                                 if (reader.Name == "VOX_1")
                                 {
                                     if (reader.HasAttributes)
@@ -1033,8 +1066,235 @@ namespace XVReborn
                                     }
                                 }
 
+                                if(reader.Name == "MSG_SKILL_NAME")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        MSG_SKILL_NAME = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "MSG_SKILL_DESC")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        MSG_SKILL_DESC = reader.GetAttribute("value").Trim();
+                                    }
+                                }
 
+                                if (reader.Name == "SKILL_TYPE")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_TYPE = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+                                if (reader.Name == "ShortName")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_ShortName = reader.GetAttribute("value").Trim();
+                                    }
+                                }
 
+                                if (reader.Name == "ID1")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_ID1 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "ID2")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_ID2 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "I_04")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_I_04 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "Race_Lock")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_Race_Lock = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "Type")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_Type = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "FilesLoaded")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_FilesLoaded = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "PartSet")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_PartSet = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "I_18")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_I_18 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "EAN")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_EAN = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "CAM_EAN")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_CAM_EAN = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "EEPK")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_EEPK = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "ACB_SE")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_ACB_SE = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "ACB_VOX")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_ACB_VOX = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "AFTER_BAC")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_AFTER_BAC = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "AFTER_BCM")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_AFTER_BCM = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "I_48")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_I_48 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "I_50")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_I_50 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "I_52")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_I_52 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "I_54")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_I_54 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "PUP")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_PUP = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "CUS_Aura")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_CUS_Aura = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "TransformCharaSwap")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_TransformCharaSwap = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "Skillset_Change")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_Skillset_Change = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "Num_Of_Transforms")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_Num_Of_Transforms = reader.GetAttribute("value").Trim();
+                                    }
+                                }
+
+                                if (reader.Name == "I_66")
+                                {
+                                    if (reader.HasAttributes)
+                                    {
+                                        SKILL_I_66 = reader.GetAttribute("value").Trim();
+                                    }
+                                }
                             }
                         }
                         if (File.Exists(xmlfile))
@@ -1321,7 +1581,7 @@ namespace XVReborn
 
                         foreach (string s in File.ReadAllLines(Charalist))
                         {
-                            text10.AppendLine(s.Replace("{[JCO,0,0,0,110,111]}", "{[JCO,0,0,0,110,111]}{[" + CMS_BCS + $",0,0,0,{VOX_1},{VOX_2}]}}"));
+                            text10.Append(s.Replace("{[JCO,0,0,0,110,111]}", "{[JCO,0,0,0,110,111]}{[" + CMS_BCS + $",0,0,0,{VOX_1},{VOX_2}]}}"));
                         }
 
                         using (var file1 = new StreamWriter(File.Create(Charalist)))
@@ -1357,11 +1617,154 @@ namespace XVReborn
                         lvMods.Items.Add(lvi);
                         saveLvItems();
                     }
-                    else
+                    else if(modtype == "ADDED_SKILL")
                     {
 
-                        MessageBox.Show("File already exists in data folder, cannot proceed with installation.", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        List<string> installedFiles = EnumerateFiles("./XVRebornTemp");
+                        List<string> final = new List<string>();
+
+                        foreach (string installedFile in installedFiles)
+                        {
+                            string modifiedFile = installedFile.Replace("./XVRebornTemp", Properties.Settings.Default.datafolder);
+                            final.Add(modifiedFile);
+                        }
+
+                        string installedDir = Path.Combine(Settings.Default.datafolder, "installed");
+                        if (!Directory.Exists(installedDir))
+                        {
+                            Directory.CreateDirectory(installedDir);
+                        }
+                        //062_GHS_MSK
+
+                        string filePath = Path.Combine(Settings.Default.datafolder, Settings.Default.datafolder + $"/installed/{modtype}_{modname}_{SKILL_TYPE}_{SKILL_ID1.PadLeft(3, '0')}_{SKILL_ID2.PadLeft(3, '0')}_{CharID}_{SKILL_ShortName}.txt");
+                        File.WriteAllLines(filePath, final);
+
+
+                        if (Directory.Exists("./XVRebornTemp/JUNGLE"))
+                            MergeDirectoriesWithConfirmation("./XVRebornTemp/JUNGLE", Settings.Default.datafolder);
+                        MergeDirectoriesWithConfirmation("./XVRebornTemp", Settings.Default.datafolder);
+
+                        Clean();
+
+                        //CUS
+
+                        // CUS
+                        Process p = new Process();
+                        ProcessStartInfo info = new ProcessStartInfo();
+                        info.FileName = "cmd.exe";
+                        info.CreateNoWindow = true;
+                        info.WindowStyle = ProcessWindowStyle.Hidden;
+                        info.RedirectStandardInput = true;
+                        info.UseShellExecute = false;
+                        p.StartInfo = info;
+                        p.Start();
+
+                        using (StreamWriter sw = p.StandardInput)
+                        {
+                            if (sw.BaseStream.CanWrite)
+                            {
+                                sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                                sw.WriteLine(@"XMLSerializer.exe custom_skill.cus");
+                            }
+                        }
+
+                        p.WaitForExit();
+
+                        string cuspath = Settings.Default.datafolder + @"\system\custom_skill.cus.xml";
+                        string text4 = File.ReadAllText(cuspath);
+
+                        switch (SKILL_TYPE)
+                        {
+                            case "SPA":
+                                text4 = text4.Replace("\r\n  </SuperSkills>", $"<Skill ShortName=\"{SKILL_ShortName}\" ID1=\"{SKILL_ID1}\" ID2=\"{SKILL_ID2}\"><I_04 value=\"{SKILL_I_04}\" /><Race_Lock value=\"{SKILL_Race_Lock}\" /><Type value=\"{SKILL_Type}\" /><FilesLoaded Flags=\"{SKILL_FilesLoaded}\" /><PartSet value=\"{SKILL_PartSet}\" /><I_18 value=\"{SKILL_I_18}\" /><EAN Path=\"{SKILL_EAN}\" /><CAM_EAN Path=\"{SKILL_CAM_EAN}\" /><EEPK Path=\"{SKILL_EEPK}\" /><ACB_SE Path=\"{SKILL_ACB_SE}\" /><ACB_VOX Path=\"{SKILL_ACB_VOX}\" /><AFTER_BAC Path=\"{SKILL_AFTER_BAC}\" /><AFTER_BCM Path=\"{SKILL_AFTER_BCM}\" /><I_48 value=\"{SKILL_I_48}\" /><I_50 value=\"{SKILL_I_50}\" /><I_52 value=\"{SKILL_I_52}\" /><I_54 value=\"{SKILL_I_54}\" /><PUP ID=\"{SKILL_PUP}\" /><CUS_Aura value=\"{SKILL_CUS_Aura}\" /><TransformCharaSwap Chara_ID=\"{SKILL_TransformCharaSwap}\" /><Skillset_Change ModelPreset=\"{SKILL_Skillset_Change}\" /><Num_Of_Transforms value=\"{SKILL_Num_Of_Transforms}\" /><I_66 value=\"{SKILL_I_66}\" /></Skill></SuperSkills>");
+                                break;
+                            case "ULT":
+                                text4 = text4.Replace("\r\n  </UltimateSkills>", $"<Skill ShortName=\"{SKILL_ShortName}\" ID1=\"{SKILL_ID1}\" ID2=\"{SKILL_ID2}\"><I_04 value=\"{SKILL_I_04}\" /><Race_Lock value=\"{SKILL_Race_Lock}\" /><Type value=\"{SKILL_Type}\" /><FilesLoaded Flags=\"{SKILL_FilesLoaded}\" /><PartSet value=\"{SKILL_PartSet}\" /><I_18 value=\"{SKILL_I_18}\" /><EAN Path=\"{SKILL_EAN}\" /><CAM_EAN Path=\"{SKILL_CAM_EAN}\" /><EEPK Path=\"{SKILL_EEPK}\" /><ACB_SE Path=\"{SKILL_ACB_SE}\" /><ACB_VOX Path=\"{SKILL_ACB_VOX}\" /><AFTER_BAC Path=\"{SKILL_AFTER_BAC}\" /><AFTER_BCM Path=\"{SKILL_AFTER_BCM}\" /><I_48 value=\"{SKILL_I_48}\" /><I_50 value=\"{SKILL_I_50}\" /><I_52 value=\"{SKILL_I_52}\" /><I_54 value=\"{SKILL_I_54}\" /><PUP ID=\"{SKILL_PUP}\" /><CUS_Aura value=\"{SKILL_CUS_Aura}\" /><TransformCharaSwap Chara_ID=\"{SKILL_TransformCharaSwap}\" /><Skillset_Change ModelPreset=\"{SKILL_Skillset_Change}\" /><Num_Of_Transforms value=\"{SKILL_Num_Of_Transforms}\" /><I_66 value=\"{SKILL_I_66}\" /></Skill></UltimateSkills>");
+                                break;
+                            case "ESC":
+                                text4 = text4.Replace("\r\n  </EvasiveSkills>", $"<Skill ShortName=\"{SKILL_ShortName}\" ID1=\"{SKILL_ID1}\" ID2=\"{SKILL_ID2}\"><I_04 value=\"{SKILL_I_04}\" /><Race_Lock value=\"{SKILL_Race_Lock}\" /><Type value=\"{SKILL_Type}\" /><FilesLoaded Flags=\"{SKILL_FilesLoaded}\" /><PartSet value=\"{SKILL_PartSet}\" /><I_18 value=\"{SKILL_I_18}\" /><EAN Path=\"{SKILL_EAN}\" /><CAM_EAN Path=\"{SKILL_CAM_EAN}\" /><EEPK Path=\"{SKILL_EEPK}\" /><ACB_SE Path=\"{SKILL_ACB_SE}\" /><ACB_VOX Path=\"{SKILL_ACB_VOX}\" /><AFTER_BAC Path=\"{SKILL_AFTER_BAC}\" /><AFTER_BCM Path=\"{SKILL_AFTER_BCM}\" /><I_48 value=\"{SKILL_I_48}\" /><I_50 value=\"{SKILL_I_50}\" /><I_52 value=\"{SKILL_I_52}\" /><I_54 value=\"{SKILL_I_54}\" /><PUP ID=\"{SKILL_PUP}\" /><CUS_Aura value=\"{SKILL_CUS_Aura}\" /><TransformCharaSwap Chara_ID=\"{SKILL_TransformCharaSwap}\" /><Skillset_Change ModelPreset=\"{SKILL_Skillset_Change}\" /><Num_Of_Transforms value=\"{SKILL_Num_Of_Transforms}\" /><I_66 value=\"{SKILL_I_66}\" /></Skill></EvasiveSkills>");
+                                break; 
+                        }
+
+                        File.WriteAllText(cuspath, text4);
+
+                        p.Start();
+
+                        using (StreamWriter sw = p.StandardInput)
+                        {
+                            if (sw.BaseStream.CanWrite)
+                            {
+                                const string quote = "\"";
+
+                                sw.WriteLine("cd " + Settings.Default.datafolder + @"\system");
+                                sw.WriteLine(@"XMLSerializer.exe " + quote + Settings.Default.datafolder + @"\system\custom_skill.cus.xml" + quote);
+                            }
+                        }
+
+                        p.WaitForExit();
+
+                        //MSG
+
+                        msg MSGfile;
+                        msg MSGfile2;
+                        MSGfile = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "spa" + "_name_" + language + ".msg");
+                        MSGfile2 = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "spa" + "_info_" + language + ".msg");
+                        string MSGfileSkName = "";
+                        string MSGfileSkInfo = "";
+                        string sktypemsg = "";
+
+                        switch (SKILL_TYPE)
+                        {
+                            case "SPA":
+                                sktypemsg = "spe_skill_";
+                                MSGfileSkName = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "spa" + "_name_" + language + ".msg";
+                                MSGfileSkInfo = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "spa" + "_info_" + language + ".msg";
+                                MSGfile = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "spa" + "_name_" + language + ".msg");
+                                MSGfile2 = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "spa" + "_info_" + language + ".msg");
+                                break;
+                            case "ULT":
+                                sktypemsg = "ult_";
+
+                                MSGfileSkName = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "ult" + "_name_" + language + ".msg";
+                                MSGfileSkInfo = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "ult" + "_info_" + language + ".msg";
+                                MSGfile = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "ult" + "_name_" + language + ".msg");
+                                MSGfile2 = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "ult" + "_info_" + language + ".msg");
+                                break;
+                            case "ESC":
+                                sktypemsg = "avoid_skill_";
+
+                                MSGfileSkName = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "esc" + "_name_" + language + ".msg";
+                                MSGfileSkInfo = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "esc" + "_info_" + language + ".msg";
+                                MSGfile = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "esc" + "_name_" + language + ".msg");
+                                MSGfile2 = msgStream.Load(Settings.Default.datafolder + @"/msg/proper_noun_skill_" + "esc" + "_info_" + language + ".msg");
+                                break;
+
+                        }
+                        msgData[] expand = new msgData[MSGfile.data.Length + 1];;
+                        Array.Copy(MSGfile.data, expand, MSGfile.data.Length);
+                        string nameid = MSGfile.data[MSGfile.data.Length - 1].NameID;
+                        int endid = int.Parse(nameid.Substring(nameid.Length - 3, 3));
+                        expand[expand.Length - 1].ID = MSGfile.data.Length;
+                        expand[expand.Length - 1].Lines = new string[] { MSG_SKILL_NAME };
+                        expand[expand.Length - 1].NameID = sktypemsg + SKILL_ID1.PadLeft(3, '0');
+                        MSGfile.data = expand;
+                        msgStream.Save(MSGfile, MSGfileSkName);
+
+                        expand = new msgData[MSGfile2.data.Length + 1];
+                        Array.Copy(MSGfile2.data, expand, MSGfile2.data.Length);
+                        nameid = MSGfile2.data[MSGfile2.data.Length - 1].NameID;
+                        endid = int.Parse(nameid.Substring(nameid.Length - 3, 3));
+                        expand[expand.Length - 1].ID = MSGfile2.data.Length;
+                        expand[expand.Length - 1].Lines = new string[] { MSG_SKILL_DESC };
+                        expand[expand.Length - 1].NameID = sktypemsg + SKILL_ID1.PadLeft(3, '0');
+                        MSGfile2.data = expand;
+                        msgStream.Save(MSGfile2, MSGfileSkName);
+
+                        Clean();
+                        string[] row = { modname, modauthor, "Added Skill" };
+                        ListViewItem lvi = new ListViewItem(row);
+                        lvMods.Items.Add(lvi);
+                        saveLvItems();
                     }
                 }
             }
@@ -1374,6 +1777,7 @@ namespace XVReborn
                 MessageBox.Show("No mod selected for uninstallation.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            string serializerPath = Settings.Default.datafolder + "/system/XMLSerializer.exe";
 
             ListViewItem selectedItem = lvMods.SelectedItems[0];
             string modtype = selectedItem.SubItems[2].Text;
@@ -1385,6 +1789,9 @@ namespace XVReborn
                     break;
                 case "Added Character":
                     modtype = "ADDED_CHARACTER";
+                    break;
+                case "Added Skill":
+                    modtype = "ADDED_SKILL";
                     break;
                 default:
                     throw new NotImplementedException();
@@ -1478,7 +1885,7 @@ namespace XVReborn
                 }
 
 
-                // Remove Character from CMS
+                // Remove Character from CSO
                 CSO cso = new CSO();
                 cso.Load(Settings.Default.datafolder + @"/system/chara_sound.cso");
                 for (int i = 0; i < cso.Data.Count(); i++)
@@ -1486,53 +1893,88 @@ namespace XVReborn
                     if (cso.Data[i].Char_ID == CMS_ID)
                         cso.RemoveCharacter(cso.Data[i]);
                 }
-
-
                 // Remove Character from CUS
+                RunCommand($"\"{serializerPath}\" \"{Settings.Default.datafolder + @"/system/custom_skill.cus"}\"");
+
                 string cuspath = Settings.Default.datafolder + @"/system/custom_skill.cus.xml";
                 if (File.Exists(cuspath))
                 {
+                    // Read the content of the CUS XML file
                     string text4 = File.ReadAllText(cuspath);
+
+                    // Define the regex pattern to remove the skillset
                     string skillsetToRemove = $"    <Skillset Character_ID=\"{CMS_ID}\" Costume_Index=\"0\" Model_Preset=\"0\">.*?</Skillset>";
+
+                    // Perform the regex replacement
                     text4 = Regex.Replace(text4, skillsetToRemove, "", RegexOptions.Singleline);
+
+                    // Write the updated content back to the file
                     File.WriteAllText(cuspath, text4);
                 }
 
+                // Re-serialize the CUS file
+                RunCommand($"\"{serializerPath}\" \"{cuspath}\"");
+
                 // Remove Character from AUR
+                RunCommand($"\"{serializerPath}\" \"{Settings.Default.datafolder + @"/system/aura_setting.aur"}\"");
+
                 string aurpath = Settings.Default.datafolder + @"/system/aura_setting.aur.xml";
                 if (File.Exists(aurpath))
                 {
+                    // Read the content of the AUR XML file
                     string text5 = File.ReadAllText(aurpath);
+
+                    // Define the regex pattern to remove the aura entry
                     string auraToRemove = $"    <CharacterAura Chara_ID=\"{CMS_ID}\" Costume=\"0\".*?/>\r\n";
+
+                    // Perform the regex replacement
                     text5 = Regex.Replace(text5, auraToRemove, "");
+
+                    // Write the updated content back to the file
                     File.WriteAllText(aurpath, text5);
                 }
 
+                // Re-serialize the AUR file
+                RunCommand($"\"{serializerPath}\" \"{Settings.Default.datafolder + @"/system/aura_setting.aur.xml"}\"");
+
                 // Remove Character from PSC
+                RunCommand($"\"{serializerPath}\" \"{Settings.Default.datafolder + @"/system/parameter_spec_char.psc"}\"");
+
                 string pscpath = Settings.Default.datafolder + @"/system/parameter_spec_char.psc.xml";
                 if (File.Exists(pscpath))
                 {
+                    // Read the content of the PSC XML file
                     string text6 = File.ReadAllText(pscpath);
+
+                    // Define the regex pattern to remove the PSC entry
                     string pscToRemove = $"    <PSC_Entry Chara_ID=\"{CMS_ID}\">.*?</PSC_Entry>";
+
+                    // Perform the regex replacement
                     text6 = Regex.Replace(text6, pscToRemove, "", RegexOptions.Singleline);
+
+                    // Write the updated content back to the file
                     File.WriteAllText(pscpath, text6);
                 }
+                RunCommand($"\"{serializerPath}\" \"{Settings.Default.datafolder + @"/system/parameter_spec_char.psc.xml"}\"");
 
-                // Remove from XVP_SLOTS.xs
                 string charalist = Settings.Default.datafolder + @"/XVP_SLOTS.xs";
                 if (File.Exists(charalist))
                 {
-                    var text10 = new StringBuilder();
-                    foreach (string s in File.ReadAllLines(charalist))
-                    {
-                        if (!s.Contains(CMS_BCS))
-                        {
-                            text10.AppendLine(s);
-                        }
-                    }
-                    File.WriteAllText(charalist, text10.ToString());
-                }
+                    string s = File.ReadAllText(charalist);
+                    Console.WriteLine("CMS_BCS value: " + CMS_BCS);
+                    string escapedCMS_BCS = Regex.Escape(CMS_BCS);
+                    Console.WriteLine("Escaped CMS_BCS: " + escapedCMS_BCS);
+                    pattern = @"\{\[\s*" + escapedCMS_BCS + @"\s*,\s*0\s*,\s*0\s*,\s*0\s*,\s*(-?\d{1,3})\s*,\s*(-?\d{1,3})\s*\]\}";
+                    Console.WriteLine("Regex pattern: " + pattern);
+                    string modifiedContent = Regex.Replace(s, pattern, "");
 
+                    Console.WriteLine("Modified content: " + modifiedContent);
+                    File.WriteAllText(charalist, modifiedContent);
+                }
+                else
+                {
+                    Console.WriteLine("File does not exist.");
+                }
                 // Remove from MSG
                 string msgPath = Settings.Default.datafolder + @"/msg/proper_noun_character_name_" + language + ".msg";
                 if (File.Exists(msgPath))
@@ -1545,6 +1987,141 @@ namespace XVReborn
 
 
             }
+            else if (modtype == "ADDED_SKILL")
+            {
+                string modFilePathPattern = Path.Combine(Settings.Default.datafolder, "installed", $"{modtype}_{modname}_*_*_*.txt");
+
+                // Use Directory.GetFiles with the pattern to find matching files
+                string[] matchingFiles = Directory.GetFiles(Settings.Default.datafolder + "/installed", $"{modtype}_{modname}_*_*_*_*.txt");
+
+                // If you need to work with the first matching file, for example
+                modFilePath = matchingFiles.Length > 0 ? matchingFiles[0] : null; // Handle the case if no file is found
+
+                if (modFilePath != null)
+                {
+                    Console.WriteLine("Found file: " + modFilePath);
+                }
+                else
+                {
+                    Console.WriteLine("No matching file found.");
+                }
+                // Check if the file exists
+                if (File.Exists(modFilePath))
+                {
+                    // Get the list of files installed
+                    string[] installedFiles = File.ReadAllLines(modFilePath);
+
+                    // Delete the installed files
+                    foreach (string file in installedFiles)
+                    {
+                        if (File.Exists(file))
+                        {
+                            File.Delete(file);
+                            Console.WriteLine($"{file} - File deleted");
+                        }
+                        else if (Directory.Exists(file))
+                        {
+                            Directory.Delete(file, true);
+                            Console.WriteLine($"{file} - Directory deleted");
+                        }
+                    }
+
+                    // Delete the mod installation data file
+                    File.Delete(modFilePath);
+                }
+
+                // Remove the directories created during installation
+                if (Directory.Exists("./XVRebornTemp/JUNGLE"))
+                    Directory.Delete("./XVRebornTemp/JUNGLE", true);
+                if (Directory.Exists("./XVRebornTemp"))
+                    Directory.Delete("./XVRebornTemp", true);
+
+                string fileName = Path.GetFileName(modFilePath);
+                
+                string pattern = @"^(\w+)_(\w+)_(\w+)_(\d{3})_(\w+)_(\w+)_(.*?)\.txt$";
+
+                // Match the file name against the pattern
+                Match match = Regex.Match(fileName, pattern);
+
+
+                string SKILL_TYPE = "";
+                string SKILL_ID1 = "";
+                string SKILL_ID2 = "";
+                string CharID = "";
+                string SKILL_ShortName = "";
+
+                if (match.Success)
+                {
+                    // Extract the values from the matching groups
+                    SKILL_TYPE = match.Groups[3].Value;         // The third group corresponds to SKILL_TYPE
+                    SKILL_ID1 = match.Groups[4].Value;          // The fourth group corresponds to SKILL_ID1 (padded with zeros)
+                    SKILL_ID2 = match.Groups[5].Value;          // The fourth group corresponds to SKILL_ID1 (padded with zeros)
+                    CharID = match.Groups[6].Value;             // The fifth group corresponds to CharID
+                    SKILL_ShortName = match.Groups[7].Value;    // The sixth group corresponds to SKILL_ShortName
+
+                    Console.WriteLine($"SKILL_TYPE: {SKILL_TYPE}");
+                    Console.WriteLine($"SKILL_ID1: {SKILL_ID1}");
+                    Console.WriteLine($"SKILL_ID2: {SKILL_ID2}");
+                    Console.WriteLine($"CharID: {CharID}");
+                    Console.WriteLine($"SKILL_ShortName: {SKILL_ShortName}");
+
+                    // Example of constructing the file path
+                    string filePath = Path.Combine(Settings.Default.datafolder, $"{Settings.Default.datafolder}/installed/{modtype}_{modname}_{SKILL_TYPE}_{SKILL_ID1.PadLeft(3, '0')}_{SKILL_ID2.PadLeft(3, '0')}_{CharID}_{SKILL_ShortName}.txt");
+                    Console.WriteLine($"File path: {filePath}");
+                }
+                else
+                {
+                    Console.WriteLine("No matching file format found.");
+                }
+                // Run the first command (assuming it's required for some processing)
+                RunCommand($"\"{serializerPath}\" \"{Settings.Default.datafolder + @"/system/custom_skill.cus"}\"");
+
+                // Remove the custom skill from the XML file
+                string cuspath = Settings.Default.datafolder + @"\system\custom_skill.cus.xml";
+                if (File.Exists(cuspath))
+                {
+                    // Read the content of the XML file
+                    string xmlContent = File.ReadAllText(cuspath);
+
+                    // Define the pattern to match the skill to remove (accounting for the exact padding)
+                    string patternCUS = $@"<Skill ShortName=""{SKILL_ShortName}"" ID1=""{SKILL_ID1.PadLeft(3, '0')}"" ID2=""{SKILL_ID2.PadLeft(3, '0')}"">.*?</Skill>";
+
+                    // Remove the skill from the XML content (using the single-line option to handle multiline)
+                    string updatedXmlContent = Regex.Replace(xmlContent, patternCUS, string.Empty, RegexOptions.Singleline);
+
+                    // Write the updated XML back to the file
+                    File.WriteAllText(cuspath, updatedXmlContent);
+
+                    // Finally, serialize the updated XML (if this step is needed)
+                    RunCommand($"\"{serializerPath}\" \"{Settings.Default.datafolder + @"/system/custom_skill.cus.xml"}\"");
+                }
+
+
+                // Remove skill data from the MSG files
+                string msgPathName = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + SKILL_TYPE.ToLower() + "_name_" + language + ".msg";
+                string msgPathInfo = Settings.Default.datafolder + @"/msg/proper_noun_skill_" + SKILL_TYPE.ToLower() + "_info_" + language + ".msg";
+
+                if (File.Exists(msgPathName))
+                {
+                    msg MSGfile = msgStream.Load(msgPathName);
+                    List<msgData> updatedNameData = MSGfile.data.Where(d => !d.NameID.Contains(SKILL_ID1.PadLeft(3, '0'))).ToList();
+                    MSGfile.data = updatedNameData.ToArray();
+                    msgStream.Save(MSGfile, msgPathName);
+                }
+
+                if (File.Exists(msgPathInfo))
+                {
+                    msg MSGfile2 = msgStream.Load(msgPathInfo);
+                    List<msgData> updatedInfoData = MSGfile2.data.Where(d => !d.NameID.Contains(SKILL_ID1.PadLeft(3, '0'))).ToList();
+                    MSGfile2.data = updatedInfoData.ToArray();
+                    msgStream.Save(MSGfile2, msgPathInfo);
+                }
+
+                // Remove the mod from the ListView and save the updated list
+                lvMods.Items.Remove(selectedItem);
+                saveLvItems();
+            }
+
 
             lvMods.Items.Remove(selectedItem);
             saveLvItems();
@@ -1720,7 +2297,23 @@ namespace XVReborn
                     }
                     string embpackPath = Path.Combine(Settings.Default.datafolder, @"ui\texture", "embpack.exe");
 
-                    string ddsFolder = tempFolder;
+                    string ddsFolder = "";
+                    Match match = Regex.Match(ddsFolder, @"character_(\d+)_info");
+                    // Get directories whose name length is 3
+                    var matchingDirectories = Directory.GetDirectories(tempFolder)
+                        .Where(dir => Path.GetFileName(dir).Length == 3)
+                        .ToList();
+
+                    // If you want to take the first matching directory (if any)
+                    if (matchingDirectories.Any())
+                    {
+                        ddsFolder = matchingDirectories.First();
+                        Console.WriteLine(ddsFolder);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No matching directories found.");
+                    }
                     string[] embFiles = Directory.GetFiles(ddsFolder, "*.dyt.emb", SearchOption.AllDirectories);
                     Console.WriteLine($"Found {embFiles.Length} EMB files in {ddsFolder}");
                     if (!Directory.Exists(ddsFolder))
@@ -1776,11 +2369,320 @@ namespace XVReborn
                     }
                     string finalPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\{Path.GetFileNameWithoutExtension(ofd.FileName)}";
                     MoveDirectory(tempFolder, finalPath, true);
-                    MessageBox.Show($"X2M Converted successfully, you can find the converted files in \"{finalPath}\"", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Helper method to safely get attribute value
+                    string GetAttributeValue(XmlNode node, string attributeName)
+                    {
+                        var attribute = node?.Attributes[attributeName];
+                        return attribute?.Value ?? "N/A"; // Return "N/A" if the attribute doesn't exist
+                    }
+                    var xmlContent = File.ReadAllText(finalPath + @"/x2m.xml");
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(xmlContent);
+                    // Basic Information
+                    string formatVersion = GetAttributeValue(doc.SelectSingleNode("//X2M_FORMAT_VERSION"), "value");
+                    string modName = GetAttributeValue(doc.SelectSingleNode("//MOD_NAME"), "value");
+                    string modAuthor = GetAttributeValue(doc.SelectSingleNode("//MOD_AUTHOR"), "value");
+                    string modVersion = GetAttributeValue(doc.SelectSingleNode("//MOD_VERSION"), "value");
+                    string modGuid = GetAttributeValue(doc.SelectSingleNode("//MOD_GUID"), "value");
+                    string uData = GetAttributeValue(doc.SelectSingleNode("//UDATA"), "value");
+                    string entryName = GetAttributeValue(doc.SelectSingleNode("//ENTRY_NAME"), "value");
+                    string charaNameEn = GetAttributeValue(doc.SelectSingleNode("//CHARA_NAME_EN"), "value");
+
+                    // SlotEntry
+                    string slotCostumeIndex = GetAttributeValue(doc.SelectSingleNode("//SlotEntry"), "costume_index");
+                    string modelPreset = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/MODEL_PRESET"), "value");
+                    string flagGK2 = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/FLAG_GK2"), "value");
+                    string voicesIdList = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/VOICES_ID_LIST"), "value");
+                    string costumeNameEn = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/COSTUME_NAME_EN"), "value");
+
+                    // Entry
+                    string entryId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "id");
+                    string entryNameId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "name");
+
+                    string u10 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_10"), "value");
+                    string loadCamDist = GetAttributeValue(doc.SelectSingleNode("//Entry/LOAD_CAM_DIST"), "value");
+                    string u16 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_16"), "value");
+                    string u18 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_18"), "value");
+                    string u1A = GetAttributeValue(doc.SelectSingleNode("//Entry/U_1A"), "value");
+                    string character = GetAttributeValue(doc.SelectSingleNode("//Entry/CHARACTER"), "value");
+                    string ean = GetAttributeValue(doc.SelectSingleNode("//Entry/EAN"), "value");
+                    string fceEan = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE_EAN"), "value");
+                    string fce = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE"), "value");
+                    string camEan = GetAttributeValue(doc.SelectSingleNode("//Entry/CAM_EAN"), "value");
+                    string bac = GetAttributeValue(doc.SelectSingleNode("//Entry/BAC"), "value");
+                    string bcm = GetAttributeValue(doc.SelectSingleNode("//Entry/BCM"), "value");
+                    string ai = GetAttributeValue(doc.SelectSingleNode("//Entry/AI"), "value");
+                    string str50 = GetAttributeValue(doc.SelectSingleNode("//Entry/STR_50"), "value");
+
+                    // SkillSet
+                    string skillSetCharId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/CHAR_ID"), "value");
+                    string skillSetCostumeId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/COSTUME_ID"), "value");
+                    string skillsValue = GetAttributeValue(doc.SelectSingleNode("//SkillSet/SKILLS"), "value");
+
+                    // Split the SKILLS string by commas
+                    string[] skills = skillsValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    // Output the parsed skills
+                    Console.WriteLine("Skills: ");
+                    foreach (var skille in skills)
+                    {
+                        Console.WriteLine(skille.Trim()); // Trim any extra whitespace
+                    }
+                    string skillSetModelPreset = GetAttributeValue(doc.SelectSingleNode("//SkillSet/MODEL_PRESET"), "value");
+
+                    // CsoEntry
+                    string csoCharId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/CHAR_ID"), "value");
+                    string csoCostumeId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/COSTUME_ID"), "value");
+                    string se = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SE"), "value");
+                    string vox = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/VOX"), "value");
+                    string amk = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/AMK"), "value");
+                    string csoSkills = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SKILLS"), "value");
+
+                    // PscSpecEntry
+                    string costumeId = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID"), "value");
+                    string costumeId2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID2"), "value");
+                    string cameraPosition = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/CAMERA_POSITION"), "value");
+                    string u0C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_0C"), "value");
+                    string u10_2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_10"), "value");
+                    string health = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/HEALTH"), "value");
+                    string f18 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_18"), "value");
+                    string ki = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI"), "value");
+                    string kiRecharge = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_RECHARGE"), "value");
+                    string u24 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_24"), "value");
+                    string u28 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_28"), "value");
+                    string u2C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_2C"), "value");
+                    string stamina = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA"), "value");
+                    string staminaRechargeMove = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_MOVE"), "value");
+                    string staminaRechargeAir = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_AIR"), "value");
+                    string staminaRechargeGround = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_GROUND"), "value");
+                    string staminaDrainRate1 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE1"), "value");
+                    string staminaDrainRate2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE2"), "value");
+                    string f48 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_48"), "value");
+                    string basicAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_ATTACK"), "value");
+                    string basicKiAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_ATTACK"), "value");
+                    string strikeAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATTACK"), "value");
+                    string kiBlastSuper = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_BLAST_SUPER"), "value");
+                    string basicPhysDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_PHYS_DEFENSE"), "value");
+                    string basicKiDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_DEFENSE"), "value");
+                    string strikeAtkDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATK_DEFENSE"), "value");
+                    string superKiBlastDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/SUPER_KI_BLAST_DEFENSE"), "value");
+                    string groundSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/GROUND_SPEED"), "value");
+                    string airSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/AIR_SPEED"), "value");
+                    string boostingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BOOSTING_SPEED"), "value");
+                    string dashDistance = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/DASH_DISTANCE"), "value");
+                    string f7C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_7C"), "value");
+                    string reinfSkillDuration = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REINF_SKILL_DURATION"), "value");
+                    string f84 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_84"), "value");
+                    string revivalHpAmount = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVAL_HP_AMOUNT"), "value");
+                    string f8C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_8C"), "value");
+                    string revivingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVING_SPEED"), "value");
+                    string u98 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_98"), "value");
+                    string talisman = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/TALISMAN"), "value");
+                    string uB8 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_B8"), "value");
+                    string uBC = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_BC"), "value");
+                    string fC0 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_C0"), "value");
+
+                    // CharacLink
+                    string characLinkIdCharac = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCharac");
+                    string characLinkIdCostume = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCostume");
+                    string characLinkIdAura = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idAura");
+                    string characLinkGlare = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "glare");
+
+                    // SevEntryHL
+                    string sevEntryHlCostumeId = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "costume_id");
+                    string sevEntryHlCopyChar = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_char");
+                    string sevEntryHlCopyCostume = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_costume");
+
+                    // CmlEntry
+                    string cmlEntryCharId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "char_id");
+                    string cmlEntryCostumeId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "costume_id");
+                    string cmlEntryU04 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/U_04"), "value");
+                    string cmlEntryCssPos = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_POS"), "value");
+                    string cmlEntryCssRot = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_ROT"), "value");
+                    string cmlEntryF0C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_0C"), "value");
+                    string cmlEntryF10 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_10"), "value");
+                    string cmlEntryF14 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_14"), "value");
+                    string cmlEntryF18 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_18"), "value");
+                    string cmlEntryF1C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_1C"), "value");
+                    string cmlEntryF20 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_20"), "value");
+                    string cmlEntryF24 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_24"), "value");
+                    string cmlEntryF28 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_28"), "value");
+                    string cmlEntryF2C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_2C"), "value");
+
+                    File.Delete(finalPath + @"/x2m.xml");
+                    // Create an XmlWriterSettings instance for formatting the XML
+                    XmlWriterSettings settings = new XmlWriterSettings
+                    {
+                        Indent = true,
+                        IndentChars = "    ", // Use four spaces for indentation
+                    };
+
+                    // Create the XmlWriter and write the XML content
+                    string xmlFilePath = finalPath + @"/xvmod.xml";
+                    using (XmlWriter writer = XmlWriter.Create(xmlFilePath, settings))
+                    {
+                        writer.WriteStartDocument();
+                        writer.WriteStartElement("XVMOD");
+                        writer.WriteAttributeString("type", "ADDED_CHARACTER");
+
+                        WriteElementWithValue(writer, "MOD_NAME", modName);
+                        WriteElementWithValue(writer, "MOD_AUTHOR", modAuthor);
+
+
+                        WriteElementWithValue(writer, "AUR_ID", Convert.ToInt32(characLinkIdAura, 16).ToString());
+                        if (characLinkGlare == "true")
+                            WriteElementWithValue(writer, "AUR_GLARE", "1");
+                        else
+                            WriteElementWithValue(writer, "AUR_GLARE", "0");
+
+                        WriteElementWithValue(writer, "CMS_BCS", character);
+                        WriteElementWithValue(writer, "CMS_EAN", ean);
+                        WriteElementWithValue(writer, "CMS_FCE_EAN", fceEan);
+                        WriteElementWithValue(writer, "CMS_CAM_EAN", camEan);
+                        WriteElementWithValue(writer, "CMS_BAC", bac);
+                        WriteElementWithValue(writer, "CMS_BCM", bcm);
+                        WriteElementWithValue(writer, "CMS_BAI", ai);
+
+                        WriteElementWithValue(writer, "CSO_1", se);
+                        WriteElementWithValue(writer, "CSO_2", vox);
+                        WriteElementWithValue(writer, "CSO_3", amk);
+                        WriteElementWithValue(writer, "CSO_4", csoSkills);
+
+                        WriteElementWithValue(writer, "CUS_SUPER_1", skills[0]);
+                        WriteElementWithValue(writer, "CUS_SUPER_2", skills[1]);
+                        WriteElementWithValue(writer, "CUS_SUPER_3", skills[2]);
+                        WriteElementWithValue(writer, "CUS_SUPER_4", skills[3]);
+                        WriteElementWithValue(writer, "CUS_ULTIMATE_1", skills[4]);
+                        WriteElementWithValue(writer, "CUS_ULTIMATE_2", skills[5]);
+                        WriteElementWithValue(writer, "CUS_EVASIVE", skills[6]);
+
+
+                        WriteElementWithValue(writer, "PSC_COSTUME", "0");
+                        WriteElementWithValue(writer, "PSC_PRESET", "0");
+                        WriteElementWithValue(writer, "PSC_CAMERA_POSITION", cameraPosition);
+                        WriteElementWithValue(writer, "PSC_HEALTH", health);
+                        WriteElementWithValue(writer, "PSC_I_12", "0");
+                        WriteElementWithValue(writer, "PSC_F_20", "0");
+
+                        WriteElementWithValue(writer, "PSC_KI", ki);
+                        WriteElementWithValue(writer, "PSC_KI_RECHARGE", kiRecharge);
+                        WriteElementWithValue(writer, "PSC_I_32", "0");
+                        WriteElementWithValue(writer, "PSC_I_36", "0");
+                        WriteElementWithValue(writer, "PSC_I_40", "0");
+                        WriteElementWithValue(writer, "PSC_STAMINA", stamina);
+
+                        WriteElementWithValue(writer, "PSC_STAMINA_RECHARGE", staminaRechargeGround);
+                        WriteElementWithValue(writer, "PSC_F_52", "0");
+                        WriteElementWithValue(writer, "PSC_F_56", "0");
+                        WriteElementWithValue(writer, "PSC_I_60", "0");
+                        WriteElementWithValue(writer, "PSC_BASIC_ATK_DEF", basicPhysDefense);
+                        WriteElementWithValue(writer, "PSC_BASIC_KI_DEF", basicKiDefense);
+
+                        WriteElementWithValue(writer, "PSC_STRIKE_ATK_DEF", strikeAtkDefense);
+                        WriteElementWithValue(writer, "PSC_SUPER_KI_DEF", superKiBlastDefense);
+                        WriteElementWithValue(writer, "PSC_GROUND_SPEED", groundSpeed);
+                        WriteElementWithValue(writer, "PSC_AIR_SPEED", airSpeed);
+                        WriteElementWithValue(writer, "PSC_BOOST_SPEED", boostingSpeed);
+
+                        WriteElementWithValue(writer, "PSC_DASH_SPEED", dashDistance);
+                        WriteElementWithValue(writer, "PSC_F96", "0");
+                        WriteElementWithValue(writer, "PSC_REINFORCEMENT_SKILL", reinfSkillDuration);
+                        WriteElementWithValue(writer, "PSC_F104", "0");
+                        WriteElementWithValue(writer, "PSC_REVIVAL_HP_AMOUNT", revivalHpAmount);
+
+                        WriteElementWithValue(writer, "PSC_REVIVING_SPEED",  revivingSpeed);
+                        WriteElementWithValue(writer, "PSC_F_116", "0");
+                        WriteElementWithValue(writer, "PSC_F_120", "0");
+                        WriteElementWithValue(writer, "PSC_F_124", "0");
+                        WriteElementWithValue(writer, "PSC_F_128", "0");
+
+                        WriteElementWithValue(writer, "PSC_F_132", "0");
+                        WriteElementWithValue(writer, "PSC_F_136", "0");
+                        WriteElementWithValue(writer, "PSC_I_140", "0");
+                        WriteElementWithValue(writer, "PSC_F_144", "0");
+                        WriteElementWithValue(writer, "PSC_F_148", "0");
+
+                        WriteElementWithValue(writer, "PSC_F_152", "0");
+                        WriteElementWithValue(writer, "PSC_F_156", "0");
+                        WriteElementWithValue(writer, "PSC_F_160", "0");
+                        WriteElementWithValue(writer, "PSC_F_164", "0");
+                        WriteElementWithValue(writer, "PSC_Z_SOUL", "0");
+
+                        WriteElementWithValue(writer, "PSC_I_172", "0");
+                        WriteElementWithValue(writer, "PSC_I_176", "0");
+                        WriteElementWithValue(writer, "PSC_F_180", "0");
+
+
+                        WriteElementWithValue(writer, "MSG_CHARACTER_NAME", charaNameEn);
+                        WriteElementWithValue(writer, "MSG_COSTUME_NAME", costumeNameEn);
+
+                        WriteElementWithValue(writer, "VOX_1", "-1");
+                        WriteElementWithValue(writer, "VOX_2", "-1");
+
+                        writer.WriteEndElement(); // Close XVMOD
+                        writer.WriteEndDocument(); // Close the document
+                    }
+                    Directory.CreateDirectory(finalPath + $"/ui/texture/CHARA01/");
+                    File.Move(finalPath + @"/UI/SEL.DDS", finalPath + $"/ui/texture/CHARA01/{character}_000.DDS");
+                    MoveDirectory(finalPath + $"/{character}", finalPath + $"/chara/{character}", true);
+                    ZipFile.CreateFromDirectory(finalPath, finalPath + ".xvmod");
+                    MessageBox.Show($"X2M Converted successfully, you can find the converted file in \"{finalPath + ".xvmod"}\"", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clean();
                 }
             }
 
+        }
+        public static void CopyDirectory(string sourceDir, string destDir, bool recursive = true)
+        {
+            if (string.IsNullOrEmpty(sourceDir))
+                throw new ArgumentNullException(nameof(sourceDir), "Source directory cannot be null or empty.");
+
+            if (!Directory.Exists(sourceDir))
+                throw new DirectoryNotFoundException($"Source directory not found: {sourceDir}");
+
+            if (Directory.Exists(destDir))
+                Directory.Delete(destDir, recursive);
+
+            Directory.CreateDirectory(destDir);
+
+            var files = Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories);
+            if (files.Length == 0)
+                throw new FileNotFoundException($"No files found in directory: {sourceDir}");
+
+            foreach (string file in files)
+            {
+                string destFile = file.Replace(sourceDir, destDir);
+                Directory.CreateDirectory(Path.GetDirectoryName(destFile));
+                File.Copy(file, destFile, true);
+            }
+        }
+        private void WriteElementWithValue(XmlWriter writer, string elementName, string value)
+        {
+            if (!string.IsNullOrEmpty(value))  // Check if value is not empty or null
+            {
+                // Remove the surrounding quotes if present
+                if (value.StartsWith("\"") && value.EndsWith("\""))
+                {
+                    value = value.Substring(1, value.Length - 2);  // Remove the surrounding quotes
+                }
+
+                writer.WriteStartElement(elementName);
+                writer.WriteAttributeString("value", value);  // Add value as an attribute
+                writer.WriteEndElement();
+            }
+            else
+            {
+                string tempVal = "\"\"";
+                // Remove the surrounding quotes if present
+                if (value.StartsWith("\"") && value.EndsWith("\""))
+                {
+                    value = tempVal.Substring(1, value.Length - 2);  // Remove the surrounding quotes
+                }
+
+                writer.WriteStartElement(elementName);
+                writer.WriteAttributeString("value", value);  // Add value as an attribute
+                writer.WriteEndElement();
+            }
         }
         public static void MoveDirectory(string sourceDir, string destDir, bool recursive)  //Just to keep it the same
         {
