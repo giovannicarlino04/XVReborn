@@ -2633,8 +2633,7 @@ namespace XVReborn
                     }
                     else if(x2mType == "NEW_SKILL")
                     {
-
-
+                        throw new NotImplementedException("Not yet implemented");
                     }
                     MessageBox.Show($"X2M Converted successfully, you can find the converted file in \"{finalPath + ".xvmod"}\"", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clean();
@@ -2697,33 +2696,120 @@ namespace XVReborn
         }
         public static void MoveDirectory(string sourceDir, string destDir, bool recursive)  //Just to keep it the same
         {
-            // Ensure the source directory exists
             if (!Directory.Exists(sourceDir))
             {
                 throw new DirectoryNotFoundException($"Source directory not found: {sourceDir}");
             }
 
-            // If the destination exists, delete it to prevent conflicts
             if (Directory.Exists(destDir))
             {
                 Directory.Delete(destDir, recursive);
             }
 
-            // Create the destination directory
             Directory.CreateDirectory(destDir);
 
-            // Move all files
             foreach (string file in Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories))
             {
                 string destFile = file.Replace(sourceDir, destDir);
-                Directory.CreateDirectory(Path.GetDirectoryName(destFile)); // Ensure subdirectories exist
+                Directory.CreateDirectory(Path.GetDirectoryName(destFile)); 
                 File.Move(file, destFile);
             }
 
-            // Remove the source directory after everything has been moved
             Directory.Delete(sourceDir, recursive);
         }
+        private string ShowInputDialog(string prompt, string defaultValue = "")
+        {
+            using (InputForm inputForm = new InputForm(prompt, defaultValue))
+            {
+                if (inputForm.ShowDialog() == DialogResult.OK)
+                {
+                    return inputForm.UserInput;
+                }
+            }
 
+            return string.Empty;
+        }
+        private void convertXV2ModlooseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Convert Loose Files Mod";
 
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+
+                foreach (string file in Directory.GetFiles(fbd.SelectedPath, "*", SearchOption.AllDirectories))
+                {
+                    X2M x2m = new X2M();
+                    switch (Path.GetExtension(file))
+                    {
+                        case ".bcs":
+                            x2m.ProcessBCS(file);
+                            break;
+                        case ".bac":
+                        case ".bdm":
+                            x2m.ProcessBAC(file);
+                            break;
+                        case ".emd":
+                        case ".esk":
+                        case ".ean":
+                            x2m.ChangeModelVer(file);
+                            break;
+                        case ".emm":
+                            x2m.ChangeShaderVer(file);
+                            x2m.ChangeShaderHeader(file);
+                            break;
+                        case ".dyt.emb":
+                            x2m.ChangeImageVer(file);
+                            break;
+                    }
+
+                    if (File.Exists(file + @".xml"))
+                        File.Delete(file + @".xml");
+                }
+            }
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Save Mod File";
+            sfd.Filter = "Xenoverse Mod Files (*.xvmod)|*.xvmod";
+            string name = ShowInputDialog("Enter Mod Name: ");
+            string author = ShowInputDialog("Enter Author Name: ");
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                string xmlFilePath = fbd.SelectedPath + "/xvmod.xml";
+
+                if (File.Exists(xmlFilePath))
+                    File.Delete(xmlFilePath);
+                if (File.Exists(xmlFilePath.Replace("xvmod", "x2m")))
+                    File.Delete(xmlFilePath);
+                XmlWriterSettings settings = new XmlWriterSettings
+                {
+                    Indent = true,
+                    IndentChars = "    ", 
+                };
+
+                using (XmlWriter writer = XmlWriter.Create(xmlFilePath, settings))
+                {
+                    writer.WriteStartDocument();
+                    writer.WriteStartElement("XVMOD");
+                    writer.WriteAttributeString("type", "REPLACER");
+
+                    WriteElementWithValue(writer, "MOD_NAME", name);
+                    WriteElementWithValue(writer, "MOD_AUTHOR", author);
+                    WriteElementWithValue(writer, "MOD_VERSION", "1.0");
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument(); 
+                }
+
+                Console.WriteLine("XML file created at: " + xmlFilePath);
+
+                ZipFile.CreateFromDirectory(fbd.SelectedPath, sfd.FileName);
+
+                if (File.Exists(xmlFilePath))
+                    File.Delete(xmlFilePath);
+
+                MessageBox.Show("Mod Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

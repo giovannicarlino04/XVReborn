@@ -117,6 +117,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XV\DDS.cs" />
     <Compile Include="Form3.cs">
       <SubType>Form</SubType>

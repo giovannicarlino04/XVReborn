@@ -65,6 +65,7 @@ namespace XVReborn
             this.ch1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.convertXV2ModlooseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,7 +123,7 @@ namespace XVReborn
             // uninstallModToolStripMenuItem
             // 
             this.uninstallModToolStripMenuItem.Name = "uninstallModToolStripMenuItem";
-            this.uninstallModToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uninstallModToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.uninstallModToolStripMenuItem.Text = "Uninstall Mod";
             this.uninstallModToolStripMenuItem.Click += new System.EventHandler(this.uninstallMod);
             // 
@@ -132,6 +133,7 @@ namespace XVReborn
             this.editCHARASELEToolStripMenuItem,
             this.toolStripSeparator3,
             this.convertAllModelsToXV1ToolStripMenuItem,
+            this.convertXV2ModlooseToolStripMenuItem,
             this.toolStripSeparator5,
             this.clearInstallationToolStripMenuItem1});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
@@ -141,31 +143,31 @@ namespace XVReborn
             // editCHARASELEToolStripMenuItem
             // 
             this.editCHARASELEToolStripMenuItem.Name = "editCHARASELEToolStripMenuItem";
-            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.editCHARASELEToolStripMenuItem.Text = "Charalist Editor";
             this.editCHARASELEToolStripMenuItem.Click += new System.EventHandler(this.editCHARASELEToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(227, 6);
             // 
             // convertAllModelsToXV1ToolStripMenuItem
             // 
             this.convertAllModelsToXV1ToolStripMenuItem.Name = "convertAllModelsToXV1ToolStripMenuItem";
-            this.convertAllModelsToXV1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.convertAllModelsToXV1ToolStripMenuItem.Text = "Convert X2M";
+            this.convertAllModelsToXV1ToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.convertAllModelsToXV1ToolStripMenuItem.Text = "Convert XV2 Mod (X2M)";
             this.convertAllModelsToXV1ToolStripMenuItem.Click += new System.EventHandler(this.ConvertX2M);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(227, 6);
             // 
             // clearInstallationToolStripMenuItem1
             // 
             this.clearInstallationToolStripMenuItem1.Name = "clearInstallationToolStripMenuItem1";
-            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clearInstallationToolStripMenuItem1.Size = new System.Drawing.Size(230, 22);
             this.clearInstallationToolStripMenuItem1.Text = "Clear Installation";
             this.clearInstallationToolStripMenuItem1.Click += new System.EventHandler(this.clearInstallationToolStripMenuItem_Click);
             // 
@@ -296,6 +298,13 @@ namespace XVReborn
             this.ch3.Text = "Type";
             this.ch3.Width = 591;
             // 
+            // convertXV2ModlooseToolStripMenuItem
+            // 
+            this.convertXV2ModlooseToolStripMenuItem.Name = "convertXV2ModlooseToolStripMenuItem";
+            this.convertXV2ModlooseToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.convertXV2ModlooseToolStripMenuItem.Text = "Convert XV2 Mod (loose files)";
+            this.convertXV2ModlooseToolStripMenuItem.Click += new System.EventHandler(this.convertXV2ModlooseToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -351,5 +360,6 @@ namespace XVReborn
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem uninstallModToolStripMenuItem;
+        private ToolStripMenuItem convertXV2ModlooseToolStripMenuItem;
     }
 }
