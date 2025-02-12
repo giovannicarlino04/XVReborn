@@ -2297,76 +2297,6 @@ namespace XVReborn
                     }
                     string embpackPath = Path.Combine(Settings.Default.datafolder, @"ui\texture", "embpack.exe");
 
-                    string ddsFolder = "";
-                    Match match = Regex.Match(ddsFolder, @"character_(\d+)_info");
-                    // Get directories whose name length is 3
-                    var matchingDirectories = Directory.GetDirectories(tempFolder)
-                        .Where(dir => Path.GetFileName(dir).Length == 3)
-                        .ToList();
-
-                    // If you want to take the first matching directory (if any)
-                    if (matchingDirectories.Any())
-                    {
-                        ddsFolder = matchingDirectories.First();
-                        Console.WriteLine(ddsFolder);
-                    }
-                    else
-                    {
-                        Console.WriteLine("No matching directories found.");
-                    }
-                    string[] embFiles = Directory.GetFiles(ddsFolder, "*.dyt.emb", SearchOption.AllDirectories);
-                    Console.WriteLine($"Found {embFiles.Length} EMB files in {ddsFolder}");
-                    if (!Directory.Exists(ddsFolder))
-                    {
-                        Console.WriteLine($"Folder not found: {ddsFolder}");
-                        return;
-                    }
-                    foreach (string embfile in embFiles)
-                    {
-                        RunCommand($"\"{embpackPath}\" \"{embfile}\"");
-                        string[] ddsFiles = Directory.GetFiles(ddsFolder, "*.dds", SearchOption.AllDirectories);
-
-                        if (ddsFiles.Length == 0)
-                        {
-                            Console.WriteLine("No DDS files found in the specified folder.");
-                            return;
-                        }
-
-                        var groupedByFolder = new Dictionary<string, List<string>>();
-
-                        foreach (string ddsFile in ddsFiles)
-                        {
-                            string folder = Path.GetDirectoryName(ddsFile);
-                            if (!groupedByFolder.ContainsKey(folder))
-                            {
-                                groupedByFolder[folder] = new List<string>();
-                            }
-                            groupedByFolder[folder].Add(ddsFile);
-                        }
-
-                        foreach (var group in groupedByFolder)
-                        {
-                            string folder = group.Key;
-                            List<string> ddsFilesInFolder = group.Value;
-
-                            Console.WriteLine($"Processing folder: {folder}");
-
-                            foreach (string ddsFile in ddsFilesInFolder)
-                            {
-                                Console.WriteLine($"Cleaning DDS file: {ddsFile}");
-                                DDS.CleanDDSForXV1(ddsFile, ddsFile);
-                            }
-
-                            if (!Directory.Exists(folder))
-                            {
-                                Console.WriteLine($"Directory does not exist for embFilePath: {folder}");
-                                continue;
-                            }
-
-                            RunCommand($"\"{embpackPath}\" \"{folder}\"");
-                            Directory.Delete(folder, true);
-                        }
-                    }
                     string finalPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\{Path.GetFileNameWithoutExtension(ofd.FileName)}";
                     MoveDirectory(tempFolder, finalPath, true);
                     // Helper method to safely get attribute value
@@ -2379,256 +2309,337 @@ namespace XVReborn
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(xmlContent);
                     // Basic Information
-                    string formatVersion = GetAttributeValue(doc.SelectSingleNode("//X2M_FORMAT_VERSION"), "value");
-                    string modName = GetAttributeValue(doc.SelectSingleNode("//MOD_NAME"), "value");
-                    string modAuthor = GetAttributeValue(doc.SelectSingleNode("//MOD_AUTHOR"), "value");
-                    string modVersion = GetAttributeValue(doc.SelectSingleNode("//MOD_VERSION"), "value");
-                    string modGuid = GetAttributeValue(doc.SelectSingleNode("//MOD_GUID"), "value");
-                    string uData = GetAttributeValue(doc.SelectSingleNode("//UDATA"), "value");
-                    string entryName = GetAttributeValue(doc.SelectSingleNode("//ENTRY_NAME"), "value");
-                    string charaNameEn = GetAttributeValue(doc.SelectSingleNode("//CHARA_NAME_EN"), "value");
+                    string x2mType = GetAttributeValue(doc.SelectSingleNode("//X2M"), "type");
 
-                    // SlotEntry
-                    string slotCostumeIndex = GetAttributeValue(doc.SelectSingleNode("//SlotEntry"), "costume_index");
-                    string modelPreset = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/MODEL_PRESET"), "value");
-                    string flagGK2 = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/FLAG_GK2"), "value");
-                    string voicesIdList = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/VOICES_ID_LIST"), "value");
-                    string costumeNameEn = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/COSTUME_NAME_EN"), "value");
-
-                    // Entry
-                    string entryId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "id");
-                    string entryNameId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "name");
-
-                    string u10 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_10"), "value");
-                    string loadCamDist = GetAttributeValue(doc.SelectSingleNode("//Entry/LOAD_CAM_DIST"), "value");
-                    string u16 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_16"), "value");
-                    string u18 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_18"), "value");
-                    string u1A = GetAttributeValue(doc.SelectSingleNode("//Entry/U_1A"), "value");
-                    string character = GetAttributeValue(doc.SelectSingleNode("//Entry/CHARACTER"), "value");
-                    string ean = GetAttributeValue(doc.SelectSingleNode("//Entry/EAN"), "value");
-                    string fceEan = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE_EAN"), "value");
-                    string fce = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE"), "value");
-                    string camEan = GetAttributeValue(doc.SelectSingleNode("//Entry/CAM_EAN"), "value");
-                    string bac = GetAttributeValue(doc.SelectSingleNode("//Entry/BAC"), "value");
-                    string bcm = GetAttributeValue(doc.SelectSingleNode("//Entry/BCM"), "value");
-                    string ai = GetAttributeValue(doc.SelectSingleNode("//Entry/AI"), "value");
-                    string str50 = GetAttributeValue(doc.SelectSingleNode("//Entry/STR_50"), "value");
-
-                    // SkillSet
-                    string skillSetCharId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/CHAR_ID"), "value");
-                    string skillSetCostumeId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/COSTUME_ID"), "value");
-                    string skillsValue = GetAttributeValue(doc.SelectSingleNode("//SkillSet/SKILLS"), "value");
-
-                    // Split the SKILLS string by commas
-                    string[] skills = skillsValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                    // Output the parsed skills
-                    Console.WriteLine("Skills: ");
-                    foreach (var skille in skills)
+                    if(x2mType == "NEW_CHARACTER")
                     {
-                        Console.WriteLine(skille.Trim()); // Trim any extra whitespace
-                    }
-                    string skillSetModelPreset = GetAttributeValue(doc.SelectSingleNode("//SkillSet/MODEL_PRESET"), "value");
+                        string ddsFolder = "";
+                        Match match = Regex.Match(ddsFolder, @"character_(\d+)_info");
+                        // Get directories whose name length is 3
+                        var matchingDirectories = Directory.GetDirectories(tempFolder)
+                            .Where(dir => Path.GetFileName(dir).Length == 3)
+                            .ToList();
 
-                    // CsoEntry
-                    string csoCharId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/CHAR_ID"), "value");
-                    string csoCostumeId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/COSTUME_ID"), "value");
-                    string se = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SE"), "value");
-                    string vox = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/VOX"), "value");
-                    string amk = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/AMK"), "value");
-                    string csoSkills = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SKILLS"), "value");
-
-                    // PscSpecEntry
-                    string costumeId = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID"), "value");
-                    string costumeId2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID2"), "value");
-                    string cameraPosition = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/CAMERA_POSITION"), "value");
-                    string u0C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_0C"), "value");
-                    string u10_2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_10"), "value");
-                    string health = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/HEALTH"), "value");
-                    string f18 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_18"), "value");
-                    string ki = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI"), "value");
-                    string kiRecharge = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_RECHARGE"), "value");
-                    string u24 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_24"), "value");
-                    string u28 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_28"), "value");
-                    string u2C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_2C"), "value");
-                    string stamina = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA"), "value");
-                    string staminaRechargeMove = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_MOVE"), "value");
-                    string staminaRechargeAir = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_AIR"), "value");
-                    string staminaRechargeGround = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_GROUND"), "value");
-                    string staminaDrainRate1 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE1"), "value");
-                    string staminaDrainRate2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE2"), "value");
-                    string f48 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_48"), "value");
-                    string basicAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_ATTACK"), "value");
-                    string basicKiAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_ATTACK"), "value");
-                    string strikeAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATTACK"), "value");
-                    string kiBlastSuper = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_BLAST_SUPER"), "value");
-                    string basicPhysDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_PHYS_DEFENSE"), "value");
-                    string basicKiDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_DEFENSE"), "value");
-                    string strikeAtkDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATK_DEFENSE"), "value");
-                    string superKiBlastDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/SUPER_KI_BLAST_DEFENSE"), "value");
-                    string groundSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/GROUND_SPEED"), "value");
-                    string airSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/AIR_SPEED"), "value");
-                    string boostingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BOOSTING_SPEED"), "value");
-                    string dashDistance = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/DASH_DISTANCE"), "value");
-                    string f7C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_7C"), "value");
-                    string reinfSkillDuration = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REINF_SKILL_DURATION"), "value");
-                    string f84 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_84"), "value");
-                    string revivalHpAmount = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVAL_HP_AMOUNT"), "value");
-                    string f8C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_8C"), "value");
-                    string revivingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVING_SPEED"), "value");
-                    string u98 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_98"), "value");
-                    string talisman = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/TALISMAN"), "value");
-                    string uB8 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_B8"), "value");
-                    string uBC = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_BC"), "value");
-                    string fC0 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_C0"), "value");
-
-                    // CharacLink
-                    string characLinkIdCharac = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCharac");
-                    string characLinkIdCostume = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCostume");
-                    string characLinkIdAura = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idAura");
-                    string characLinkGlare = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "glare");
-
-                    // SevEntryHL
-                    string sevEntryHlCostumeId = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "costume_id");
-                    string sevEntryHlCopyChar = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_char");
-                    string sevEntryHlCopyCostume = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_costume");
-
-                    // CmlEntry
-                    string cmlEntryCharId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "char_id");
-                    string cmlEntryCostumeId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "costume_id");
-                    string cmlEntryU04 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/U_04"), "value");
-                    string cmlEntryCssPos = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_POS"), "value");
-                    string cmlEntryCssRot = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_ROT"), "value");
-                    string cmlEntryF0C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_0C"), "value");
-                    string cmlEntryF10 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_10"), "value");
-                    string cmlEntryF14 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_14"), "value");
-                    string cmlEntryF18 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_18"), "value");
-                    string cmlEntryF1C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_1C"), "value");
-                    string cmlEntryF20 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_20"), "value");
-                    string cmlEntryF24 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_24"), "value");
-                    string cmlEntryF28 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_28"), "value");
-                    string cmlEntryF2C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_2C"), "value");
-
-                    File.Delete(finalPath + @"/x2m.xml");
-                    // Create an XmlWriterSettings instance for formatting the XML
-                    XmlWriterSettings settings = new XmlWriterSettings
-                    {
-                        Indent = true,
-                        IndentChars = "    ", // Use four spaces for indentation
-                    };
-
-                    // Create the XmlWriter and write the XML content
-                    string xmlFilePath = finalPath + @"/xvmod.xml";
-                    using (XmlWriter writer = XmlWriter.Create(xmlFilePath, settings))
-                    {
-                        writer.WriteStartDocument();
-                        writer.WriteStartElement("XVMOD");
-                        writer.WriteAttributeString("type", "ADDED_CHARACTER");
-
-                        WriteElementWithValue(writer, "MOD_NAME", modName);
-                        WriteElementWithValue(writer, "MOD_AUTHOR", modAuthor);
-
-
-                        WriteElementWithValue(writer, "AUR_ID", Convert.ToInt32(characLinkIdAura, 16).ToString());
-                        if (characLinkGlare == "true")
-                            WriteElementWithValue(writer, "AUR_GLARE", "1");
+                        // If you want to take the first matching directory (if any)
+                        if (matchingDirectories.Any())
+                        {
+                            ddsFolder = matchingDirectories.First();
+                            Console.WriteLine(ddsFolder);
+                        }
                         else
-                            WriteElementWithValue(writer, "AUR_GLARE", "0");
+                        {
+                            Console.WriteLine("No matching directories found.");
+                        }
+                        string[] embFiles = Directory.GetFiles(ddsFolder, "*.dyt.emb", SearchOption.AllDirectories);
+                        Console.WriteLine($"Found {embFiles.Length} EMB files in {ddsFolder}");
+                        if (!Directory.Exists(ddsFolder))
+                        {
+                            Console.WriteLine($"Folder not found: {ddsFolder}");
+                            return;
+                        }
+                        foreach (string embfile in embFiles)
+                        {
+                            RunCommand($"\"{embpackPath}\" \"{embfile}\"");
+                            string[] ddsFiles = Directory.GetFiles(ddsFolder, "*.dds", SearchOption.AllDirectories);
 
-                        WriteElementWithValue(writer, "CMS_BCS", character);
-                        WriteElementWithValue(writer, "CMS_EAN", ean);
-                        WriteElementWithValue(writer, "CMS_FCE_EAN", fceEan);
-                        WriteElementWithValue(writer, "CMS_CAM_EAN", camEan);
-                        WriteElementWithValue(writer, "CMS_BAC", bac);
-                        WriteElementWithValue(writer, "CMS_BCM", bcm);
-                        WriteElementWithValue(writer, "CMS_BAI", ai);
+                            if (ddsFiles.Length == 0)
+                            {
+                                Console.WriteLine("No DDS files found in the specified folder.");
+                                return;
+                            }
 
-                        WriteElementWithValue(writer, "CSO_1", se);
-                        WriteElementWithValue(writer, "CSO_2", vox);
-                        WriteElementWithValue(writer, "CSO_3", amk);
-                        WriteElementWithValue(writer, "CSO_4", csoSkills);
+                            var groupedByFolder = new Dictionary<string, List<string>>();
 
-                        WriteElementWithValue(writer, "CUS_SUPER_1", skills[0]);
-                        WriteElementWithValue(writer, "CUS_SUPER_2", skills[1]);
-                        WriteElementWithValue(writer, "CUS_SUPER_3", skills[2]);
-                        WriteElementWithValue(writer, "CUS_SUPER_4", skills[3]);
-                        WriteElementWithValue(writer, "CUS_ULTIMATE_1", skills[4]);
-                        WriteElementWithValue(writer, "CUS_ULTIMATE_2", skills[5]);
-                        WriteElementWithValue(writer, "CUS_EVASIVE", skills[6]);
+                            foreach (string ddsFile in ddsFiles)
+                            {
+                                string folder = Path.GetDirectoryName(ddsFile);
+                                if (!groupedByFolder.ContainsKey(folder))
+                                {
+                                    groupedByFolder[folder] = new List<string>();
+                                }
+                                groupedByFolder[folder].Add(ddsFile);
+                            }
+
+                            foreach (var group in groupedByFolder)
+                            {
+                                string folder = group.Key;
+                                List<string> ddsFilesInFolder = group.Value;
+
+                                Console.WriteLine($"Processing folder: {folder}");
+
+                                foreach (string ddsFile in ddsFilesInFolder)
+                                {
+                                    Console.WriteLine($"Cleaning DDS file: {ddsFile}");
+                                    DDS.CleanDDSForXV1(ddsFile, ddsFile);
+                                }
+
+                                if (!Directory.Exists(folder))
+                                {
+                                    Console.WriteLine($"Directory does not exist for embFilePath: {folder}");
+                                    continue;
+                                }
+
+                                RunCommand($"\"{embpackPath}\" \"{folder}\"");
+                                Directory.Delete(folder, true);
+                            }
+                        }
+                        string formatVersion = GetAttributeValue(doc.SelectSingleNode("//X2M_FORMAT_VERSION"), "value");
+                        string modName = GetAttributeValue(doc.SelectSingleNode("//MOD_NAME"), "value");
+                        string modAuthor = GetAttributeValue(doc.SelectSingleNode("//MOD_AUTHOR"), "value");
+                        string modVersion = GetAttributeValue(doc.SelectSingleNode("//MOD_VERSION"), "value");
+                        string modGuid = GetAttributeValue(doc.SelectSingleNode("//MOD_GUID"), "value");
+                        string uData = GetAttributeValue(doc.SelectSingleNode("//UDATA"), "value");
+                        string entryName = GetAttributeValue(doc.SelectSingleNode("//ENTRY_NAME"), "value");
+                        string charaNameEn = GetAttributeValue(doc.SelectSingleNode("//CHARA_NAME_EN"), "value");
+
+                        // SlotEntry
+                        string slotCostumeIndex = GetAttributeValue(doc.SelectSingleNode("//SlotEntry"), "costume_index");
+                        string modelPreset = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/MODEL_PRESET"), "value");
+                        string flagGK2 = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/FLAG_GK2"), "value");
+                        string voicesIdList = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/VOICES_ID_LIST"), "value");
+                        string costumeNameEn = GetAttributeValue(doc.SelectSingleNode("//SlotEntry/COSTUME_NAME_EN"), "value");
+
+                        // Entry
+                        string entryId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "id");
+                        string entryNameId = GetAttributeValue(doc.SelectSingleNode("//Entry"), "name");
+
+                        string u10 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_10"), "value");
+                        string loadCamDist = GetAttributeValue(doc.SelectSingleNode("//Entry/LOAD_CAM_DIST"), "value");
+                        string u16 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_16"), "value");
+                        string u18 = GetAttributeValue(doc.SelectSingleNode("//Entry/U_18"), "value");
+                        string u1A = GetAttributeValue(doc.SelectSingleNode("//Entry/U_1A"), "value");
+                        string character = GetAttributeValue(doc.SelectSingleNode("//Entry/CHARACTER"), "value");
+                        string ean = GetAttributeValue(doc.SelectSingleNode("//Entry/EAN"), "value");
+                        string fceEan = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE_EAN"), "value");
+                        string fce = GetAttributeValue(doc.SelectSingleNode("//Entry/FCE"), "value");
+                        string camEan = GetAttributeValue(doc.SelectSingleNode("//Entry/CAM_EAN"), "value");
+                        string bac = GetAttributeValue(doc.SelectSingleNode("//Entry/BAC"), "value");
+                        string bcm = GetAttributeValue(doc.SelectSingleNode("//Entry/BCM"), "value");
+                        string ai = GetAttributeValue(doc.SelectSingleNode("//Entry/AI"), "value");
+                        string str50 = GetAttributeValue(doc.SelectSingleNode("//Entry/STR_50"), "value");
+
+                        // SkillSet
+                        string skillSetCharId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/CHAR_ID"), "value");
+                        string skillSetCostumeId = GetAttributeValue(doc.SelectSingleNode("//SkillSet/COSTUME_ID"), "value");
+                        string skillsValue = GetAttributeValue(doc.SelectSingleNode("//SkillSet/SKILLS"), "value");
+
+                        // Split the SKILLS string by commas
+                        string[] skills = skillsValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        // Output the parsed skills
+                        Console.WriteLine("Skills: ");
+                        foreach (var skille in skills)
+                        {
+                            Console.WriteLine(skille.Trim()); // Trim any extra whitespace
+                        }
+                        string skillSetModelPreset = GetAttributeValue(doc.SelectSingleNode("//SkillSet/MODEL_PRESET"), "value");
+
+                        // CsoEntry
+                        string csoCharId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/CHAR_ID"), "value");
+                        string csoCostumeId = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/COSTUME_ID"), "value");
+                        string se = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SE"), "value");
+                        string vox = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/VOX"), "value");
+                        string amk = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/AMK"), "value");
+                        string csoSkills = GetAttributeValue(doc.SelectSingleNode("//CsoEntry/SKILLS"), "value");
+
+                        // PscSpecEntry
+                        string costumeId = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID"), "value");
+                        string costumeId2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/COSTUME_ID2"), "value");
+                        string cameraPosition = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/CAMERA_POSITION"), "value");
+                        string u0C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_0C"), "value");
+                        string u10_2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_10"), "value");
+                        string health = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/HEALTH"), "value");
+                        string f18 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_18"), "value");
+                        string ki = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI"), "value");
+                        string kiRecharge = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_RECHARGE"), "value");
+                        string u24 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_24"), "value");
+                        string u28 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_28"), "value");
+                        string u2C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_2C"), "value");
+                        string stamina = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA"), "value");
+                        string staminaRechargeMove = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_MOVE"), "value");
+                        string staminaRechargeAir = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_AIR"), "value");
+                        string staminaRechargeGround = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_RECHARGE_GROUND"), "value");
+                        string staminaDrainRate1 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE1"), "value");
+                        string staminaDrainRate2 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STAMINA_DRAIN_RATE2"), "value");
+                        string f48 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_48"), "value");
+                        string basicAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_ATTACK"), "value");
+                        string basicKiAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_ATTACK"), "value");
+                        string strikeAttack = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATTACK"), "value");
+                        string kiBlastSuper = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/KI_BLAST_SUPER"), "value");
+                        string basicPhysDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_PHYS_DEFENSE"), "value");
+                        string basicKiDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BASIC_KI_DEFENSE"), "value");
+                        string strikeAtkDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/STRIKE_ATK_DEFENSE"), "value");
+                        string superKiBlastDefense = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/SUPER_KI_BLAST_DEFENSE"), "value");
+                        string groundSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/GROUND_SPEED"), "value");
+                        string airSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/AIR_SPEED"), "value");
+                        string boostingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/BOOSTING_SPEED"), "value");
+                        string dashDistance = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/DASH_DISTANCE"), "value");
+                        string f7C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_7C"), "value");
+                        string reinfSkillDuration = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REINF_SKILL_DURATION"), "value");
+                        string f84 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_84"), "value");
+                        string revivalHpAmount = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVAL_HP_AMOUNT"), "value");
+                        string f8C = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_8C"), "value");
+                        string revivingSpeed = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/REVIVING_SPEED"), "value");
+                        string u98 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_98"), "value");
+                        string talisman = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/TALISMAN"), "value");
+                        string uB8 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_B8"), "value");
+                        string uBC = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/U_BC"), "value");
+                        string fC0 = GetAttributeValue(doc.SelectSingleNode("//PscSpecEntry/F_C0"), "value");
+
+                        // CharacLink
+                        string characLinkIdCharac = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCharac");
+                        string characLinkIdCostume = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idCostume");
+                        string characLinkIdAura = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "idAura");
+                        string characLinkGlare = GetAttributeValue(doc.SelectSingleNode("//CharacLink"), "glare");
+
+                        // SevEntryHL
+                        string sevEntryHlCostumeId = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "costume_id");
+                        string sevEntryHlCopyChar = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_char");
+                        string sevEntryHlCopyCostume = GetAttributeValue(doc.SelectSingleNode("//SevEntryHL"), "copy_costume");
+
+                        // CmlEntry
+                        string cmlEntryCharId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "char_id");
+                        string cmlEntryCostumeId = GetAttributeValue(doc.SelectSingleNode("//CmlEntry"), "costume_id");
+                        string cmlEntryU04 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/U_04"), "value");
+                        string cmlEntryCssPos = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_POS"), "value");
+                        string cmlEntryCssRot = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/CSS_ROT"), "value");
+                        string cmlEntryF0C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_0C"), "value");
+                        string cmlEntryF10 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_10"), "value");
+                        string cmlEntryF14 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_14"), "value");
+                        string cmlEntryF18 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_18"), "value");
+                        string cmlEntryF1C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_1C"), "value");
+                        string cmlEntryF20 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_20"), "value");
+                        string cmlEntryF24 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_24"), "value");
+                        string cmlEntryF28 = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_28"), "value");
+                        string cmlEntryF2C = GetAttributeValue(doc.SelectSingleNode("//CmlEntry/F_2C"), "value");
+
+                        File.Delete(finalPath + @"/x2m.xml");
+                        // Create an XmlWriterSettings instance for formatting the XML
+                        XmlWriterSettings settings = new XmlWriterSettings
+                        {
+                            Indent = true,
+                            IndentChars = "    ", // Use four spaces for indentation
+                        };
+
+                        // Create the XmlWriter and write the XML content
+                        string xmlFilePath = finalPath + @"/xvmod.xml";
+                        using (XmlWriter writer = XmlWriter.Create(xmlFilePath, settings))
+                        {
+                            writer.WriteStartDocument();
+                            writer.WriteStartElement("XVMOD");
+                            writer.WriteAttributeString("type", "ADDED_CHARACTER");
+
+                            WriteElementWithValue(writer, "MOD_NAME", modName);
+                            WriteElementWithValue(writer, "MOD_AUTHOR", modAuthor);
 
 
-                        WriteElementWithValue(writer, "PSC_COSTUME", "0");
-                        WriteElementWithValue(writer, "PSC_PRESET", "0");
-                        WriteElementWithValue(writer, "PSC_CAMERA_POSITION", cameraPosition);
-                        WriteElementWithValue(writer, "PSC_HEALTH", health);
-                        WriteElementWithValue(writer, "PSC_I_12", "0");
-                        WriteElementWithValue(writer, "PSC_F_20", "0");
+                            WriteElementWithValue(writer, "AUR_ID", Convert.ToInt32(characLinkIdAura, 16).ToString());
+                            if (characLinkGlare == "true")
+                                WriteElementWithValue(writer, "AUR_GLARE", "1");
+                            else
+                                WriteElementWithValue(writer, "AUR_GLARE", "0");
 
-                        WriteElementWithValue(writer, "PSC_KI", ki);
-                        WriteElementWithValue(writer, "PSC_KI_RECHARGE", kiRecharge);
-                        WriteElementWithValue(writer, "PSC_I_32", "0");
-                        WriteElementWithValue(writer, "PSC_I_36", "0");
-                        WriteElementWithValue(writer, "PSC_I_40", "0");
-                        WriteElementWithValue(writer, "PSC_STAMINA", stamina);
+                            WriteElementWithValue(writer, "CMS_BCS", character);
+                            WriteElementWithValue(writer, "CMS_EAN", ean);
+                            WriteElementWithValue(writer, "CMS_FCE_EAN", fceEan);
+                            WriteElementWithValue(writer, "CMS_CAM_EAN", camEan);
+                            WriteElementWithValue(writer, "CMS_BAC", bac);
+                            WriteElementWithValue(writer, "CMS_BCM", bcm);
+                            WriteElementWithValue(writer, "CMS_BAI", ai);
 
-                        WriteElementWithValue(writer, "PSC_STAMINA_RECHARGE", staminaRechargeGround);
-                        WriteElementWithValue(writer, "PSC_F_52", "0");
-                        WriteElementWithValue(writer, "PSC_F_56", "0");
-                        WriteElementWithValue(writer, "PSC_I_60", "0");
-                        WriteElementWithValue(writer, "PSC_BASIC_ATK_DEF", basicPhysDefense);
-                        WriteElementWithValue(writer, "PSC_BASIC_KI_DEF", basicKiDefense);
+                            WriteElementWithValue(writer, "CSO_1", se);
+                            WriteElementWithValue(writer, "CSO_2", vox);
+                            WriteElementWithValue(writer, "CSO_3", amk);
+                            WriteElementWithValue(writer, "CSO_4", csoSkills);
 
-                        WriteElementWithValue(writer, "PSC_STRIKE_ATK_DEF", strikeAtkDefense);
-                        WriteElementWithValue(writer, "PSC_SUPER_KI_DEF", superKiBlastDefense);
-                        WriteElementWithValue(writer, "PSC_GROUND_SPEED", groundSpeed);
-                        WriteElementWithValue(writer, "PSC_AIR_SPEED", airSpeed);
-                        WriteElementWithValue(writer, "PSC_BOOST_SPEED", boostingSpeed);
-
-                        WriteElementWithValue(writer, "PSC_DASH_SPEED", dashDistance);
-                        WriteElementWithValue(writer, "PSC_F96", "0");
-                        WriteElementWithValue(writer, "PSC_REINFORCEMENT_SKILL", reinfSkillDuration);
-                        WriteElementWithValue(writer, "PSC_F104", "0");
-                        WriteElementWithValue(writer, "PSC_REVIVAL_HP_AMOUNT", revivalHpAmount);
-
-                        WriteElementWithValue(writer, "PSC_REVIVING_SPEED",  revivingSpeed);
-                        WriteElementWithValue(writer, "PSC_F_116", "0");
-                        WriteElementWithValue(writer, "PSC_F_120", "0");
-                        WriteElementWithValue(writer, "PSC_F_124", "0");
-                        WriteElementWithValue(writer, "PSC_F_128", "0");
-
-                        WriteElementWithValue(writer, "PSC_F_132", "0");
-                        WriteElementWithValue(writer, "PSC_F_136", "0");
-                        WriteElementWithValue(writer, "PSC_I_140", "0");
-                        WriteElementWithValue(writer, "PSC_F_144", "0");
-                        WriteElementWithValue(writer, "PSC_F_148", "0");
-
-                        WriteElementWithValue(writer, "PSC_F_152", "0");
-                        WriteElementWithValue(writer, "PSC_F_156", "0");
-                        WriteElementWithValue(writer, "PSC_F_160", "0");
-                        WriteElementWithValue(writer, "PSC_F_164", "0");
-                        WriteElementWithValue(writer, "PSC_Z_SOUL", "0");
-
-                        WriteElementWithValue(writer, "PSC_I_172", "0");
-                        WriteElementWithValue(writer, "PSC_I_176", "0");
-                        WriteElementWithValue(writer, "PSC_F_180", "0");
+                            WriteElementWithValue(writer, "CUS_SUPER_1", skills[0]);
+                            WriteElementWithValue(writer, "CUS_SUPER_2", skills[1]);
+                            WriteElementWithValue(writer, "CUS_SUPER_3", skills[2]);
+                            WriteElementWithValue(writer, "CUS_SUPER_4", skills[3]);
+                            WriteElementWithValue(writer, "CUS_ULTIMATE_1", skills[4]);
+                            WriteElementWithValue(writer, "CUS_ULTIMATE_2", skills[5]);
+                            WriteElementWithValue(writer, "CUS_EVASIVE", skills[6]);
 
 
-                        WriteElementWithValue(writer, "MSG_CHARACTER_NAME", charaNameEn);
-                        WriteElementWithValue(writer, "MSG_COSTUME_NAME", costumeNameEn);
+                            WriteElementWithValue(writer, "PSC_COSTUME", "0");
+                            WriteElementWithValue(writer, "PSC_PRESET", "0");
+                            WriteElementWithValue(writer, "PSC_CAMERA_POSITION", cameraPosition);
+                            WriteElementWithValue(writer, "PSC_HEALTH", health);
+                            WriteElementWithValue(writer, "PSC_I_12", "0");
+                            WriteElementWithValue(writer, "PSC_F_20", "0");
 
-                        WriteElementWithValue(writer, "VOX_1", "-1");
-                        WriteElementWithValue(writer, "VOX_2", "-1");
+                            WriteElementWithValue(writer, "PSC_KI", ki);
+                            WriteElementWithValue(writer, "PSC_KI_RECHARGE", kiRecharge);
+                            WriteElementWithValue(writer, "PSC_I_32", "0");
+                            WriteElementWithValue(writer, "PSC_I_36", "0");
+                            WriteElementWithValue(writer, "PSC_I_40", "0");
+                            WriteElementWithValue(writer, "PSC_STAMINA", stamina);
 
-                        writer.WriteEndElement(); // Close XVMOD
-                        writer.WriteEndDocument(); // Close the document
+                            WriteElementWithValue(writer, "PSC_STAMINA_RECHARGE", staminaRechargeGround);
+                            WriteElementWithValue(writer, "PSC_F_52", "0");
+                            WriteElementWithValue(writer, "PSC_F_56", "0");
+                            WriteElementWithValue(writer, "PSC_I_60", "0");
+                            WriteElementWithValue(writer, "PSC_BASIC_ATK_DEF", basicPhysDefense);
+                            WriteElementWithValue(writer, "PSC_BASIC_KI_DEF", basicKiDefense);
+
+                            WriteElementWithValue(writer, "PSC_STRIKE_ATK_DEF", strikeAtkDefense);
+                            WriteElementWithValue(writer, "PSC_SUPER_KI_DEF", superKiBlastDefense);
+                            WriteElementWithValue(writer, "PSC_GROUND_SPEED", groundSpeed);
+                            WriteElementWithValue(writer, "PSC_AIR_SPEED", airSpeed);
+                            WriteElementWithValue(writer, "PSC_BOOST_SPEED", boostingSpeed);
+
+                            WriteElementWithValue(writer, "PSC_DASH_SPEED", dashDistance);
+                            WriteElementWithValue(writer, "PSC_F96", "0");
+                            WriteElementWithValue(writer, "PSC_REINFORCEMENT_SKILL", reinfSkillDuration);
+                            WriteElementWithValue(writer, "PSC_F104", "0");
+                            WriteElementWithValue(writer, "PSC_REVIVAL_HP_AMOUNT", revivalHpAmount);
+
+                            WriteElementWithValue(writer, "PSC_REVIVING_SPEED", revivingSpeed);
+                            WriteElementWithValue(writer, "PSC_F_116", "0");
+                            WriteElementWithValue(writer, "PSC_F_120", "0");
+                            WriteElementWithValue(writer, "PSC_F_124", "0");
+                            WriteElementWithValue(writer, "PSC_F_128", "0");
+
+                            WriteElementWithValue(writer, "PSC_F_132", "0");
+                            WriteElementWithValue(writer, "PSC_F_136", "0");
+                            WriteElementWithValue(writer, "PSC_I_140", "0");
+                            WriteElementWithValue(writer, "PSC_F_144", "0");
+                            WriteElementWithValue(writer, "PSC_F_148", "0");
+
+                            WriteElementWithValue(writer, "PSC_F_152", "0");
+                            WriteElementWithValue(writer, "PSC_F_156", "0");
+                            WriteElementWithValue(writer, "PSC_F_160", "0");
+                            WriteElementWithValue(writer, "PSC_F_164", "0");
+                            WriteElementWithValue(writer, "PSC_Z_SOUL", "0");
+
+                            WriteElementWithValue(writer, "PSC_I_172", "0");
+                            WriteElementWithValue(writer, "PSC_I_176", "0");
+                            WriteElementWithValue(writer, "PSC_F_180", "0");
+
+
+                            WriteElementWithValue(writer, "MSG_CHARACTER_NAME", charaNameEn);
+                            WriteElementWithValue(writer, "MSG_COSTUME_NAME", costumeNameEn);
+
+                            WriteElementWithValue(writer, "VOX_1", "-1");
+                            WriteElementWithValue(writer, "VOX_2", "-1");
+
+                            writer.WriteEndElement(); // Close XVMOD
+                            writer.WriteEndDocument(); // Close the document
+                        }
+                        Directory.CreateDirectory(finalPath + $"/ui/texture/CHARA01/");
+                        File.Move(finalPath + @"/UI/SEL.DDS", finalPath + $"/ui/texture/CHARA01/{character}_000.DDS");
+                        MoveDirectory(finalPath + $"/{character}", finalPath + $"/chara/{character}", true);
+                        ZipFile.CreateFromDirectory(finalPath, finalPath + ".xvmod");
                     }
-                    Directory.CreateDirectory(finalPath + $"/ui/texture/CHARA01/");
-                    File.Move(finalPath + @"/UI/SEL.DDS", finalPath + $"/ui/texture/CHARA01/{character}_000.DDS");
-                    MoveDirectory(finalPath + $"/{character}", finalPath + $"/chara/{character}", true);
-                    ZipFile.CreateFromDirectory(finalPath, finalPath + ".xvmod");
+                    else if(x2mType == "NEW_SKILL")
+                    {
+
+
+                    }
                     MessageBox.Show($"X2M Converted successfully, you can find the converted file in \"{finalPath + ".xvmod"}\"", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clean();
                 }
+
             }
 
         }
