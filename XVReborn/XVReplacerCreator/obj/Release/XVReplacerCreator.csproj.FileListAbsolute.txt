@@ -10,3 +10,11 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Rele
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.csproj.CoreCompileInputs.cache
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.dll
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.genruntimeconfig.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.Form1.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.csproj.GenerateResource.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.AssemblyInfoInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.AssemblyInfo.cs
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.csproj.CoreCompileInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.genruntimeconfig.cache

@@ -14,3 +14,14 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReb
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.Up2Date
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.exe
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.ResolveComReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Form1.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Form2.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Properties.Resources.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.GenerateResource.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.CoreCompileInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.exe.config

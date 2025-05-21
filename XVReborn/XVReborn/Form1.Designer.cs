@@ -41,9 +41,8 @@ namespace XVReborn
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uninstallModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCHARASELEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.convertAllModelsToXV1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertXV2ModlooseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.clearInstallationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +64,6 @@ namespace XVReborn
             this.ch1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.convertXV2ModlooseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,8 +128,6 @@ namespace XVReborn
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editCHARASELEToolStripMenuItem,
-            this.toolStripSeparator3,
             this.convertAllModelsToXV1ToolStripMenuItem,
             this.convertXV2ModlooseToolStripMenuItem,
             this.toolStripSeparator5,
@@ -140,24 +136,19 @@ namespace XVReborn
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
-            // editCHARASELEToolStripMenuItem
-            // 
-            this.editCHARASELEToolStripMenuItem.Name = "editCHARASELEToolStripMenuItem";
-            this.editCHARASELEToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.editCHARASELEToolStripMenuItem.Text = "Charalist Editor";
-            this.editCHARASELEToolStripMenuItem.Click += new System.EventHandler(this.editCHARASELEToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(227, 6);
-            // 
             // convertAllModelsToXV1ToolStripMenuItem
             // 
             this.convertAllModelsToXV1ToolStripMenuItem.Name = "convertAllModelsToXV1ToolStripMenuItem";
             this.convertAllModelsToXV1ToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.convertAllModelsToXV1ToolStripMenuItem.Text = "Convert XV2 Mod (X2M)";
             this.convertAllModelsToXV1ToolStripMenuItem.Click += new System.EventHandler(this.ConvertX2M);
+            // 
+            // convertXV2ModlooseToolStripMenuItem
+            // 
+            this.convertXV2ModlooseToolStripMenuItem.Name = "convertXV2ModlooseToolStripMenuItem";
+            this.convertXV2ModlooseToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.convertXV2ModlooseToolStripMenuItem.Text = "Convert XV2 Mod (loose files)";
+            this.convertXV2ModlooseToolStripMenuItem.Click += new System.EventHandler(this.convertXV2ModlooseToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -298,13 +289,6 @@ namespace XVReborn
             this.ch3.Text = "Type";
             this.ch3.Width = 591;
             // 
-            // convertXV2ModlooseToolStripMenuItem
-            // 
-            this.convertXV2ModlooseToolStripMenuItem.Name = "convertXV2ModlooseToolStripMenuItem";
-            this.convertXV2ModlooseToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.convertXV2ModlooseToolStripMenuItem.Text = "Convert XV2 Mod (loose files)";
-            this.convertXV2ModlooseToolStripMenuItem.Click += new System.EventHandler(this.convertXV2ModlooseToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -346,7 +330,6 @@ namespace XVReborn
         private System.Windows.Forms.ColumnHeader ch;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem clearInstallationToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem exitToolStripMenuItem;
@@ -354,7 +337,6 @@ namespace XVReborn
         private ColumnHeader ch1;
         private ColumnHeader ch2;
         private ColumnHeader ch3;
-        private ToolStripMenuItem editCHARASELEToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem convertAllModelsToXV1ToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;

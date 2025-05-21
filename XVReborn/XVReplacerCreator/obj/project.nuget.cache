@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "e4Mg84YDpdo=",
+  "dgSpecHash": "+VbFOaxDJsk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
+  "projectFilePath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\XVReplacerCreator.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Carli\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
-    "C:\\Users\\Carli\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\Carli\\.nuget\\packages\\system.drawing.common\\4.7.3\\system.drawing.common.4.7.3.nupkg.sha512"
+    "C:\\Users\\Giovanni\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
+    "C:\\Users\\Giovanni\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Giovanni\\.nuget\\packages\\system.drawing.common\\4.7.3\\system.drawing.common.4.7.3.nupkg.sha512",
+    "C:\\Users\\Giovanni\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Giovanni\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Giovanni\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Giovanni\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
   ],
   "logs": []
 }

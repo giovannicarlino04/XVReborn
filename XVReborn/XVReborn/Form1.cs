@@ -2212,11 +2212,6 @@ namespace XVReborn
             this.Close();
         }
 
-        private void editCHARASELEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form3 frm = new Form3();
-            frm.ShowDialog();
-        }
         public void RunCommand(string command)
         {
             Process p = new Process();

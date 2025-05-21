@@ -1,49 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\",
+  "WorkspaceRootPath": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|c:\\users\\carli\\desktop\\repositories\\xvreborn\\xvreborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|c:\\users\\carli\\desktop\\repositories\\xvreborn\\xvreborn\\xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|solutionrelative:xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|c:\\users\\carli\\desktop\\repositories\\xvreborn\\xvreborn\\xvreborn\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|c:\\users\\carli\\desktop\\repositories\\xvreborn\\xvreborn\\xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|solutionrelative:xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|c:\\users\\carli\\desktop\\repositories\\xvreborn\\xvreborn\\xvskillcreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|solutionrelative:xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D33EF458-F476-4437-A72F-670E8F5B234E}|XVReplacerCreator\\XVReplacerCreator.csproj|solutionrelative:xvreplacercreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvskillcreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|solutionrelative:xvskillcreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\xv\\x2m.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvreborn\\xv\\x2m.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E07395A-9BD9-4018-933B-19322B69245D}|XVReborn\\XVReborn.csproj|solutionrelative:xvreborn\\xv\\x2m.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|c:\\users\\carli\\desktop\\repositories\\xvreborn\\xvreborn\\xvskillcreator\\xvskillcreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|c:\\users\\giovanni\\desktop\\repositories\\xvreborn\\xvreborn\\xvskillcreator\\xvskillcreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|solutionrelative:xvskillcreator\\xvskillcreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvskillcreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\xvskillcreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{44D7C5D8-EC31-43D6-B5DF-03F892C408C8}|XVSkillCreator\\XVSkillCreator.csproj|solutionrelative:xvskillcreator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -54,28 +46,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 188,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "InputForm.cs",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\InputForm.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\InputForm.cs",
               "RelativeDocumentMoniker": "XVReborn\\InputForm.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\InputForm.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\InputForm.cs",
               "RelativeToolTip": "XVReborn\\InputForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T16:07:11.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-12T16:07:11.914Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs",
               "RelativeDocumentMoniker": "XVReplacerCreator\\Form1.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs",
               "RelativeToolTip": "XVReplacerCreator\\Form1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -84,59 +75,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs",
               "RelativeDocumentMoniker": "XVReplacerCreator\\Form1.cs",
               "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs [Progettazione]",
-              "RelativeToolTip": "XVReplacerCreator\\Form1.cs [Progettazione]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReplacerCreator\\Form1.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T15:54:23.118Z",
-              "EditorCaption": " [Progettazione]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Form3.cs",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form3.cs",
-              "RelativeDocumentMoniker": "XVReborn\\Form3.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form3.cs",
-              "RelativeToolTip": "XVReborn\\Form3.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAWwF0AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T20:41:03.765Z"
+              "WhenOpened": "2025-02-12T15:54:23.118Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
               "RelativeDocumentMoniker": "XVReborn\\Form1.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
               "RelativeToolTip": "XVReborn\\Form1.cs",
-              "ViewState": "AgIAAM4KAAAAAAAAAAAkwNkKAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAJQIAAAAAAAAAADwv6UIAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-09T16:59:13.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Form3.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form3.cs",
-              "RelativeDocumentMoniker": "XVReborn\\Form3.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form3.cs [Progettazione]",
-              "RelativeToolTip": "XVReborn\\Form3.cs [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T20:41:02.196Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "X2M.cs",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\XV\\X2M.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\XV\\X2M.cs",
               "RelativeDocumentMoniker": "XVReborn\\XV\\X2M.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\XV\\X2M.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\XV\\X2M.cs",
               "RelativeToolTip": "XVReborn\\XV\\X2M.cs",
               "ViewState": "AgIAAEAAAAAAAAAAAIAwwFoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -144,22 +111,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "XVSkillCreator",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\XVSkillCreator.csproj",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\XVSkillCreator.csproj",
               "RelativeDocumentMoniker": "XVSkillCreator\\XVSkillCreator.csproj",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\XVSkillCreator.csproj",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\XVSkillCreator.csproj",
               "RelativeToolTip": "XVSkillCreator\\XVSkillCreator.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-02-09T17:16:27.364Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs",
               "RelativeDocumentMoniker": "XVReborn\\Form1.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs [Progettazione]",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVReborn\\Form1.cs [Progettazione]",
               "RelativeToolTip": "XVReborn\\Form1.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-09T15:30:12.18Z",
@@ -169,9 +136,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs",
               "RelativeDocumentMoniker": "XVSkillCreator\\Form1.cs",
-              "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs",
+              "ToolTip": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs",
               "RelativeToolTip": "XVSkillCreator\\Form1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -180,12 +147,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "Form1.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Giovanni\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs",
               "RelativeDocumentMoniker": "XVSkillCreator\\Form1.cs",
               "ToolTip": "C:\\Users\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs [Progettazione]",
-              "RelativeToolTip": "XVSkillCreator\\Form1.cs [Progettazione]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Carli\\Desktop\\Repositories\\XVReborn\\XVReborn\\XVSkillCreator\\Form1.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-09T15:06:30.894Z"
             }

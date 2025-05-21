@@ -12,3 +12,12 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.csproj.CoreCompileInputs.cache
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.dll
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.genruntimeconfig.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.Form1.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVReborn.Form2.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.csproj.GenerateResource.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.AssemblyInfoInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.AssemblyInfo.cs
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.csproj.CoreCompileInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.genruntimeconfig.cache

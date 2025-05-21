@@ -15,3 +15,15 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.pdb
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.genruntimeconfig.cache
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\ref\XVSkillCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.Form1.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.csproj.GenerateResource.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.AssemblyInfoInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.AssemblyInfo.cs
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.csproj.CoreCompileInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.sourcelink.json
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\refint\XVSkillCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.genruntimeconfig.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\ref\XVSkillCreator.dll
