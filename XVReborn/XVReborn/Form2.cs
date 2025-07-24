@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static XVReborn.Xenoverse;
+using static XVReborn.Shared.Xenoverse;
 
 namespace XVReborn
 {

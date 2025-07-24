@@ -16,5 +16,21 @@ C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\R
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.AssemblyInfoInputs.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.AssemblyInfo.cs
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.csproj.CoreCompileInputs.cache
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.dll
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.genruntimeconfig.cache
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.exe
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.deps.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\XVReplacerCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\Newtonsoft.Json.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\XVReborn.Shared.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\XVReborn.Shared.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplac.0E5CB2D5.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\XVReplacerCreator.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\System.Buffers.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\System.Drawing.Common.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\System.Memory.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\System.Resources.Extensions.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Release\XVReplacerCreator.exe

@@ -1,6 +1,8 @@
-﻿namespace XVReborn
+﻿using System.Windows.Forms;
+
+namespace XVCharaCreator
 {
-    partial class Form2
+    partial class Form2 : Form
     {
         /// <summary>
         /// Required designer variable.

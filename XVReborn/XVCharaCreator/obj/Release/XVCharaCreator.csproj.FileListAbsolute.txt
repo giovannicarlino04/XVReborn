@@ -13,11 +13,29 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.dll
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.genruntimeconfig.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.Form1.resources
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVReborn.Form2.resources
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.csproj.GenerateResource.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.AssemblyInfoInputs.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.AssemblyInfo.cs
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.csproj.CoreCompileInputs.cache
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.dll
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.genruntimeconfig.cache
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVCharaCreator.exe
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVCharaCreator.dll.config
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVCharaCreator.deps.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVCharaCreator.runtimeconfig.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVCharaCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\XVCharaCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\Newtonsoft.Json.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\XVReborn.Shared.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\XVReborn.Shared.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.Form2.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaC.63109E87.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\XVCharaCreator.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\System.Buffers.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\System.Drawing.Common.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\System.Memory.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\System.Resources.Extensions.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Release\XVCharaCreator.exe.config

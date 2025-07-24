@@ -1,69 +1,39 @@
-﻿using System.Windows.Forms;
-using System;
+﻿using System;
+using System.Windows.Forms;
 
-public partial class InputForm : Form
+namespace XVReborn
 {
-    // Property to get the user input
-    public string UserInput => txtInput.Text;
-
-    public InputForm(string prompt, string defaultValue = "")
+    public partial class InputForm : Form
     {
-        InitializeComponent();
+        public string UserInput { get; private set; }
 
-        // Set the prompt text
-        lblPrompt.Text = prompt;
-
-        // Set the default value for the TextBox
-        txtInput.Text = defaultValue;
-    }
-
-    // OK button click event
-    private void btnOk_Click(object sender, EventArgs e)
-    {
-        if (string.IsNullOrWhiteSpace(txtInput.Text))
+        public InputForm(string prompt, string defaultValue = "")
         {
-            MessageBox.Show("Input cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            InitializeComponent();
+            label1.Text = prompt;
+            textBox1.Text = defaultValue;
+            UserInput = defaultValue;
         }
-        else
+
+        private void button1_Click(object sender, EventArgs e)
         {
+            UserInput = textBox1.Text;
             DialogResult = DialogResult.OK;
+            Close();
         }
-    }
 
-    // Cancel button click event
-    private void btnCancel_Click(object sender, EventArgs e)
-    {
-        DialogResult = DialogResult.Cancel;
-    }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
 
-    private TextBox txtInput;
-    private Button btnOk;
-    private Button btnCancel;
-    private Label lblPrompt;
-
-    private void InitializeComponent()
-    {
-        // Initialize the controls
-        this.txtInput = new TextBox();
-        this.txtInput.Dock = DockStyle.Top;
-        this.Controls.Add(this.txtInput);
-
-        this.lblPrompt = new Label();
-        this.lblPrompt.Dock = DockStyle.Top;
-        this.Controls.Add(this.lblPrompt);
-
-        this.btnOk = new Button();
-        this.btnOk.Text = "OK";
-        this.btnOk.Dock = DockStyle.Bottom;
-        this.btnOk.Click += new EventHandler(this.btnOk_Click);
-        this.Controls.Add(this.btnOk);
-
-        this.btnCancel = new Button();
-        this.btnCancel.Text = "Cancel";
-        this.btnCancel.Dock = DockStyle.Bottom;
-        this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
-        this.Controls.Add(this.btnCancel);
-
-        this.Text = "Input";
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button1_Click(sender, e);
+            }
+        }
     }
 }

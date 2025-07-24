@@ -22,8 +22,24 @@ C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Rele
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.AssemblyInfo.cs
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.csproj.CoreCompileInputs.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.sourcelink.json
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.dll
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\refint\XVSkillCreator.dll
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.pdb
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.genruntimeconfig.cache
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\ref\XVSkillCreator.dll
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.exe
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.deps.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.runtimeconfig.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.dll
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\XVSkillCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\XVSkillCreator.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\Newtonsoft.Json.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\XVReborn.Shared.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\XVReborn.Shared.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillC.51D098C4.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\XVSkillCreator.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\System.Buffers.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\System.Drawing.Common.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\System.Memory.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\System.Resources.Extensions.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Release\XVSkillCreator.exe

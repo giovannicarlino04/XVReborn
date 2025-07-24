@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using XVCharaCreator.Properties;
 
-namespace XVReborn
+namespace XVCharaCreator
 {
     public partial class Form2 : Form
     {

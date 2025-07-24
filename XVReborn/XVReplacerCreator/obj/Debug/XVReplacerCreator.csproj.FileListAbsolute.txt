@@ -8,8 +8,6 @@ C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\D
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.AssemblyInfoInputs.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.AssemblyInfo.cs
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.csproj.CoreCompileInputs.cache
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.dll
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.genruntimeconfig.cache
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.exe
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.json
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
@@ -19,9 +17,6 @@ D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.jso
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.dll
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.exe
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.deps.json
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.runtimeconfig.json
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.dll
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReplacerCreator.exe
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReplacerCreator.deps.json
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVReplacerCreator.runtimeconfig.json
@@ -42,3 +37,21 @@ D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.exe
 D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.deps.json
 D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
 D:\SteamLibrary\steamapps\common\DB Xenoverse\XVReborn\XVReplacerCreator.dll
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.exe
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.deps.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.runtimeconfig.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReplacerCreator.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReborn.Shared.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReborn.Shared.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplac.0E5CB2D5.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\XVReplacerCreator.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\System.Buffers.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\System.Drawing.Common.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\System.Memory.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\System.Resources.Extensions.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReplacerCreator\obj\Debug\XVReplacerCreator.exe.config

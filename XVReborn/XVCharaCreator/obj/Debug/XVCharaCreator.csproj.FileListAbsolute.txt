@@ -9,9 +9,6 @@ C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debu
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.AssemblyInfoInputs.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.AssemblyInfo.cs
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.csproj.CoreCompileInputs.cache
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.dll
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.genruntimeconfig.cache
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVReborn.Form2.resources
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.exe
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll.config
 D:\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.deps.json
@@ -23,10 +20,6 @@ D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.deps.json
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.runtimeconfig.json
 D:\Games\Steam\steamapps\common\DB Xenoverse\XVReborn\XVCharaCreator.dll
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVCharaCreator.exe
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVCharaCreator.dll.config
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVCharaCreator.deps.json
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVCharaCreator.runtimeconfig.json
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVCharaCreator.dll
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVCharaCreator.exe
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVCharaCreator.dll.config
 C:\Program Files (x86)\Steam\steamapps\common\DB Xenoverse\XVCharaCreator.deps.json
@@ -59,3 +52,18 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\X
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVCharaCreator.pdb
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\BCnEncoder.dll
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\Microsoft.Toolkit.HighPerformance.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.Form2.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVCharaCreator.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\System.Buffers.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\System.Drawing.Common.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\System.Memory.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\System.Resources.Extensions.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVReborn.Shared.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\bin\Debug\XVReborn.Shared.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaC.63109E87.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVCharaCreator\obj\Debug\XVCharaCreator.exe.config

@@ -1,6 +1,10 @@
-﻿namespace XVSkillCreator
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace XVSkillCreator
 {
-    partial class Form1
+    partial class Form1 : Form
     {
         /// <summary>
         ///  Required designer variable.

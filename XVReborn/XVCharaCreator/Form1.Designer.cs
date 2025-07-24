@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace XVCharaCreator
 {
@@ -32,6 +34,8 @@ namespace XVCharaCreator
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            
+            // Initialize all controls
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
@@ -110,6 +114,73 @@ namespace XVCharaCreator
             txtVOX1 = new TextBox();
             label29 = new Label();
             label28 = new Label();
+            
+            // Initialize PSC controls
+            txtCostume = new TextBox();
+            txtPreset = new TextBox();
+            txtCameraPosition = new TextBox();
+            txtHealth = new TextBox();
+            txtI12 = new TextBox();
+            txtF20 = new TextBox();
+            txtKi = new TextBox();
+            txtKiRecharge = new TextBox();
+            txtI32 = new TextBox();
+            txtI36 = new TextBox();
+            txtI40 = new TextBox();
+            txtStamina = new TextBox();
+            txtStaminaRecharge = new TextBox();
+            txtF52 = new TextBox();
+            txtF56 = new TextBox();
+            txtI60 = new TextBox();
+            txtBasicAtkDef = new TextBox();
+            txtBasicKiDef = new TextBox();
+            txtStrikeAtkDef = new TextBox();
+            txtSuperKiDef = new TextBox();
+            txtGroundSpeed = new TextBox();
+            txtAirSpeed = new TextBox();
+            txtBoostSpeed = new TextBox();
+            txtDashSpeed = new TextBox();
+            txtF96 = new TextBox();
+            txtReinforcementSkill = new TextBox();
+            txtF104 = new TextBox();
+            txtRevivalHpAmount = new TextBox();
+            txtRevivingSpeed = new TextBox();
+            txtF116 = new TextBox();
+            txtF120 = new TextBox();
+            txtF124 = new TextBox();
+            txtF128 = new TextBox();
+            txtF132 = new TextBox();
+            txtF136 = new TextBox();
+            txtI140 = new TextBox();
+            txtF144 = new TextBox();
+            txtF148 = new TextBox();
+            txtF152 = new TextBox();
+            txtF156 = new TextBox();
+            txtF160 = new TextBox();
+            txtF164 = new TextBox();
+            txtZSoul = new TextBox();
+            txtI172 = new TextBox();
+            txtI176 = new TextBox();
+            txtF180 = new TextBox();
+            
+            // Initialize PSC labels
+            label4 = new Label();
+            label31 = new Label();
+            label32 = new Label();
+            label33 = new Label();
+            label34 = new Label();
+            label35 = new Label();
+            label36 = new Label();
+            label37 = new Label();
+            label38 = new Label();
+            label39 = new Label();
+            label40 = new Label();
+            label41 = new Label();
+            label42 = new Label();
+            label43 = new Label();
+            label44 = new Label();
+            label45 = new Label();
+            label46 = new Label();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -119,7 +190,745 @@ namespace XVCharaCreator
             tabPage5.SuspendLayout();
             tabPage7.SuspendLayout();
             tabPage8.SuspendLayout();
+            tabPage6.SuspendLayout();
             SuspendLayout();
+            // 
+            // txtCostume
+            // 
+            txtCostume.Location = new Point(120, 20);
+            txtCostume.Name = "txtCostume";
+            txtCostume.Size = new Size(100, 23);
+            txtCostume.TabIndex = 0;
+            // 
+            // txtPreset
+            // 
+            txtPreset.Location = new Point(120, 50);
+            txtPreset.Name = "txtPreset";
+            txtPreset.Size = new Size(100, 23);
+            txtPreset.TabIndex = 1;
+            // 
+            // txtCameraPosition
+            // 
+            txtCameraPosition.Location = new Point(120, 80);
+            txtCameraPosition.Name = "txtCameraPosition";
+            txtCameraPosition.Size = new Size(100, 23);
+            txtCameraPosition.TabIndex = 2;
+            // 
+            // txtHealth
+            // 
+            txtHealth.Location = new Point(120, 110);
+            txtHealth.Name = "txtHealth";
+            txtHealth.Size = new Size(100, 23);
+            txtHealth.TabIndex = 3;
+            // 
+            // txtI12
+            // 
+            txtI12.Location = new Point(120, 140);
+            txtI12.Name = "txtI12";
+            txtI12.Size = new Size(100, 23);
+            txtI12.TabIndex = 4;
+            // 
+            // txtF20
+            // 
+            txtF20.Location = new Point(120, 170);
+            txtF20.Name = "txtF20";
+            txtF20.Size = new Size(100, 23);
+            txtF20.TabIndex = 5;
+            // 
+            // txtKi
+            // 
+            txtKi.Location = new Point(120, 200);
+            txtKi.Name = "txtKi";
+            txtKi.Size = new Size(100, 23);
+            txtKi.TabIndex = 6;
+            // 
+            // txtKiRecharge
+            // 
+            txtKiRecharge.Location = new Point(120, 230);
+            txtKiRecharge.Name = "txtKiRecharge";
+            txtKiRecharge.Size = new Size(100, 23);
+            txtKiRecharge.TabIndex = 7;
+            // 
+            // txtI32
+            // 
+            txtI32.Location = new Point(120, 260);
+            txtI32.Name = "txtI32";
+            txtI32.Size = new Size(100, 23);
+            txtI32.TabIndex = 8;
+            // 
+            // txtI36
+            // 
+            txtI36.Location = new Point(120, 290);
+            txtI36.Name = "txtI36";
+            txtI36.Size = new Size(100, 23);
+            txtI36.TabIndex = 9;
+            // 
+            // txtI40
+            // 
+            txtI40.Location = new Point(120, 320);
+            txtI40.Name = "txtI40";
+            txtI40.Size = new Size(100, 23);
+            txtI40.TabIndex = 10;
+            // 
+            // txtStamina
+            // 
+            txtStamina.Location = new Point(120, 350);
+            txtStamina.Name = "txtStamina";
+            txtStamina.Size = new Size(100, 23);
+            txtStamina.TabIndex = 11;
+            // 
+            // txtStaminaRecharge
+            // 
+            txtStaminaRecharge.Location = new Point(120, 380);
+            txtStaminaRecharge.Name = "txtStaminaRecharge";
+            txtStaminaRecharge.Size = new Size(100, 23);
+            txtStaminaRecharge.TabIndex = 12;
+            // 
+            // txtF52
+            // 
+            txtF52.Location = new Point(120, 410);
+            txtF52.Name = "txtF52";
+            txtF52.Size = new Size(100, 23);
+            txtF52.TabIndex = 13;
+            // 
+            // txtF56
+            // 
+            txtF56.Location = new Point(120, 440);
+            txtF56.Name = "txtF56";
+            txtF56.Size = new Size(100, 23);
+            txtF56.TabIndex = 14;
+            // 
+            // txtI60
+            // 
+            txtI60.Location = new Point(120, 470);
+            txtI60.Name = "txtI60";
+            txtI60.Size = new Size(100, 23);
+            txtI60.TabIndex = 15;
+            // 
+            // txtBasicAtkDef
+            // 
+            txtBasicAtkDef.Location = new Point(120, 500);
+            txtBasicAtkDef.Name = "txtBasicAtkDef";
+            txtBasicAtkDef.Size = new Size(100, 23);
+            txtBasicAtkDef.TabIndex = 16;
+            // 
+            // txtBasicKiDef
+            // 
+            txtBasicKiDef.Location = new Point(120, 530);
+            txtBasicKiDef.Name = "txtBasicKiDef";
+            txtBasicKiDef.Size = new Size(100, 23);
+            txtBasicKiDef.TabIndex = 17;
+            // 
+            // txtStrikeAtkDef
+            // 
+            txtStrikeAtkDef.Location = new Point(120, 560);
+            txtStrikeAtkDef.Name = "txtStrikeAtkDef";
+            txtStrikeAtkDef.Size = new Size(100, 23);
+            txtStrikeAtkDef.TabIndex = 18;
+            // 
+            // txtSuperKiDef
+            // 
+            txtSuperKiDef.Location = new Point(120, 590);
+            txtSuperKiDef.Name = "txtSuperKiDef";
+            txtSuperKiDef.Size = new Size(100, 23);
+            txtSuperKiDef.TabIndex = 19;
+            // 
+            // txtGroundSpeed
+            // 
+            txtGroundSpeed.Location = new Point(120, 620);
+            txtGroundSpeed.Name = "txtGroundSpeed";
+            txtGroundSpeed.Size = new Size(100, 23);
+            txtGroundSpeed.TabIndex = 20;
+            // 
+            // txtAirSpeed
+            // 
+            txtAirSpeed.Location = new Point(120, 650);
+            txtAirSpeed.Name = "txtAirSpeed";
+            txtAirSpeed.Size = new Size(100, 23);
+            txtAirSpeed.TabIndex = 21;
+            // 
+            // txtBoostSpeed
+            // 
+            txtBoostSpeed.Location = new Point(120, 680);
+            txtBoostSpeed.Name = "txtBoostSpeed";
+            txtBoostSpeed.Size = new Size(100, 23);
+            txtBoostSpeed.TabIndex = 22;
+            // 
+            // txtDashSpeed
+            // 
+            txtDashSpeed.Location = new Point(120, 710);
+            txtDashSpeed.Name = "txtDashSpeed";
+            txtDashSpeed.Size = new Size(100, 23);
+            txtDashSpeed.TabIndex = 23;
+            // 
+            // txtF96
+            // 
+            txtF96.Location = new Point(120, 740);
+            txtF96.Name = "txtF96";
+            txtF96.Size = new Size(100, 23);
+            txtF96.TabIndex = 24;
+            // 
+            // txtReinforcementSkill
+            // 
+            txtReinforcementSkill.Location = new Point(120, 770);
+            txtReinforcementSkill.Name = "txtReinforcementSkill";
+            txtReinforcementSkill.Size = new Size(100, 23);
+            txtReinforcementSkill.TabIndex = 25;
+            // 
+            // txtF104
+            // 
+            txtF104.Location = new Point(120, 800);
+            txtF104.Name = "txtF104";
+            txtF104.Size = new Size(100, 23);
+            txtF104.TabIndex = 26;
+            // 
+            // txtRevivalHpAmount
+            // 
+            txtRevivalHpAmount.Location = new Point(120, 830);
+            txtRevivalHpAmount.Name = "txtRevivalHpAmount";
+            txtRevivalHpAmount.Size = new Size(100, 23);
+            txtRevivalHpAmount.TabIndex = 27;
+            // 
+            // txtRevivingSpeed
+            // 
+            txtRevivingSpeed.Location = new Point(120, 860);
+            txtRevivingSpeed.Name = "txtRevivingSpeed";
+            txtRevivingSpeed.Size = new Size(100, 23);
+            txtRevivingSpeed.TabIndex = 28;
+            // 
+            // txtF116
+            // 
+            txtF116.Location = new Point(120, 890);
+            txtF116.Name = "txtF116";
+            txtF116.Size = new Size(100, 23);
+            txtF116.TabIndex = 29;
+            // 
+            // txtF120
+            // 
+            txtF120.Location = new Point(120, 920);
+            txtF120.Name = "txtF120";
+            txtF120.Size = new Size(100, 23);
+            txtF120.TabIndex = 30;
+            // 
+            // txtF124
+            // 
+            txtF124.Location = new Point(120, 950);
+            txtF124.Name = "txtF124";
+            txtF124.Size = new Size(100, 23);
+            txtF124.TabIndex = 31;
+            // 
+            // txtF128
+            // 
+            txtF128.Location = new Point(120, 980);
+            txtF128.Name = "txtF128";
+            txtF128.Size = new Size(100, 23);
+            txtF128.TabIndex = 32;
+            // 
+            // txtF132
+            // 
+            txtF132.Location = new Point(120, 1010);
+            txtF132.Name = "txtF132";
+            txtF132.Size = new Size(100, 23);
+            txtF132.TabIndex = 33;
+            // 
+            // txtF136
+            // 
+            txtF136.Location = new Point(120, 1040);
+            txtF136.Name = "txtF136";
+            txtF136.Size = new Size(100, 23);
+            txtF136.TabIndex = 34;
+            // 
+            // txtI140
+            // 
+            txtI140.Location = new Point(120, 1070);
+            txtI140.Name = "txtI140";
+            txtI140.Size = new Size(100, 23);
+            txtI140.TabIndex = 35;
+            // 
+            // txtF144
+            // 
+            txtF144.Location = new Point(120, 1100);
+            txtF144.Name = "txtF144";
+            txtF144.Size = new Size(100, 23);
+            txtF144.TabIndex = 36;
+            // 
+            // txtF148
+            // 
+            txtF148.Location = new Point(120, 1130);
+            txtF148.Name = "txtF148";
+            txtF148.Size = new Size(100, 23);
+            txtF148.TabIndex = 37;
+            // 
+            // txtF152
+            // 
+            txtF152.Location = new Point(120, 1160);
+            txtF152.Name = "txtF152";
+            txtF152.Size = new Size(100, 23);
+            txtF152.TabIndex = 38;
+            // 
+            // txtF156
+            // 
+            txtF156.Location = new Point(120, 1190);
+            txtF156.Name = "txtF156";
+            txtF156.Size = new Size(100, 23);
+            txtF156.TabIndex = 39;
+            // 
+            // txtF160
+            // 
+            txtF160.Location = new Point(120, 1220);
+            txtF160.Name = "txtF160";
+            txtF160.Size = new Size(100, 23);
+            txtF160.TabIndex = 40;
+            // 
+            // txtF164
+            // 
+            txtF164.Location = new Point(120, 1250);
+            txtF164.Name = "txtF164";
+            txtF164.Size = new Size(100, 23);
+            txtF164.TabIndex = 41;
+            // 
+            // txtZSoul
+            // 
+            txtZSoul.Location = new Point(120, 1280);
+            txtZSoul.Name = "txtZSoul";
+            txtZSoul.Size = new Size(100, 23);
+            txtZSoul.TabIndex = 42;
+            // 
+            // txtI172
+            // 
+            txtI172.Location = new Point(120, 1310);
+            txtI172.Name = "txtI172";
+            txtI172.Size = new Size(100, 23);
+            txtI172.TabIndex = 43;
+            // 
+            // txtI176
+            // 
+            txtI176.Location = new Point(120, 1340);
+            txtI176.Name = "txtI176";
+            txtI176.Size = new Size(100, 23);
+            txtI176.TabIndex = 44;
+            // 
+            // txtF180
+            // 
+            txtF180.Location = new Point(120, 1370);
+            txtF180.Name = "txtF180";
+            txtF180.Size = new Size(100, 23);
+            txtF180.TabIndex = 45;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 15);
+            label1.TabIndex = 46;
+            label1.Text = "Costume";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(20, 53);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 47;
+            label2.Text = "Preset";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(20, 83);
+            label3.Name = "label3";
+            label3.Size = new Size(95, 15);
+            label3.TabIndex = 48;
+            label3.Text = "Camera Position";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(20, 113);
+            label4.Name = "label4";
+            label4.Size = new Size(44, 15);
+            label4.TabIndex = 49;
+            label4.Text = "Health";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(20, 143);
+            label5.Name = "label5";
+            label5.Size = new Size(20, 15);
+            label5.TabIndex = 50;
+            label5.Text = "I12";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(20, 173);
+            label6.Name = "label6";
+            label6.Size = new Size(20, 15);
+            label6.TabIndex = 51;
+            label6.Text = "F20";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(20, 203);
+            label7.Name = "label7";
+            label7.Size = new Size(17, 15);
+            label7.TabIndex = 52;
+            label7.Text = "Ki";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(20, 233);
+            label8.Name = "label8";
+            label8.Size = new Size(70, 15);
+            label8.TabIndex = 53;
+            label8.Text = "Ki Recharge";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(20, 263);
+            label9.Name = "label9";
+            label9.Size = new Size(20, 15);
+            label9.TabIndex = 54;
+            label9.Text = "I32";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(20, 293);
+            label10.Name = "label10";
+            label10.Size = new Size(20, 15);
+            label10.TabIndex = 55;
+            label10.Text = "I36";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(20, 323);
+            label11.Name = "label11";
+            label11.Size = new Size(20, 15);
+            label11.TabIndex = 56;
+            label11.Text = "I40";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(20, 353);
+            label12.Name = "label12";
+            label12.Size = new Size(54, 15);
+            label12.TabIndex = 57;
+            label12.Text = "Stamina";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(20, 383);
+            label13.Name = "label13";
+            label13.Size = new Size(100, 15);
+            label13.TabIndex = 58;
+            label13.Text = "Stamina Recharge";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(20, 413);
+            label14.Name = "label14";
+            label14.Size = new Size(20, 15);
+            label14.TabIndex = 59;
+            label14.Text = "F52";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(20, 443);
+            label15.Name = "label15";
+            label15.Size = new Size(20, 15);
+            label15.TabIndex = 60;
+            label15.Text = "F56";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(20, 473);
+            label16.Name = "label16";
+            label16.Size = new Size(20, 15);
+            label16.TabIndex = 61;
+            label16.Text = "I60";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(20, 503);
+            label17.Name = "label17";
+            label17.Size = new Size(80, 15);
+            label17.TabIndex = 62;
+            label17.Text = "Basic Atk Def";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(20, 533);
+            label18.Name = "label18";
+            label18.Size = new Size(70, 15);
+            label18.TabIndex = 63;
+            label18.Text = "Basic Ki Def";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(20, 563);
+            label19.Name = "label19";
+            label19.Size = new Size(80, 15);
+            label19.TabIndex = 64;
+            label19.Text = "Strike Atk Def";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(20, 593);
+            label20.Name = "label20";
+            label20.Size = new Size(80, 15);
+            label20.TabIndex = 65;
+            label20.Text = "Super Ki Def";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(20, 623);
+            label21.Name = "label21";
+            label21.Size = new Size(80, 15);
+            label21.TabIndex = 66;
+            label21.Text = "Ground Speed";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(20, 653);
+            label22.Name = "label22";
+            label22.Size = new Size(60, 15);
+            label22.TabIndex = 67;
+            label22.Text = "Air Speed";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(20, 683);
+            label23.Name = "label23";
+            label23.Size = new Size(80, 15);
+            label23.TabIndex = 68;
+            label23.Text = "Boost Speed";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(20, 713);
+            label24.Name = "label24";
+            label24.Size = new Size(70, 15);
+            label24.TabIndex = 69;
+            label24.Text = "Dash Speed";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(20, 743);
+            label25.Name = "label25";
+            label25.Size = new Size(20, 15);
+            label25.TabIndex = 70;
+            label25.Text = "F96";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(20, 773);
+            label26.Name = "label26";
+            label26.Size = new Size(110, 15);
+            label26.TabIndex = 71;
+            label26.Text = "Reinforcement Skill";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(20, 803);
+            label27.Name = "label27";
+            label27.Size = new Size(30, 15);
+            label27.TabIndex = 72;
+            label27.Text = "F104";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Location = new Point(20, 833);
+            label28.Name = "label28";
+            label28.Size = new Size(100, 15);
+            label28.TabIndex = 73;
+            label28.Text = "Revival HP Amount";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(20, 863);
+            label29.Name = "label29";
+            label29.Size = new Size(90, 15);
+            label29.TabIndex = 74;
+            label29.Text = "Reviving Speed";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(20, 893);
+            label30.Name = "label30";
+            label30.Size = new Size(30, 15);
+            label30.TabIndex = 75;
+            label30.Text = "F116";
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(20, 923);
+            label31.Name = "label31";
+            label31.Size = new Size(30, 15);
+            label31.TabIndex = 76;
+            label31.Text = "F120";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(20, 953);
+            label32.Name = "label32";
+            label32.Size = new Size(30, 15);
+            label32.TabIndex = 77;
+            label32.Text = "F124";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Location = new Point(20, 983);
+            label33.Name = "label33";
+            label33.Size = new Size(30, 15);
+            label33.TabIndex = 78;
+            label33.Text = "F128";
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Location = new Point(20, 1013);
+            label34.Name = "label34";
+            label34.Size = new Size(30, 15);
+            label34.TabIndex = 79;
+            label34.Text = "F132";
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Location = new Point(20, 1043);
+            label35.Name = "label35";
+            label35.Size = new Size(30, 15);
+            label35.TabIndex = 80;
+            label35.Text = "F136";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Location = new Point(20, 1073);
+            label36.Name = "label36";
+            label36.Size = new Size(30, 15);
+            label36.TabIndex = 81;
+            label36.Text = "I140";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new Point(20, 1103);
+            label37.Name = "label37";
+            label37.Size = new Size(30, 15);
+            label37.TabIndex = 82;
+            label37.Text = "F144";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new Point(20, 1133);
+            label38.Name = "label38";
+            label38.Size = new Size(30, 15);
+            label38.TabIndex = 83;
+            label38.Text = "F148";
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new Point(20, 1163);
+            label39.Name = "label39";
+            label39.Size = new Size(30, 15);
+            label39.TabIndex = 84;
+            label39.Text = "F152";
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Location = new Point(20, 1193);
+            label40.Name = "label40";
+            label40.Size = new Size(30, 15);
+            label40.TabIndex = 85;
+            label40.Text = "F156";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Location = new Point(20, 1223);
+            label41.Name = "label41";
+            label41.Size = new Size(30, 15);
+            label41.TabIndex = 86;
+            label41.Text = "F160";
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Location = new Point(20, 1253);
+            label42.Name = "label42";
+            label42.Size = new Size(30, 15);
+            label42.TabIndex = 87;
+            label42.Text = "F164";
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new Point(20, 1283);
+            label43.Name = "label43";
+            label43.Size = new Size(40, 15);
+            label43.TabIndex = 88;
+            label43.Text = "Z Soul";
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Location = new Point(20, 1313);
+            label44.Name = "label44";
+            label44.Size = new Size(30, 15);
+            label44.TabIndex = 89;
+            label44.Text = "I172";
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.Location = new Point(20, 1343);
+            label45.Name = "label45";
+            label45.Size = new Size(30, 15);
+            label45.TabIndex = 90;
+            label45.Text = "I176";
+            // 
+            // label46
+            // 
+            label46.AutoSize = true;
+            label46.Location = new Point(20, 1373);
+            label46.Name = "label46";
+            label46.Size = new Size(30, 15);
+            label46.TabIndex = 91;
+            label46.Text = "F180";
+
             // 
             // menuStrip1
             // 
@@ -747,6 +1556,99 @@ namespace XVCharaCreator
             // 
             // tabPage6
             // 
+            tabPage6.BackColor = SystemColors.Control;
+            tabPage6.Controls.Add(txtF180);
+            tabPage6.Controls.Add(txtI176);
+            tabPage6.Controls.Add(txtI172);
+            tabPage6.Controls.Add(txtZSoul);
+            tabPage6.Controls.Add(txtF164);
+            tabPage6.Controls.Add(txtF160);
+            tabPage6.Controls.Add(txtF156);
+            tabPage6.Controls.Add(txtF152);
+            tabPage6.Controls.Add(txtF148);
+            tabPage6.Controls.Add(txtF144);
+            tabPage6.Controls.Add(txtI140);
+            tabPage6.Controls.Add(txtF136);
+            tabPage6.Controls.Add(txtF132);
+            tabPage6.Controls.Add(txtF128);
+            tabPage6.Controls.Add(txtF124);
+            tabPage6.Controls.Add(txtF120);
+            tabPage6.Controls.Add(txtF116);
+            tabPage6.Controls.Add(txtRevivingSpeed);
+            tabPage6.Controls.Add(txtRevivalHpAmount);
+            tabPage6.Controls.Add(txtF104);
+            tabPage6.Controls.Add(txtReinforcementSkill);
+            tabPage6.Controls.Add(txtF96);
+            tabPage6.Controls.Add(txtDashSpeed);
+            tabPage6.Controls.Add(txtBoostSpeed);
+            tabPage6.Controls.Add(txtAirSpeed);
+            tabPage6.Controls.Add(txtGroundSpeed);
+            tabPage6.Controls.Add(txtSuperKiDef);
+            tabPage6.Controls.Add(txtStrikeAtkDef);
+            tabPage6.Controls.Add(txtBasicKiDef);
+            tabPage6.Controls.Add(txtBasicAtkDef);
+            tabPage6.Controls.Add(txtI60);
+            tabPage6.Controls.Add(txtF56);
+            tabPage6.Controls.Add(txtF52);
+            tabPage6.Controls.Add(txtStaminaRecharge);
+            tabPage6.Controls.Add(txtStamina);
+            tabPage6.Controls.Add(txtI40);
+            tabPage6.Controls.Add(txtI36);
+            tabPage6.Controls.Add(txtI32);
+            tabPage6.Controls.Add(txtKiRecharge);
+            tabPage6.Controls.Add(txtKi);
+            tabPage6.Controls.Add(txtF20);
+            tabPage6.Controls.Add(txtI12);
+            tabPage6.Controls.Add(txtHealth);
+            tabPage6.Controls.Add(txtCameraPosition);
+            tabPage6.Controls.Add(txtPreset);
+            tabPage6.Controls.Add(txtCostume);
+            tabPage6.Controls.Add(label46);
+            tabPage6.Controls.Add(label45);
+            tabPage6.Controls.Add(label44);
+            tabPage6.Controls.Add(label43);
+            tabPage6.Controls.Add(label42);
+            tabPage6.Controls.Add(label41);
+            tabPage6.Controls.Add(label40);
+            tabPage6.Controls.Add(label39);
+            tabPage6.Controls.Add(label38);
+            tabPage6.Controls.Add(label37);
+            tabPage6.Controls.Add(label36);
+            tabPage6.Controls.Add(label35);
+            tabPage6.Controls.Add(label34);
+            tabPage6.Controls.Add(label33);
+            tabPage6.Controls.Add(label32);
+            tabPage6.Controls.Add(label31);
+            tabPage6.Controls.Add(label30);
+            tabPage6.Controls.Add(label29);
+            tabPage6.Controls.Add(label28);
+            tabPage6.Controls.Add(label27);
+            tabPage6.Controls.Add(label26);
+            tabPage6.Controls.Add(label25);
+            tabPage6.Controls.Add(label24);
+            tabPage6.Controls.Add(label23);
+            tabPage6.Controls.Add(label22);
+            tabPage6.Controls.Add(label21);
+            tabPage6.Controls.Add(label20);
+            tabPage6.Controls.Add(label19);
+            tabPage6.Controls.Add(label18);
+            tabPage6.Controls.Add(label17);
+            tabPage6.Controls.Add(label16);
+            tabPage6.Controls.Add(label15);
+            tabPage6.Controls.Add(label14);
+            tabPage6.Controls.Add(label13);
+            tabPage6.Controls.Add(label12);
+            tabPage6.Controls.Add(label11);
+            tabPage6.Controls.Add(label10);
+            tabPage6.Controls.Add(label9);
+            tabPage6.Controls.Add(label8);
+            tabPage6.Controls.Add(label7);
+            tabPage6.Controls.Add(label6);
+            tabPage6.Controls.Add(label5);
+            tabPage6.Controls.Add(label4);
+            tabPage6.Controls.Add(label3);
+            tabPage6.Controls.Add(label2);
+            tabPage6.Controls.Add(label1);
             tabPage6.Location = new Point(4, 24);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
@@ -877,6 +1779,8 @@ namespace XVCharaCreator
             tabPage7.PerformLayout();
             tabPage8.ResumeLayout(false);
             tabPage8.PerformLayout();
+            tabPage6.ResumeLayout(false);
+            tabPage6.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1006,6 +1910,24 @@ namespace XVCharaCreator
         private TextBox txtI172;
         private TextBox txtI176;
         private TextBox txtF180;
+        private Label label4;
+        private Label label31;
+        private Label label32;
+        private Label label33;
+        private Label label34;
+        private Label label35;
+        private Label label36;
+        private Label label37;
+        private Label label38;
+        private Label label39;
+        private Label label40;
+        private Label label41;
+        private Label label42;
+        private Label label43;
+        private Label label44;
+        private Label label45;
+        private Label label46;
+
 
     }
 }

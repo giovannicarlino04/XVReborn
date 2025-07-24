@@ -1,5 +1,10 @@
+using System;
+using System.IO;
 using System.IO.Compression;
+using System.Windows.Forms;
 using System.Xml;
+using XVReborn.Shared;
+using XVReborn.Shared.XV;
 
 namespace XVReplacerCreator
 {
@@ -71,7 +76,6 @@ namespace XVReplacerCreator
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Select Mod Folder";
-            fbd.UseDescriptionForTitle = true;
 
             if (fbd.ShowDialog() == DialogResult.OK &&
                 Directory.Exists(fbd.SelectedPath))

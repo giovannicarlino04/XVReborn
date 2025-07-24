@@ -15,3 +15,32 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\r
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.pdb
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.genruntimeconfig.cache
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\ref\XVSkillCreator.dll
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.exe
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.deps.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.runtimeconfig.json
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.dll
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVSkillCreator.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.Form1.resources
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.csproj.GenerateResource.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.AssemblyInfoInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.AssemblyInfo.cs
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.csproj.CoreCompileInputs.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.sourcelink.json
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\XVSkillCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\XVSkillCreator.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\XVReborn.Shared.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\XVReborn.Shared.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.csproj.AssemblyReference.cache
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillC.51D098C4.Up2Date
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\XVSkillCreator.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\System.Buffers.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\System.Drawing.Common.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\System.Memory.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\System.Resources.Extensions.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVSkillCreator\obj\Debug\XVSkillCreator.exe.config

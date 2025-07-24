@@ -1,7 +1,12 @@
+using System;
+using System.IO;
 using System.IO.Compression;
 using System.Xml;
+using System.Windows.Forms;
+using System.Linq;
 using XVCharaCreator.Properties;
-using XVReborn;
+using XVReborn.Shared;
+using XVReborn.Shared.XV;
 using System.Xml.Linq;
 
 namespace XVCharaCreator
@@ -12,114 +17,7 @@ namespace XVCharaCreator
         CharSkill CS = new CharSkill();
         public Form1()
         {
-            // Initialize the TextBox controls
-            this.txtCostume = new TextBox();
-            this.txtPreset = new TextBox();
-            this.txtCameraPosition = new TextBox();
-            this.txtHealth = new TextBox();
-            this.txtI12 = new TextBox();
-            this.txtF20 = new TextBox();
-            this.txtKi = new TextBox();
-            this.txtKiRecharge = new TextBox();
-            this.txtI32 = new TextBox();
-            this.txtI36 = new TextBox();
-            this.txtI40 = new TextBox();
-            this.txtStamina = new TextBox();
-            this.txtStaminaRecharge = new TextBox();
-            this.txtF52 = new TextBox();
-            this.txtF56 = new TextBox();
-            this.txtI60 = new TextBox();
-            this.txtBasicAtkDef = new TextBox();
-            this.txtBasicKiDef = new TextBox();
-            this.txtStrikeAtkDef = new TextBox();
-            this.txtSuperKiDef = new TextBox();
-            this.txtGroundSpeed = new TextBox();
-            this.txtAirSpeed = new TextBox();
-            this.txtBoostSpeed = new TextBox();
-            this.txtDashSpeed = new TextBox();
-            this.txtF96 = new TextBox();
-            this.txtReinforcementSkill = new TextBox();
-            this.txtF104 = new TextBox();
-            this.txtRevivalHpAmount = new TextBox();
-            this.txtRevivingSpeed = new TextBox();
-            this.txtF116 = new TextBox();
-            this.txtF120 = new TextBox();
-            this.txtF124 = new TextBox();
-            this.txtF128 = new TextBox();
-            this.txtF132 = new TextBox();
-            this.txtF136 = new TextBox();
-            this.txtI140 = new TextBox();
-            this.txtF144 = new TextBox();
-            this.txtF148 = new TextBox();
-            this.txtF152 = new TextBox();
-            this.txtF156 = new TextBox();
-            this.txtF160 = new TextBox();
-            this.txtF164 = new TextBox();
-            this.txtZSoul = new TextBox();
-            this.txtI172 = new TextBox();
-            this.txtI176 = new TextBox();
-            this.txtF180 = new TextBox();
-
-            // Initialize other components
             InitializeComponent();
-
-            TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
-            VScrollBar vbar = new VScrollBar();
-            Panel scrollPanel = new Panel();
-
-            vbar.Dock = DockStyle.Right;
-            vbar.Width = 20; // Adjust width as needed
-            vbar.Minimum = 0;
-            vbar.Maximum = 100; // Adjust based on the total height of the content
-            vbar.LargeChange = 10;
-            vbar.SmallChange = 1;
-
-            // Create a container panel to wrap the TableLayoutPanel and VScrollBar
-            scrollPanel.Dock = DockStyle.Fill;
-            scrollPanel.Controls.Add(tableLayoutPanel);
-
-            tableLayoutPanel.RowCount = 46; // Adjust according to the number of rows
-            tableLayoutPanel.ColumnCount = 6; // Labels in the first column, textboxes in the second column
-            tableLayoutPanel.Location = new Point(0, 0);
-            tableLayoutPanel.Size = new Size(1800, 1800); // Adjust size as needed
-
-            // Add rows dynamically, assuming you have an array of textboxes and labels
-            string[] labels = {
-        "Costume", "Preset", "CameraPosition", "Health", "I12", "F20", "Ki", "KiRecharge",
-        "I32", "I36", "I40", "Stamina", "StaminaRecharge", "F52", "F56", "I60", "BasicAtkDef",
-        "BasicKiDef", "StrikeAtkDef", "SuperKiDef", "GroundSpeed", "AirSpeed", "BoostSpeed",
-        "DashSpeed", "F96", "ReinforcementSkill", "F104", "RevivalHpAmount", "RevivingSpeed",
-        "F116", "F120", "F124", "F128", "F132", "F136", "I140", "F144", "F148", "F152", "F156",
-        "F160", "F164", "ZSoul", "I172", "I176", "F180"
-    };
-
-            TextBox[] textboxes = {
-        txtCostume, txtPreset, txtCameraPosition, txtHealth, txtI12, txtF20, txtKi, txtKiRecharge,
-        txtI32, txtI36, txtI40, txtStamina, txtStaminaRecharge, txtF52, txtF56, txtI60, txtBasicAtkDef,
-        txtBasicKiDef, txtStrikeAtkDef, txtSuperKiDef, txtGroundSpeed, txtAirSpeed, txtBoostSpeed,
-        txtDashSpeed, txtF96, txtReinforcementSkill, txtF104, txtRevivalHpAmount, txtRevivingSpeed,
-        txtF116, txtF120, txtF124, txtF128, txtF132, txtF136, txtI140, txtF144, txtF148, txtF152,
-        txtF156, txtF160, txtF164, txtZSoul, txtI172, txtI176, txtF180
-    };
-
-            for (int i = 0; i < labels.Length; i++)
-            {
-                tableLayoutPanel.Controls.Add(new Label() { Text = labels[i] }, 0, i);
-                tableLayoutPanel.Controls.Add(textboxes[i], 1, i);
-            }
-
-            // Adjust the maximum value of the scrollbar dynamically based on content size
-            vbar.Maximum = tableLayoutPanel.Height - scrollPanel.ClientSize.Height;
-            vbar.LargeChange = scrollPanel.ClientSize.Height;
-
-            // ScrollBar event handler to scroll the content
-            vbar.Scroll += (sender, e) =>
-            {
-                tableLayoutPanel.Location = new Point(0, -vbar.Value); // Move the table layout based on the scrollbar's position
-            };
-
-            tabPage6.Controls.Add(scrollPanel);
-            tabPage6.Controls.Add(vbar);
         }
 
         private void buildXVModFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -274,6 +172,7 @@ namespace XVCharaCreator
                 // Remove the surrounding quotes if present
                 if (value.StartsWith("\"") && value.EndsWith("\""))
                 {
+                    if (value.Length >= 2)
                     value = value.Substring(1, value.Length - 2);  // Remove the surrounding quotes
                 }
 
@@ -287,7 +186,8 @@ namespace XVCharaCreator
                 // Remove the surrounding quotes if present
                 if (value.StartsWith("\"") && value.EndsWith("\""))
                 {
-                    value = tempVal.Substring(1, value.Length - 2);  // Remove the surrounding quotes
+                    if (tempVal.Length >= 2)
+                    value = tempVal.Substring(1, tempVal.Length - 2);  // Remove the surrounding quotes
                 }
 
                 writer.WriteStartElement(elementName);
@@ -342,7 +242,6 @@ namespace XVCharaCreator
             {
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 fbd.Description = $"Select {txtCharID.Text} Folder";
-                fbd.UseDescriptionForTitle = true;
 
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
@@ -482,7 +381,7 @@ namespace XVCharaCreator
                 string xmlFilePath = Path.Combine(tempDir, "xvmod.xml");
                 if (!File.Exists(xmlFilePath))
                 {
-                    MessageBox.Show("Errore: il file xvmod.xml non è stato trovato all'interno del file .xvmod", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Errore: il file xvmod.xml non Ã¨ stato trovato all'interno del file .xvmod", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -494,7 +393,9 @@ namespace XVCharaCreator
                 string modType = xmlDoc.Descendants("XVMOD").FirstOrDefault()?.Attribute("type")?.Value ?? "";
                 if (modType != "ADDED_CHARACTER")
                 {
-                    throw new NotImplementedException($"Mod type {modType} not supported");
+                    MessageBox.Show($"Mod type {modType} is not supported in this tool. Please use the appropriate creator tool.", 
+                    "Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
                 }
 
                 txtName.Text = xmlDoc.Descendants("MOD_NAME").FirstOrDefault()?.Attribute("value")?.Value ?? "";

@@ -15,7 +15,6 @@ C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReb
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.exe
 C:\Users\Carli\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.pdb
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.AssemblyReference.cache
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.ResolveComReference.cache
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Form1.resources
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Form2.resources
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.Properties.Resources.resources
@@ -24,4 +23,35 @@ C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XV
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.csproj.Up2Date
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.exe
 C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.pdb
-C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\obj\Release\XVReborn.exe.config
+E:\Games\Dragon Ball Xenoverse\XVReborn\EffectData.xml
+E:\Games\Dragon Ball Xenoverse\XVReborn\FreeImage.dll
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReborn.exe.config
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReborn.exe
+E:\Games\Dragon Ball Xenoverse\XVReborn\XVReborn.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\EffectData.xml
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\FreeImage.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\XVReborn.exe.config
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\XVReborn.exe
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\XVReborn.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\CSharpImageLibrary.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\FreeImage.Standard.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\Newtonsoft.Json.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Drawing.Common.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Drawing.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Drawing.Primitives.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Threading.Tasks.Dataflow.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\UsefulThings.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\XVReborn.Shared.dll
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\XVReborn.Shared.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\CSharpImageLibrary.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\CSharpImageLibrary.xml
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\Microsoft.IO.RecyclableMemoryStream.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\Newtonsoft.Json.xml
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Drawing.Common.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Drawing.Common.xml
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Numerics.Vectors.xml
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\System.Threading.Tasks.Dataflow.xml
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\UsefulThings.pdb
+C:\Users\Giovanni\Desktop\Repositories\XVReborn\XVReborn\XVReborn\bin\Release\UsefulThings.xml

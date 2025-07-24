@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using XVReborn.Shared;
+using XVReborn.Shared.XV;
 
 namespace XVSkillCreator
 {
@@ -213,7 +216,7 @@ namespace XVSkillCreator
             if (!string.IsNullOrEmpty(value))
             {
                 if (value.StartsWith("\"") && value.EndsWith("\""))
-                    value = value[1..^1];
+                    value = value.Substring(1, value.Length - 2);
 
                 writer.WriteStartElement(elementName);
                 writer.WriteAttributeString("value", value);
@@ -264,7 +267,9 @@ namespace XVSkillCreator
 
                 if (modType != "ADDED_SKILL")
                 {
-                    throw new NotImplementedException($"Mod type {modType} not supported");
+                    MessageBox.Show($"Mod type {modType} is not supported in this tool. Please use the appropriate creator tool.", 
+                    "Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
                 }
 
                 string skillType = cbSkillType.SelectedItem != null
