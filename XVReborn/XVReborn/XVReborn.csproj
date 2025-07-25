@@ -131,7 +131,6 @@
     <ProjectReference Include="..\XVReborn.Shared\XVReborn.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BatchModOperations.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="InputForm.cs">
       <SubType>Form</SubType>
@@ -142,20 +141,15 @@
     <Compile Include="InstallationProgressForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModBackupManager.cs" />
     <Compile Include="ModConflictDetector.cs" />
     <Compile Include="ModConverter.cs" />
     <Compile Include="ModData.cs" />
     <Compile Include="ModDataParser.cs" />
-    <Compile Include="ModDependencyManager.cs" />
     <Compile Include="ModEnableDisableManager.cs" />
     <Compile Include="ModInfoPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ModInstallationHistory.cs" />
     <Compile Include="ModInstaller.cs" />
-    <Compile Include="ModPriorityManager.cs" />
-    <Compile Include="ModSearchFilter.cs" />
     <Compile Include="ModUninstaller.cs" />
     <Compile Include="ModValidator.cs" />
     <Compile Include="Form1.cs">
