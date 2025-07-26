@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
+using XVReborn.Properties;
 
 namespace XVReborn
 {
@@ -135,9 +136,9 @@ namespace XVReborn
             // Look in common locations for the mod's XML file
             var searchPaths = new[]
             {
-                Path.Combine(Properties.Settings.Default.datafolder, "installed", $"{modType}_{modName}.xml"),
-                Path.Combine(Properties.Settings.Default.datafolder, $"{modName}.xml"),
-                Path.Combine(Properties.Settings.Default.datafolder, "mods", $"{modName}.xml")
+                Path.Combine(Settings.Default.datafolder, "installed", $"{modType}_{modName}.xml"),
+                Path.Combine(Settings.Default.datafolder, $"{modName}.xml"),
+                Path.Combine(Settings.Default.datafolder, "mods", $"{modName}.xml")
             };
 
             foreach (var path in searchPaths)
@@ -228,7 +229,7 @@ namespace XVReborn
         {
             try
             {
-                var installedDir = Path.Combine(Properties.Settings.Default.datafolder, "installed");
+                var installedDir = Path.Combine(Settings.Default.datafolder, "installed");
                 var modFile = Path.Combine(installedDir, $"{modName}.txt");
                 
                 if (File.Exists(modFile))

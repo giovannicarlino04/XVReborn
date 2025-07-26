@@ -252,7 +252,7 @@ namespace XVReborn
         private void ValidateFileStructure(string modDir, ModValidationResult result)
         {
             // Check for common game file directories
-            var gameDirs = new[] { "data", "system", "ui", "sound", "texture" };
+            var gameDirs = new[] { "chara", "system", "ui", "sound"};
             var foundDirs = Directory.GetDirectories(modDir, "*", SearchOption.TopDirectoryOnly)
                 .Select(Path.GetFileName)
                 .ToList();

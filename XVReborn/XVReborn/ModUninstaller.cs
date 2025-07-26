@@ -329,13 +329,13 @@ namespace XVReborn
 
         private void SaveModList(ListView lvMods)
         {
-            Properties.Settings.Default.modlist = new StringCollection();
-            Properties.Settings.Default.modlist.AddRange(
+            Settings.Default.modlist = new StringCollection();
+            Settings.Default.modlist.AddRange(
                 (from i in lvMods.Items.Cast<ListViewItem>()
                  select string.Join("|", 
                      from si in i.SubItems.Cast<ListViewItem.ListViewSubItem>()
                      select si.Text)).ToArray());
-            Properties.Settings.Default.Save();
+            Settings.Default.Save();
         }
     }
 } 

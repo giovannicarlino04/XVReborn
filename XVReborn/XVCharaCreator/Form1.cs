@@ -267,16 +267,16 @@ namespace XVCharaCreator
             if (Directory.Exists("D:\\SteamLibrary\\steamapps\\common\\DB Xenoverse"))
             {
 
-                Properties.Settings.Default.data_path = "D:\\SteamLibrary\\steamapps\\common\\DB Xenoverse\\data";
-                Properties.Settings.Default.Save();
+                Settings.Default.data_path = "D:\\SteamLibrary\\steamapps\\common\\DB Xenoverse\\data";
+                Settings.Default.Save();
             }
 
-            if (Properties.Settings.Default.data_path.Length == 0)
+            if (Settings.Default.data_path.Length == 0)
             {
                 if (datadialog.ShowDialog() == DialogResult.OK)
                 {
-                    Properties.Settings.Default.data_path = datadialog.SelectedPath + @"/data";
-                    Properties.Settings.Default.Save();
+                    Settings.Default.data_path = datadialog.SelectedPath + @"/data";
+                    Settings.Default.Save();
                 }
             }
 

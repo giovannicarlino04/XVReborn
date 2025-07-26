@@ -2,17 +2,16 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net472</TargetFramework>
-    <LangVersion>8.0</LangVersion>
-    <Nullable>disable</Nullable>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+    <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>DBXV.ico</ApplicationIcon>
     <BaseOutputPath></BaseOutputPath>
-	<OutputPath>E:\Games\Dragon Ball Xenoverse\XVReborn</OutputPath>
-	<IntermediateOutputPath>..\obj\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>
-	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>E:\Games\Dragon Ball Xenoverse\XVReborn</OutputPath>
+    <IntermediateOutputPath>..\obj\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
@@ -25,13 +24,16 @@
   <ItemGroup>
     <Content Include="DBXV.ico" />
   </ItemGroup>
+  
   <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="4.7.3" />
-    <PackageReference Include="System.Resources.Extensions" Version="4.6.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\XVReborn.Shared\XVReborn.Shared.csproj" />
   </ItemGroup>
+  
   <ItemGroup>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -41,6 +43,7 @@
     </Compile>
     <Compile Include="Program.cs" />
   </ItemGroup>
+  
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

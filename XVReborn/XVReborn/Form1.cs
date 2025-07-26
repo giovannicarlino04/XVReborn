@@ -312,7 +312,7 @@ namespace XVReborn
 
         private void InitializeDataFolder()
         {
-            if (Properties.Settings.Default.datafolder.Length == 0)
+            if (Settings.Default.datafolder.Length == 0)
             {
                 if (Directory.Exists("D:\\SteamLibrary\\steamapps\\common\\DB Xenoverse\\"))
                 {
@@ -343,7 +343,7 @@ namespace XVReborn
             }
             else
             {
-                if (!Directory.Exists(Properties.Settings.Default.datafolder))
+                if (!Directory.Exists(Settings.Default.datafolder))
                     MessageBox.Show("Data Folder not Found, Please Clear Installation", "Error", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -360,7 +360,7 @@ namespace XVReborn
 
         private void ExtractEmbpack()
         {
-            if (!File.Exists(Properties.Settings.Default.datafolder + @"\ui\texture\embpack.exe"))
+            if (!File.Exists(Settings.Default.datafolder + @"\ui\texture\embpack.exe"))
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 var stream = assembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.embpack.zip");
@@ -371,11 +371,11 @@ namespace XVReborn
 
         private void ExtractCharacterFiles()
         {
-            if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\ui\texture\CHARA01"))
+            if (!Directory.Exists(Settings.Default.datafolder + @"\ui\texture\CHARA01"))
             {
-                if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\ui\texture"))
+                if (!Directory.Exists(Settings.Default.datafolder + @"\ui\texture"))
                 {
-                    Directory.CreateDirectory(Properties.Settings.Default.datafolder + @"\ui\texture");
+                    Directory.CreateDirectory(Settings.Default.datafolder + @"\ui\texture");
                 }
 
                 var assembly = Assembly.GetExecutingAssembly();
@@ -391,9 +391,9 @@ namespace XVReborn
 
         private void ExtractSystemFiles()
         {
-            if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\system"))
+            if (!Directory.Exists(Settings.Default.datafolder + @"\system"))
             {
-                Directory.CreateDirectory(Properties.Settings.Default.datafolder + @"\system");
+                Directory.CreateDirectory(Settings.Default.datafolder + @"\system");
 
                 var assembly = Assembly.GetExecutingAssembly();
                 var resourceNames = new[]
@@ -418,9 +418,9 @@ namespace XVReborn
 
         private void ExtractUIFiles()
         {
-            if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\ui\iggy"))
+            if (!Directory.Exists(Settings.Default.datafolder + @"\ui\iggy"))
             {
-                Directory.CreateDirectory(Properties.Settings.Default.datafolder + @"\system");
+                Directory.CreateDirectory(Settings.Default.datafolder + @"\system");
 
                 var assembly = Assembly.GetExecutingAssembly();
                 var charaSeleStream = assembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.CHARASELE.zip");
@@ -438,7 +438,7 @@ namespace XVReborn
 
         private void ExtractMessageFiles()
         {
-            if (!Directory.Exists(Properties.Settings.Default.datafolder + @"\msg"))
+            if (!Directory.Exists(Settings.Default.datafolder + @"\msg"))
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 var stream = assembly.GetManifestResourceStream("XVReborn.ZipFile_Blobs.msg.zip");
@@ -449,14 +449,14 @@ namespace XVReborn
 
         private void LoadModList()
         {
-            if (Properties.Settings.Default.modlist.Contains("System.Object"))
+            if (Settings.Default.modlist.Contains("System.Object"))
             {
-                Properties.Settings.Default.modlist.Clear();
+                Settings.Default.modlist.Clear();
             }
 
-            if (Properties.Settings.Default.addonmodlist.Contains("System.Object"))
+            if (Settings.Default.addonmodlist.Contains("System.Object"))
             {
-                Properties.Settings.Default.addonmodlist.Clear();
+                Settings.Default.addonmodlist.Clear();
             }
 
             loadLvItems();
@@ -483,7 +483,7 @@ namespace XVReborn
             {
                 if (sw.BaseStream.CanWrite)
                 {
-                    sw.WriteLine("cd " + Properties.Settings.Default.datafolder + @"\ui\texture");
+                    sw.WriteLine("cd " + Settings.Default.datafolder + @"\ui\texture");
                     sw.WriteLine($@"embpack.exe {fileName}");
                 }
             }
@@ -531,6 +531,9 @@ namespace XVReborn
                     modInstaller.InstallMod(modPath, language, lvMods);
                 }
                 
+                // Save the modlist after installation
+                saveLvItems();
+                
                 // Refresh mod status
                 enableDisableManager.RefreshModStatus(lvMods);
             }
@@ -552,6 +555,10 @@ namespace XVReborn
 
             
             modUninstaller.UninstallMod(modType, modName, language, lvMods);
+            
+            // Save the modlist after uninstallation
+            saveLvItems();
+            
             Clean();
         }
         #endregion
@@ -591,13 +598,13 @@ namespace XVReborn
             if (MessageBox.Show("Are you sure you want to clear installation?", "Warning", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (Directory.Exists(Properties.Settings.Default.datafolder))
-                    Directory.Delete(Properties.Settings.Default.datafolder, true);
+                if (Directory.Exists(Settings.Default.datafolder))
+                    Directory.Delete(Settings.Default.datafolder, true);
 
                 if (Directory.Exists("./XVRebornTemp"))
                     Directory.Delete("./XVRebornTemp", true);
 
-                Properties.Settings.Default.Reset();
+                Settings.Default.Reset();
                 MessageBox.Show("Installation cleared, XVReborn will now close", "Success", 
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
@@ -625,26 +632,43 @@ namespace XVReborn
         #region ListView Management
         private void saveLvItems()
         {
-            Properties.Settings.Default.modlist = new StringCollection();
-            Properties.Settings.Default.modlist.AddRange(
-                (from i in lvMods.Items.Cast<ListViewItem>()
-                 select string.Join("|", 
-                     from si in i.SubItems.Cast<ListViewItem.ListViewSubItem>()
-                     select si.Text)).ToArray());
-            Properties.Settings.Default.Save();
+            Settings.Default.modlist = new StringCollection();
+            
+            foreach (ListViewItem item in lvMods.Items)
+            {
+                var modString = string.Join("|", 
+                    from si in item.SubItems.Cast<ListViewItem.ListViewSubItem>()
+                    select si.Text);
+                Settings.Default.modlist.Add(modString);
+            }
+            
+            Settings.Default.Save();
             label1.Text = "Installed Mods: " + lvMods.Items.Count.ToString();
         }
 
         private void loadLvItems()
         {
-            if (Properties.Settings.Default.modlist == null)
+            if (Settings.Default.modlist == null)
             {
-                Properties.Settings.Default.modlist = new StringCollection();
+                Settings.Default.modlist = new StringCollection();
             }
 
-            lvMods.Items.AddRange(
-                (from i in Properties.Settings.Default.modlist.Cast<string>()
-                 select new ListViewItem(i.Split('|'))).ToArray());
+            // Clear existing items first
+            lvMods.Items.Clear();
+            
+            // Add items from settings
+            foreach (string modString in Settings.Default.modlist)
+            {
+                if (!string.IsNullOrEmpty(modString))
+                {
+                    var parts = modString.Split('|');
+                    if (parts.Length > 0)
+                    {
+                        var item = new ListViewItem(parts);
+                        lvMods.Items.Add(item);
+                    }
+                }
+            }
 
             label1.Text = "Installed Mods: " + lvMods.Items.Count.ToString();
         }

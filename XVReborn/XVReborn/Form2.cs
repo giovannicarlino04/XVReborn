@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using static XVReborn.Shared.Xenoverse;
+using XVReborn.Properties;
 
 namespace XVReborn
 {
@@ -31,8 +32,8 @@ namespace XVReborn
             {
                 if (entry.Key.Checked)
                 {
-                    Properties.Settings.Default.language = entry.Value;
-                    Properties.Settings.Default.Save(); // Salva subito dopo aver impostato
+                    Settings.Default.language = entry.Value;
+                    Settings.Default.Save(); // Salva subito dopo aver impostato
                     this.Close();
                     return; // Uscire subito dalla funzione
                 }

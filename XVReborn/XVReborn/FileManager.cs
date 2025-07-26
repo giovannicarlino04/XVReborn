@@ -24,17 +24,17 @@ namespace XVReborn
         {
             var filesToDelete = new[]
             {
-                Properties.Settings.Default.datafolder + "//modinfo.xml",
-                Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml",
-                Properties.Settings.Default.datafolder + @"\system\aura_setting.aur.xml.bak",
-                Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml",
-                Properties.Settings.Default.datafolder + @"\system\custom_skill.cus.xml.bak",
-                Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml",
-                Properties.Settings.Default.datafolder + @"\system\char_model_spec.cms.xml.bak",
-                Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml",
-                Properties.Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml.bak",
-                Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml",
-                Properties.Settings.Default.datafolder + @"\system\chara_sound.cso.xml.bak",
+                Settings.Default.datafolder + "//modinfo.xml",
+                Settings.Default.datafolder + @"\system\aura_setting.aur.xml",
+                Settings.Default.datafolder + @"\system\aura_setting.aur.xml.bak",
+                Settings.Default.datafolder + @"\system\custom_skill.cus.xml",
+                Settings.Default.datafolder + @"\system\custom_skill.cus.xml.bak",
+                Settings.Default.datafolder + @"\system\char_model_spec.cms.xml",
+                Settings.Default.datafolder + @"\system\char_model_spec.cms.xml.bak",
+                Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml",
+                Settings.Default.datafolder + @"\system\parameter_spec_char.psc.xml.bak",
+                Settings.Default.datafolder + @"\system\chara_sound.cso.xml",
+                Settings.Default.datafolder + @"\system\chara_sound.cso.xml.bak",
                 Settings.Default.datafolder + "\\x2m.xml"
             };
 
@@ -48,7 +48,7 @@ namespace XVReborn
 
             var directoriesToDelete = new[]
             {
-                Properties.Settings.Default.datafolder + "//temp",
+                Settings.Default.datafolder + "//temp",
                 "./XVRebornTemp"
             };
 
@@ -156,8 +156,8 @@ namespace XVReborn
             {
                 string destFile = file.Replace(sourceDir, destDir);
                 var directory = Path.GetDirectoryName(destFile);
-            if (!string.IsNullOrEmpty(directory))
-                Directory.CreateDirectory(directory);
+                if (!string.IsNullOrEmpty(directory))
+                    Directory.CreateDirectory(directory);
                 File.Copy(file, destFile, true);
             }
         }
@@ -180,8 +180,8 @@ namespace XVReborn
             {
                 string destFile = file.Replace(sourceDir, destDir);
                 var directory = Path.GetDirectoryName(destFile);
-            if (!string.IsNullOrEmpty(directory))
-                Directory.CreateDirectory(directory);
+                if (!string.IsNullOrEmpty(directory))
+                    Directory.CreateDirectory(directory);
                 File.Move(file, destFile);
             }
 
